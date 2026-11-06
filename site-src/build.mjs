@@ -209,7 +209,6 @@ page({
   <source src="${HERO_VIDEO}" type="video/mp4">
  </video>
  <div class="sw-hero__shade" aria-hidden="true"></div>
- <button class="sw-motion-btn sw-hero__pause" type="button" data-video-toggle aria-pressed="false">Pause video</button>
  <div class="sw-container">
   <div class="sw-hero__copy">
    <span class="sw-label">Corporate wellbeing</span>
@@ -228,7 +227,6 @@ page({
  <div class="sw-ticker__track">
   ${[0, 1].map((i) => `<ul class="sw-ticker__list"${i ? ' aria-hidden="true"' : ""}>${TICKER.map((t) => `<li>${t}</li>`).join("")}</ul>`).join("")}
  </div>
- <button class="sw-motion-btn sw-ticker__pause" type="button" data-ticker-toggle aria-pressed="false">Pause</button>
 </section>
 
 <section class="sw-section sw-section--sunken" data-theme="light" style="padding:40px 0" aria-label="Clients">
@@ -273,7 +271,6 @@ page({
     <button class="sw-slider__btn" type="button" data-prev aria-label="Previous statistic">&larr;</button>
     <div class="sw-slider__dots">${SLIDES.map((_, i) => `<button type="button" class="sw-slider__dot" data-go="${i}" aria-label="Show statistic ${i + 1}"${i ? "" : ' aria-current="true"'}></button>`).join("")}</div>
     <button class="sw-slider__btn" type="button" data-next aria-label="Next statistic">&rarr;</button>
-    <button class="sw-motion-btn" type="button" data-slider-toggle aria-pressed="false">Pause</button>
    </div>
   </div>
   <div style="margin-top:32px"><a class="sw-link" href="/why-wellbeing.html">See the evidence</a></div>
@@ -379,7 +376,6 @@ page({
   <source src="https://video.wixstatic.com/video/0b2e90_d43b4698c49b4f53a9fd3d122aebc158/720p/mp4/file.mp4" type="video/mp4">
  </video>
  <div class="sw-hero__shade" aria-hidden="true"></div>
- <button class="sw-motion-btn sw-hero__pause" type="button" data-video-toggle aria-pressed="false">Pause video</button>
  <div class="sw-container"><div class="sw-hero__copy">
   <span class="sw-label">Programmes</span>
   <h1 class="sw-h1" id="page-title">Programmes built around your people.</h1>
@@ -395,6 +391,7 @@ ${programmeSection({
   includedTitle: "What's included",
   included: ["A structured challenge built around sleep, food, movement and connection", "Team leaderboards and tracking through our online coaching app, so challenges can run fully remotely", "In-person sessions and check-ins where you want them", "Optional health monitoring bands to measure real change", "A results summary for leadership at the end"],
   photoCaption: "A team taking part in a wellbeing challenge",
+  media: `<figure class="sw-stock"><video class="sw-autoplay" autoplay muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/0b2e90_d6ef297489424bbda51540d94e57d4a9f000.jpg/v1/fill/w_1200,h_900,q_75/p.jpg" aria-hidden="true" tabindex="-1"><source src="https://video.wixstatic.com/video/0b2e90_d6ef297489424bbda51540d94e57d4a9/720p/mp4/file.mp4" type="video/mp4"></video></figure>`,
 })}
 
 ${programmeSection({
@@ -405,6 +402,7 @@ ${programmeSection({
   included: ["Personal training and coaching", "Massage therapy", "Physiotherapy and occupational health", "Counselling", "Yoga and Pilates sessions", "Wellbeing initiatives tailored to your teams"],
   extra: `<p class="sw-body sw-muted">If your site has more than 15 employees we run the programme in cohorts. We start with a pilot, use its results to improve the programme, then roll it out to the rest of your teams.</p>`,
   photoCaption: "A coach working one to one with an employee",
+  media: `<figure class="sw-stock"><img src="https://static.wixstatic.com/media/0b2e90_9fff9dc983c84f1cb262bbce1dbb8151~mv2.jpeg/v1/fill/w_1200,h_900,q_80/0b2e90_9fff9dc983c84f1cb262bbce1dbb8151.jpg" srcset="https://static.wixstatic.com/media/0b2e90_9fff9dc983c84f1cb262bbce1dbb8151~mv2.jpeg/v1/fill/w_800,h_600,q_80/s.jpg 800w, https://static.wixstatic.com/media/0b2e90_9fff9dc983c84f1cb262bbce1dbb8151~mv2.jpeg/v1/fill/w_1200,h_900,q_80/m.jpg 1200w" sizes="(max-width: 860px) 100vw, 560px" alt="Two colleagues in a one-to-one conversation in a bright office" width="1200" height="900" loading="lazy"></figure>`,
 })}
 
 ${programmeSection({
@@ -415,6 +413,7 @@ ${programmeSection({
   included: ["Motivation and mindset", "Nutrition", "Training and exercise", "Flexibility and mobility", "Workplace posture", "Diabetes", "Weight management", "Anything your workplace needs to talk about: we bring in specialists where needed"],
   extra: `<p class="sw-small">Prices vary with the topic, travel, group size and what's needed to deliver. We fit sessions around lunch breaks or working hours.</p>`,
   photoCaption: "A workshop in progress at a client site",
+  media: `<figure class="sw-stock"><img src="https://static.wixstatic.com/media/0b2e90_054c22d3fba34f67b37dbe32aa49362f~mv2.jpeg/v1/fill/w_1200,h_900,q_80/0b2e90_054c22d3fba34f67b37dbe32aa49362f.jpg" srcset="https://static.wixstatic.com/media/0b2e90_054c22d3fba34f67b37dbe32aa49362f~mv2.jpeg/v1/fill/w_800,h_600,q_80/s.jpg 800w, https://static.wixstatic.com/media/0b2e90_054c22d3fba34f67b37dbe32aa49362f~mv2.jpeg/v1/fill/w_1200,h_900,q_80/m.jpg 1200w" sizes="(max-width: 860px) 100vw, 560px" alt="A group of employees listening to a presenter during a workshop in a conference room" width="1200" height="900" loading="lazy"></figure>`,
 })}
 
 ${programmeSection({

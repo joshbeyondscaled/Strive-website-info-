@@ -20,38 +20,18 @@
     btn.textContent = paused ? pausedLabel : playingLabel;
   }
 
-  // Hero video
-  var video = document.querySelector(".sw-hero__video");
-  var vBtn = document.querySelector("[data-video-toggle]");
-  if (video) {
+  // Background videos: no controls; stop for people who prefer reduced motion, hide if they fail to load
+  document.querySelectorAll(".sw-hero__video, .sw-autoplay").forEach(function (video) {
     if (reduce) { video.removeAttribute("autoplay"); video.pause(); }
-    if (vBtn) {
-      toggleBtn(vBtn, reduce, "Play video", "Pause video");
-      vBtn.addEventListener("click", function () {
-        if (video.paused) { video.play(); toggleBtn(vBtn, false, "Play video", "Pause video"); }
-        else { video.pause(); toggleBtn(vBtn, true, "Play video", "Pause video"); }
-      });
-    }
-    video.addEventListener("error", function () { video.style.display = "none"; if (vBtn) vBtn.style.display = "none"; }, true);
-  }
-
-  // Ticker
-  var ticker = document.querySelector(".sw-ticker");
-  var tBtn = document.querySelector("[data-ticker-toggle]");
-  if (ticker && tBtn) {
-    tBtn.addEventListener("click", function () {
-      var paused = ticker.classList.toggle("is-paused");
-      toggleBtn(tBtn, paused, "Play", "Pause");
-    });
-  }
+    video.addEventListener("error", function () { video.style.display = "none"; }, true);
+  });
 
   // Evidence slider
   document.querySelectorAll("[data-slider]").forEach(function (root) {
     var track = root.querySelector(".sw-slider__track");
     var slides = root.querySelectorAll(".sw-slide");
     var dots = root.querySelectorAll(".sw-slider__dot");
-    var pauseBtn = root.querySelector("[data-slider-toggle]");
-    var i = 0, timer = null, userPaused = reduce, hover = false;
+    var i = 0, timer = null, userPaused = reduce, hover = false; // auto-advance pauses on hover/focus only
     function go(n) {
       i = (n + slides.length) % slides.length;
       track.style.transform = "translateX(" + (-100 * i) + "%)";
@@ -82,10 +62,6 @@
       if (Math.abs(dx) > 40) { go(i + (dx < 0 ? 1 : -1)); schedule(); }
       startX = null;
     });
-    if (pauseBtn) {
-      toggleBtn(pauseBtn, userPaused, "Play", "Pause");
-      pauseBtn.addEventListener("click", function () { userPaused = !userPaused; toggleBtn(pauseBtn, userPaused, "Play", "Pause"); schedule(); });
-    }
     schedule();
   });
 
