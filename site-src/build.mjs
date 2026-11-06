@@ -515,7 +515,7 @@ ${ctaBand()}`,
 
 // ---------- About ----------
 const team = [
-  { name: "Josh Reilly", role: "Co-founder, fitness coach" },
+  { name: "Josh Reilly", role: "Co-founder, fitness coach", img: "josh-reilly" },
   { name: "Harvey Close", role: "Co-founder, lifestyle coach" },
   { name: "Joseph Whitaker", role: "Nutritionist and dietitian" },
 ];
@@ -548,7 +548,7 @@ page({
   <div class="sw-head"><span class="sw-label">The team</span><h2 class="sw-h2" id="team-title">The coaches behind Strive.</h2></div>
   <div class="sw-grid sw-grid--3">
    ${team.map((p) => `<article class="sw-person">
-    ${photo(`Portrait of ${p.name}, 4:5`, "sw-photo--tall")}
+    ${p.img ? `<div class="sw-person__photo"><picture><source srcset="/assets/team/${p.img}.webp" type="image/webp"><img src="/assets/team/${p.img}.jpg" alt="${p.name}, ${p.role.toLowerCase()} at Strive Wellbeing" width="900" height="1125" loading="lazy"></picture></div>` : photo(`Portrait of ${p.name}, 4:5`, "sw-photo--tall")}
     <div class="sw-stack" style="gap:4px"><h3 class="sw-h3">${p.name}</h3><p class="sw-small">${p.role}</p></div>
     <p class="sw-todo">One-sentence bio${p.name === "Joseph Whitaker" ? "" : " and confirmed job title"}.</p>
    </article>`).join("\n   ")}
