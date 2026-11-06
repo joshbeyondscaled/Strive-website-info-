@@ -1,0 +1,59 @@
+/* Strive Wellbeing — generated from tokens.json */
+:root, [data-theme="dark"] {
+  --midnight: #0a0c12;
+  --stone: #f3f1ec;
+  --signal: #ff5b14;
+  --surface: var(--midnight);
+  --surface-raised: #161a24;
+  --surface-sunken: #05060a;
+  --ink: var(--stone);
+  --ink-muted: #9a9fae;
+  --line: #2a2f3c;
+  --accent: var(--signal);
+  --on-accent: #0a0c12;
+  --accent-ink: #ff7a3d;
+  --tint: #2b1d16;
+  --on-ink: var(--midnight);
+  --shadow-card: none;
+}
+[data-theme="light"] {
+  --surface: var(--stone);
+  --surface-raised: #ffffff;
+  --surface-sunken: #e8e5dd;
+  --ink: var(--midnight);
+  --ink-muted: #5b6070;
+  --line: #d9d5cb;
+  --accent-ink: #c23f00;
+  --tint: #ffd9c7;
+  --on-ink: var(--stone);
+  --shadow-card: 0 1px 2px rgba(10,12,18,0.05), 0 12px 32px rgba(10,12,18,0.06);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 48px;
+  --space-6: 96px;
+  --radius-0: 0px;
+  --radius-sm: 4px;
+  --container-max: 1200px;
+  --gutter: 24px;
+  --header-h: 76px;
+  --section-y: 96px;
+  --bracket-w: 4px;
+  --bracket-len: 40px;
+  --font-sans: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
+}
+.display { font-family: var(--font-sans); font-size: 64px; line-height: 1.04; font-weight: 800; letter-spacing: -2px; }
+.h1 { font-family: var(--font-sans); font-size: 44px; line-height: 1.1; font-weight: 800; letter-spacing: -1.2px; }
+.h2 { font-family: var(--font-sans); font-size: 32px; line-height: 1.18; font-weight: 700; letter-spacing: -0.6px; }
+.h3 { font-family: var(--font-sans); font-size: 21px; line-height: 1.3; font-weight: 700; letter-spacing: -0.2px; }
+.stat { font-family: var(--font-sans); font-size: 72px; line-height: 1; font-weight: 800; letter-spacing: -2px; }
+.label { font-family: var(--font-sans); font-size: 12px; line-height: 1.3; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
+.lead { font-family: var(--font-sans); font-size: 20px; line-height: 1.55; font-weight: 400; letter-spacing: 0px; }
+.body { font-family: var(--font-sans); font-size: 17px; line-height: 1.6; font-weight: 400; letter-spacing: 0px; }
+.small { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; font-weight: 400; letter-spacing: 0px; }
+.button { font-family: var(--font-sans); font-size: 16px; line-height: 1; font-weight: 700; letter-spacing: 0px; }
+@font-face { font-family: "Plus Jakarta Sans"; src: url("/fonts/PlusJakartaSans-Variable.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Plus Jakarta Sans"; src: url("/fonts/PlusJakartaSans-Variable-Italic.woff2") format("woff2"); font-weight: 200 800; font-style: italic; font-display: swap; }
