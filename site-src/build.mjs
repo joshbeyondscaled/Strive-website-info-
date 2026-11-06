@@ -30,6 +30,7 @@ writeFileSync(join(out, "site.css"), css);
 const arrow = '<span class="sw-arrow" aria-hidden="true">&rarr;</span>';
 const NAV = [
   ["programmes", "Programmes"],
+  ["why-wellbeing", "Why wellbeing"],
   ["results", "Results"],
   ["about", "About"],
   ["contact", "Contact"],
@@ -70,6 +71,7 @@ function footer() {
    </ul></div>
    <div><h4>Company</h4><ul>
     <li><a href="/about.html">About</a></li>
+    <li><a href="/why-wellbeing.html">Why wellbeing</a></li>
     <li><a href="/results.html">Results</a></li>
     <li><a href="/contact.html">Book a call</a></li>
    </ul></div>
@@ -140,6 +142,32 @@ ${scripts}</body>
   writeFileSync(join(out, `${slug}.html`), html);
 }
 
+// ---------- Evidence: sources (checked November 2026) ----------
+const SOURCES = {
+  ons: { n: 1, org: "Office for National Statistics", title: "Sickness absence in the UK labour market: 2025", date: "1 May 2026",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/labourproductivity/articles/sicknessabsenceinthelabourmarket/2025",
+    note: "Labour Force Survey; official statistics in development." },
+  onsInactive: { n: 2, org: "Office for National Statistics", title: "Economic inactivity by reason: long-term sick (LFS series LF69)", date: "2026",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peoplenotinwork/economicinactivity/timeseries/lf69/lms",
+    note: "People aged 16 to 64, seasonally adjusted." },
+  hse: { n: 3, org: "Health and Safety Executive", title: "Work-related ill health and injury statistics, Great Britain 2024/25", date: "20 November 2025",
+    url: "https://press.hse.gov.uk/2025/11/20/hse-publishes-annual-workplace-health-and-safety-statistics/",
+    note: "Self-reported, Labour Force Survey." },
+  cipd: { n: 4, org: "CIPD and Simplyhealth", title: "Health and wellbeing at work 2025", date: "9 September 2025",
+    url: "https://www.cipd.org/uk/knowledge/reports/health-well-being-work/",
+    note: "Survey of 1,101 UK organisations, fieldwork by YouGov, March to April 2025." },
+  kbw: { n: 5, org: "Department for Work and Pensions and Department for Business and Trade", title: "Keep Britain Working Review: final report (Sir Charlie Mayfield)", date: "5 November 2025",
+    url: "https://www.gov.uk/government/publications/keep-britain-working-review-final-report", note: "" },
+  deloitte: { n: 6, org: "Deloitte", title: "Mental health and employers report, as reported by People Management: \"Poor mental health costing UK employers £51bn a year\"", date: "2024",
+    url: "https://www.peoplemanagement.co.uk/article/1873581/poor-mental-health-costing-uk-employers-51bn-year-report-reveals",
+    note: "Return is an average across types of mental health support." },
+  mhuk: { n: 7, org: "Mental Health UK", title: "The Burnout Report 2025", date: "January 2025",
+    url: "https://mentalhealth-uk.org/burnout/", note: "Survey of UK adults, fieldwork November 2024." },
+  ssp: { n: 8, org: "Acas", title: "Statutory sick pay changes 2026", date: "April 2026",
+    url: "https://www.acas.org.uk/statutory-sick-pay-changes-2026", note: "" },
+};
+const cite = (k) => `<a class="sw-cite" href="/why-wellbeing.html#source-${SOURCES[k].n}" aria-label="Source ${SOURCES[k].n}: ${SOURCES[k].org}">${SOURCES[k].org}, ${SOURCES[k].date.replace(/^\d+ /, "")}</a>`;
+
 // ---------- Home ----------
 const services = [
   { id: "challenges", label: "Structured challenges", title: "Structured Wellbeing Challenges",
@@ -202,6 +230,21 @@ page({
  </div>
 </section>
 
+<section class="sw-section" data-theme="dark" aria-labelledby="why-title">
+ <div class="sw-container">
+  <div class="sw-head">
+   <span class="sw-label">Why it matters</span>
+   <h2 class="sw-h2" id="why-title">Ill health is one of the biggest costs most businesses never measure.</h2>
+  </div>
+  <div class="sw-stats">
+   <div class="sw-stat"><span class="sw-label sw-label--muted">Lost to sickness, 2025</span><span class="sw-stat-num">148.8m</span><span class="sw-small">Working days lost across the UK, 4.4 per worker. ${cite("ons")}</span></div>
+   <div class="sw-stat"><span class="sw-label sw-label--muted">Cost to employers</span><span class="sw-stat-num sw-stat-num--signal">&pound;85bn</span><span class="sw-small">A year, from sickness, turnover and lost productivity. ${cite("kbw")}</span></div>
+   <div class="sw-stat"><span class="sw-label sw-label--muted">Stress, depression, anxiety</span><span class="sw-stat-num">22.1m</span><span class="sw-small">Working days lost to work-related cases in 2024/25. ${cite("hse")}</span></div>
+  </div>
+  <div style="margin-top:32px"><a class="sw-link" href="/why-wellbeing.html">See the evidence</a></div>
+ </div>
+</section>
+
 <section class="sw-section sw-section--raised" data-theme="light" aria-labelledby="services-title">
  <div class="sw-container">
   <div class="sw-head">
@@ -228,7 +271,7 @@ page({
    <h2 class="sw-h2" id="glance-title">Simple habits. Measurable results.</h2>
   </div>
   <div class="sw-stats">
-   <div class="sw-stat"><span class="sw-label sw-label--muted">Challenge length</span><span class="sw-stat-num sw-stat-num--signal">4&ndash;8</span><span class="sw-small">Weeks per structured challenge, with ongoing support after</span></div>
+   <div class="sw-stat"><span class="sw-label sw-label--muted">Challenge length</span><span class="sw-stat-num">4&ndash;8</span><span class="sw-small">Weeks per structured challenge, with ongoing support after</span></div>
    <div class="sw-stat"><span class="sw-label sw-label--muted">Team size</span><span class="sw-stat-num">10+</span><span class="sw-small">Employees per cohort; larger sites start with a pilot</span></div>
    <div class="sw-stat"><span class="sw-label sw-label--muted">Workshops</span><span class="sw-stat-num">45&ndash;60</span><span class="sw-small">Minutes per session, on a lunch break or in working hours</span></div>
    <div class="sw-stat"><span class="sw-label sw-label--muted">Coverage</span><span class="sw-stat-num">UK</span><span class="sw-small">Nationwide, on site and online</span></div>
@@ -600,7 +643,113 @@ page({
 </section>`,
 });
 
-console.log("built", ["index", "programmes", "results", "about", "contact", "privacy", "cookies"].join(", "));
+// ---------- Why wellbeing (evidence) ----------
+const tile = (label, num, text, src, signal = false) =>
+  `<div class="sw-stat"><span class="sw-label sw-label--muted">${label}</span><span class="sw-stat-num${signal ? " sw-stat-num--signal" : ""}">${num}</span><span class="sw-small">${text} ${cite(src)}</span></div>`;
+page({
+  slug: "why-wellbeing",
+  title: "The cost of sickness absence and stress | Strive Wellbeing",
+  description: "UK data from the ONS, HSE, CIPD and the Keep Britain Working Review on sickness absence, stress and burnout, and why prevention pays.",
+  main: `
+<section class="sw-hero sw-hero--page" data-theme="dark" aria-labelledby="page-title">
+ <div class="sw-container"><div class="sw-hero__copy">
+  <span class="sw-label">Why wellbeing</span>
+  <h1 class="sw-h1" id="page-title">Sickness absence is costing your business more than you think.</h1>
+  <p class="sw-lead">Absence in the UK is at its highest level in over 15 years, and stress and poor mental health now drive the longest absences. Here's what the official data says, and why prevention is the cheaper option.</p>
+ </div></div>
+</section>
+
+<section class="sw-section" data-theme="light" aria-labelledby="scale-title">
+ <div class="sw-container">
+  <div class="sw-head">
+   <span class="sw-label">The scale</span>
+   <h2 class="sw-h2" id="scale-title">More people are off sick, for longer.</h2>
+   <p class="sw-body sw-muted">The UK sickness absence rate was 2.0% of working hours in 2025, still above its pre-pandemic level.</p>
+  </div>
+  <div class="sw-stats">
+   ${tile("Days lost, 2025", "148.8m", "Working days lost to sickness or injury in the UK, an average of 4.4 days per worker.", "ons")}
+   ${tile("Per employee", "9.4", "Average days of absence per employee a year, the highest in over 15 years, up from 5.8 in 2022.", "cipd")}
+   ${tile("Out of work", "2.8m", "People aged 16 to 64 economically inactive because of long-term sickness.", "onsInactive")}
+  </div>
+ </div>
+</section>
+
+<section class="sw-section sw-section--raised" data-theme="light" aria-labelledby="stress-title">
+ <div class="sw-container">
+  <div class="sw-head">
+   <span class="sw-label">Stress and burnout</span>
+   <h2 class="sw-h2" id="stress-title">Stress causes the longest absences.</h2>
+   <p class="sw-body sw-muted">Work-related stress, depression and anxiety now account for over half of all work-related ill health in Great Britain, and the trend is still rising.</p>
+  </div>
+  <div class="sw-stats">
+   ${tile("Workers affected", "964,000", "Workers with work-related stress, depression or anxiety in 2024/25, causing 22.1 million lost working days.", "hse")}
+   ${tile("Per case", "22.9", "Average days lost per case of stress, depression or anxiety, the longest of any work-related condition.", "hse")}
+   ${tile("Under pressure", "91%", "Of UK adults experienced high or extreme pressure or stress in the past year; around one in five needed time off as a result.", "mhuk")}
+   ${tile("Long-term absence", "41%", "Of organisations name mental ill health as a top cause of long-term absence, more than any other cause.", "cipd")}
+  </div>
+ </div>
+</section>
+
+<section class="sw-section" data-theme="light" aria-labelledby="cost-title">
+ <div class="sw-container">
+  <div class="sw-head">
+   <span class="sw-label">The cost</span>
+   <h2 class="sw-h2" id="cost-title">What it costs employers.</h2>
+  </div>
+  <div class="sw-stats">
+   ${tile("Poor workplace health", "&pound;85bn", "A year to UK employers through sickness, staff turnover and lost productivity. Each day of sickness absence costs around &pound;120 in lost profit.", "kbw")}
+   ${tile("Poor mental health", "&pound;51bn", "A year to UK employers: &pound;24bn from presenteeism, &pound;20bn from staff turnover and &pound;7bn from absence.", "deloitte")}
+  </div>
+  <div class="sw-split sw-split--top" style="margin-top:48px">
+   <div class="sw-stack">
+    <h3 class="sw-h3">Short-term absence now costs from day one.</h3>
+    <p class="sw-body">Since 6 April 2026, Statutory Sick Pay is paid from the first day of sickness, not the fourth, and the lower earnings limit has gone, so part-time and lower-paid staff now qualify too. The rate is &pound;123.25 a week, or 80% of average weekly earnings if lower. ${cite("ssp")}</p>
+    <p class="sw-body sw-muted">On top of sick pay come the costs that don't show on payroll: cover and overtime, missed deadlines and the extra load on the rest of the team.</p>
+   </div>
+   <div class="sw-stack">
+    <h3 class="sw-h3">Long-term absence is the most expensive of all.</h3>
+    <p class="sw-body">Statutory Sick Pay can run for up to 28 weeks, while you cover the role and the work slows down. The longer someone is off, the harder it is to come back, and ill health is now the leading reason people leave the workforce altogether. ${cite("kbw")}</p>
+    <p class="sw-body sw-muted">Losing an experienced employee means recruitment, training and months of lost knowledge.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="sw-section" data-theme="dark" aria-labelledby="return-title">
+ <div class="sw-container sw-split">
+  <div class="sw-bracket" style="padding:48px">
+   <span class="sw-label">The return</span>
+   <p class="sw-stat-num sw-stat-num--signal">&pound;4.70</p>
+   <p class="sw-body" style="margin-top:12px">Average return for every &pound;1 UK employers invest in supporting their employees' mental health. ${cite("deloitte")}</p>
+  </div>
+  <div class="sw-stack sw-stack--lg">
+   <h2 class="sw-h2" id="return-title">Prevention costs less than absence.</h2>
+   <p class="sw-body">Most of the cost of poor health is in people who are still at work but struggling, and in people who leave. That's where early support pays back fastest. Healthier habits, regular coaching and someone checking in help people stay well, spot problems early and stay in work.</p>
+   <ul class="sw-list">
+    <li>Structured challenges build the everyday habits behind sleep, energy and resilience.</li>
+    <li>Coaching and check-ins catch stress before it becomes a long absence.</li>
+    <li>On-site physiotherapy, massage and occupational health keep minor problems minor.</li>
+    <li>We measure the change, so you can see the return for yourself.</li>
+   </ul>
+   <div class="sw-actions"><a class="sw-btn sw-btn--secondary" href="/programmes.html">See our programmes</a></div>
+  </div>
+ </div>
+</section>
+
+<section class="sw-section" data-theme="light" aria-labelledby="sources-title">
+ <div class="sw-container sw-prose">
+  <h2 class="sw-h2" id="sources-title">Sources</h2>
+  <p class="sw-small">Figures checked November 2026. We update this page when new data is published.</p>
+  <ol class="sw-sources">
+   ${Object.values(SOURCES).map((s) => `<li id="source-${s.n}"><strong>${s.org}</strong>, <a href="${s.url}" rel="noopener" target="_blank">${s.title}</a>, ${s.date}.${s.note ? ` <span class="sw-muted">${s.note}</span>` : ""}</li>`).join("\n   ")}
+  </ol>
+ </div>
+</section>
+
+${ctaBand()}`,
+});
+
+console.log("built", ["index", "why-wellbeing", "programmes", "results", "about", "contact", "privacy", "cookies"].join(", "));
 
 // ---------- minify output (whitespace and comments only) ----------
 import { readdirSync } from "node:fs";
