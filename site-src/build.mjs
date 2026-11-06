@@ -516,7 +516,7 @@ ${ctaBand()}`,
 // ---------- About ----------
 const team = [
   { name: "Josh Reilly", role: "Co-founder, fitness coach", img: "josh-reilly" },
-  { name: "Harvey Close", role: "Co-founder, lifestyle coach" },
+  { name: "Harvey Close", role: "Co-founder, lifestyle coach", img: "harvey-close" },
   { name: "Joseph Whitaker", role: "Nutritionist and dietitian" },
 ];
 page({
