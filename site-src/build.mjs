@@ -168,6 +168,16 @@ const SOURCES = {
 };
 const cite = (k) => `<a class="sw-cite" href="/why-wellbeing.html#source-${SOURCES[k].n}" aria-label="Source ${SOURCES[k].n}: ${SOURCES[k].org}">${SOURCES[k].org}, ${SOURCES[k].date.replace(/^\d+ /, "")}</a>`;
 
+const HERO_VIDEO = "https://video.wixstatic.com/video/0b2e90_8a91e47f149c47288d5bb7597be3c518/720p/mp4/file.mp4";
+const TICKER = ["Habits over hacks", "Sleep", "Movement", "Nutrition", "Connection", "Coaching", "Workshops", "Real data", "Taking wellbeing seriously"];
+const SLIDES = [
+  { label: "Lost to sickness, 2025", num: "148.8m", text: "Working days lost to sickness or injury across the UK, an average of 4.4 days per worker.", src: "ons" },
+  { label: "Absence per employee", num: "9.4 days", text: "The average a year, the highest in over 15 years and up from 5.8 days in 2022.", src: "cipd" },
+  { label: "Stress, depression, anxiety", num: "22.1m", text: "Working days lost to work-related cases in 2024/25, with each case lasting 22.9 days on average.", src: "hse" },
+  { label: "Cost to employers", num: "&pound;85bn", text: "A year to UK employers through sickness, staff turnover and lost productivity.", src: "kbw" },
+  { label: "The return", num: "&pound;4.70", text: "Average return for every &pound;1 employers invest in supporting their employees' mental health.", src: "deloitte" },
+];
+
 // ---------- Home ----------
 const services = [
   { id: "challenges", label: "Structured challenges", title: "Structured Wellbeing Challenges",
@@ -194,8 +204,13 @@ page({
     areaServed: "GB", sameAs: [SITE.linkedin],
   })}</script>\n`,
   main: `
-<section class="sw-hero" data-theme="dark" aria-labelledby="hero-title">
- <div class="sw-container sw-hero__grid">
+<section class="sw-hero sw-hero--video" data-theme="dark" aria-labelledby="hero-title">
+ <video class="sw-hero__video" autoplay muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/0b2e90_8a91e47f149c47288d5bb7597be3c518f000.jpg/v1/fill/w_1280,h_720,q_75/hero.jpg" aria-hidden="true" tabindex="-1">
+  <source src="${HERO_VIDEO}" type="video/mp4">
+ </video>
+ <div class="sw-hero__shade" aria-hidden="true"></div>
+ <button class="sw-motion-btn sw-hero__pause" type="button" data-video-toggle aria-pressed="false">Pause video</button>
+ <div class="sw-container">
   <div class="sw-hero__copy">
    <span class="sw-label">Corporate wellbeing</span>
    <h1 class="sw-display" id="hero-title">Taking wellbeing seriously.</h1>
@@ -205,8 +220,15 @@ page({
     <a class="sw-btn sw-btn--secondary" href="/programmes.html">See our programmes</a>
    </div>
   </div>
-  ${photo("A team session in a real workplace", "sw-hero__media")}
+  </div>
  </div>
+</section>
+
+<section class="sw-ticker" data-theme="dark" aria-label="What we focus on">
+ <div class="sw-ticker__track">
+  ${[0, 1].map((i) => `<ul class="sw-ticker__list"${i ? ' aria-hidden="true"' : ""}>${TICKER.map((t) => `<li>${t}</li>`).join("")}</ul>`).join("")}
+ </div>
+ <button class="sw-motion-btn sw-ticker__pause" type="button" data-ticker-toggle aria-pressed="false">Pause</button>
 </section>
 
 <section class="sw-section sw-section--sunken" data-theme="light" style="padding:40px 0" aria-label="Clients">
@@ -236,10 +258,23 @@ page({
    <span class="sw-label">Why it matters</span>
    <h2 class="sw-h2" id="why-title">Ill health is one of the biggest costs most businesses never measure.</h2>
   </div>
-  <div class="sw-stats">
-   <div class="sw-stat"><span class="sw-label sw-label--muted">Lost to sickness, 2025</span><span class="sw-stat-num">148.8m</span><span class="sw-small">Working days lost across the UK, 4.4 per worker. ${cite("ons")}</span></div>
-   <div class="sw-stat"><span class="sw-label sw-label--muted">Cost to employers</span><span class="sw-stat-num sw-stat-num--signal">&pound;85bn</span><span class="sw-small">A year, from sickness, turnover and lost productivity. ${cite("kbw")}</span></div>
-   <div class="sw-stat"><span class="sw-label sw-label--muted">Stress, depression, anxiety</span><span class="sw-stat-num">22.1m</span><span class="sw-small">Working days lost to work-related cases in 2024/25. ${cite("hse")}</span></div>
+  <div class="sw-slider" role="region" aria-roledescription="carousel" aria-label="UK workplace health statistics" data-slider>
+   <div class="sw-slider__viewport">
+    <div class="sw-slider__track" aria-live="off">
+     ${SLIDES.map((sl, i) => `<div class="sw-slide" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${SLIDES.length}"${i ? ' aria-hidden="true"' : ""}>
+      <span class="sw-label sw-label--muted">${sl.label}</span>
+      <span class="sw-stat-num sw-slide__num">${sl.num}</span>
+      <p class="sw-lead sw-slide__text">${sl.text}</p>
+      <span class="sw-small">${cite(sl.src)}</span>
+     </div>`).join("\n     ")}
+    </div>
+   </div>
+   <div class="sw-slider__controls">
+    <button class="sw-slider__btn" type="button" data-prev aria-label="Previous statistic">&larr;</button>
+    <div class="sw-slider__dots">${SLIDES.map((_, i) => `<button type="button" class="sw-slider__dot" data-go="${i}" aria-label="Show statistic ${i + 1}"${i ? "" : ' aria-current="true"'}></button>`).join("")}</div>
+    <button class="sw-slider__btn" type="button" data-next aria-label="Next statistic">&rarr;</button>
+    <button class="sw-motion-btn" type="button" data-slider-toggle aria-pressed="false">Pause</button>
+   </div>
   </div>
   <div style="margin-top:32px"><a class="sw-link" href="/why-wellbeing.html">See the evidence</a></div>
  </div>

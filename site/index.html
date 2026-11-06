@@ -36,8 +36,13 @@
 </div>
 </header>
 <main id="main">
-<section class="sw-hero" data-theme="dark" aria-labelledby="hero-title">
-<div class="sw-container sw-hero__grid">
+<section class="sw-hero sw-hero--video" data-theme="dark" aria-labelledby="hero-title">
+<video class="sw-hero__video" autoplay muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/0b2e90_8a91e47f149c47288d5bb7597be3c518f000.jpg/v1/fill/w_1280,h_720,q_75/hero.jpg" aria-hidden="true" tabindex="-1">
+<source src="https://video.wixstatic.com/video/0b2e90_8a91e47f149c47288d5bb7597be3c518/720p/mp4/file.mp4" type="video/mp4">
+</video>
+<div class="sw-hero__shade" aria-hidden="true"></div>
+<button class="sw-motion-btn sw-hero__pause" type="button" data-video-toggle aria-pressed="false">Pause video</button>
+<div class="sw-container">
 <div class="sw-hero__copy">
 <span class="sw-label">Corporate wellbeing</span>
 <h1 class="sw-display" id="hero-title">Taking wellbeing seriously.</h1>
@@ -47,8 +52,14 @@
 <a class="sw-btn sw-btn--secondary" href="/programmes.html">See our programmes</a>
 </div>
 </div>
-<div class="sw-photo sw-hero__media" role="img" aria-label="Photo placeholder: A team session in a real workplace"><div><strong>Photo to add</strong>A team session in a real workplace</div></div>
 </div>
+</div>
+</section>
+<section class="sw-ticker" data-theme="dark" aria-label="What we focus on">
+<div class="sw-ticker__track">
+<ul class="sw-ticker__list"><li>Habits over hacks</li><li>Sleep</li><li>Movement</li><li>Nutrition</li><li>Connection</li><li>Coaching</li><li>Workshops</li><li>Real data</li><li>Taking wellbeing seriously</li></ul><ul class="sw-ticker__list" aria-hidden="true"><li>Habits over hacks</li><li>Sleep</li><li>Movement</li><li>Nutrition</li><li>Connection</li><li>Coaching</li><li>Workshops</li><li>Real data</li><li>Taking wellbeing seriously</li></ul>
+</div>
+<button class="sw-motion-btn sw-ticker__pause" type="button" data-ticker-toggle aria-pressed="false">Pause</button>
 </section>
 <section class="sw-section sw-section--sunken" data-theme="light" style="padding:40px 0" aria-label="Clients">
 <div class="sw-container sw-stack">
@@ -75,10 +86,47 @@
 <span class="sw-label">Why it matters</span>
 <h2 class="sw-h2" id="why-title">Ill health is one of the biggest costs most businesses never measure.</h2>
 </div>
-<div class="sw-stats">
-<div class="sw-stat"><span class="sw-label sw-label--muted">Lost to sickness, 2025</span><span class="sw-stat-num">148.8m</span><span class="sw-small">Working days lost across the UK, 4.4 per worker. <a class="sw-cite" href="/why-wellbeing.html#source-1" aria-label="Source 1: Office for National Statistics">Office for National Statistics, May 2026</a></span></div>
-<div class="sw-stat"><span class="sw-label sw-label--muted">Cost to employers</span><span class="sw-stat-num sw-stat-num--signal">&pound;85bn</span><span class="sw-small">A year, from sickness, turnover and lost productivity. <a class="sw-cite" href="/why-wellbeing.html#source-5" aria-label="Source 5: Department for Work and Pensions and Department for Business and Trade">Department for Work and Pensions and Department for Business and Trade, November 2025</a></span></div>
-<div class="sw-stat"><span class="sw-label sw-label--muted">Stress, depression, anxiety</span><span class="sw-stat-num">22.1m</span><span class="sw-small">Working days lost to work-related cases in 2024/25. <a class="sw-cite" href="/why-wellbeing.html#source-3" aria-label="Source 3: Health and Safety Executive">Health and Safety Executive, November 2025</a></span></div>
+<div class="sw-slider" role="region" aria-roledescription="carousel" aria-label="UK workplace health statistics" data-slider>
+<div class="sw-slider__viewport">
+<div class="sw-slider__track" aria-live="off">
+<div class="sw-slide" role="group" aria-roledescription="slide" aria-label="1 of 5">
+<span class="sw-label sw-label--muted">Lost to sickness, 2025</span>
+<span class="sw-stat-num sw-slide__num">148.8m</span>
+<p class="sw-lead sw-slide__text">Working days lost to sickness or injury across the UK, an average of 4.4 days per worker.</p>
+<span class="sw-small"><a class="sw-cite" href="/why-wellbeing.html#source-1" aria-label="Source 1: Office for National Statistics">Office for National Statistics, May 2026</a></span>
+</div>
+<div class="sw-slide" role="group" aria-roledescription="slide" aria-label="2 of 5" aria-hidden="true">
+<span class="sw-label sw-label--muted">Absence per employee</span>
+<span class="sw-stat-num sw-slide__num">9.4 days</span>
+<p class="sw-lead sw-slide__text">The average a year, the highest in over 15 years and up from 5.8 days in 2022.</p>
+<span class="sw-small"><a class="sw-cite" href="/why-wellbeing.html#source-4" aria-label="Source 4: CIPD and Simplyhealth">CIPD and Simplyhealth, September 2025</a></span>
+</div>
+<div class="sw-slide" role="group" aria-roledescription="slide" aria-label="3 of 5" aria-hidden="true">
+<span class="sw-label sw-label--muted">Stress, depression, anxiety</span>
+<span class="sw-stat-num sw-slide__num">22.1m</span>
+<p class="sw-lead sw-slide__text">Working days lost to work-related cases in 2024/25, with each case lasting 22.9 days on average.</p>
+<span class="sw-small"><a class="sw-cite" href="/why-wellbeing.html#source-3" aria-label="Source 3: Health and Safety Executive">Health and Safety Executive, November 2025</a></span>
+</div>
+<div class="sw-slide" role="group" aria-roledescription="slide" aria-label="4 of 5" aria-hidden="true">
+<span class="sw-label sw-label--muted">Cost to employers</span>
+<span class="sw-stat-num sw-slide__num">&pound;85bn</span>
+<p class="sw-lead sw-slide__text">A year to UK employers through sickness, staff turnover and lost productivity.</p>
+<span class="sw-small"><a class="sw-cite" href="/why-wellbeing.html#source-5" aria-label="Source 5: Department for Work and Pensions and Department for Business and Trade">Department for Work and Pensions and Department for Business and Trade, November 2025</a></span>
+</div>
+<div class="sw-slide" role="group" aria-roledescription="slide" aria-label="5 of 5" aria-hidden="true">
+<span class="sw-label sw-label--muted">The return</span>
+<span class="sw-stat-num sw-slide__num">&pound;4.70</span>
+<p class="sw-lead sw-slide__text">Average return for every &pound;1 employers invest in supporting their employees' mental health.</p>
+<span class="sw-small"><a class="sw-cite" href="/why-wellbeing.html#source-6" aria-label="Source 6: Deloitte">Deloitte, 2024</a></span>
+</div>
+</div>
+</div>
+<div class="sw-slider__controls">
+<button class="sw-slider__btn" type="button" data-prev aria-label="Previous statistic">&larr;</button>
+<div class="sw-slider__dots"><button type="button" class="sw-slider__dot" data-go="0" aria-label="Show statistic 1" aria-current="true"></button><button type="button" class="sw-slider__dot" data-go="1" aria-label="Show statistic 2"></button><button type="button" class="sw-slider__dot" data-go="2" aria-label="Show statistic 3"></button><button type="button" class="sw-slider__dot" data-go="3" aria-label="Show statistic 4"></button><button type="button" class="sw-slider__dot" data-go="4" aria-label="Show statistic 5"></button></div>
+<button class="sw-slider__btn" type="button" data-next aria-label="Next statistic">&rarr;</button>
+<button class="sw-motion-btn" type="button" data-slider-toggle aria-pressed="false">Pause</button>
+</div>
 </div>
 <div style="margin-top:32px"><a class="sw-link" href="/why-wellbeing.html">See the evidence</a></div>
 </div>
