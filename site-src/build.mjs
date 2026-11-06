@@ -374,7 +374,12 @@ page({
   title: "Workplace wellbeing programmes | Strive Wellbeing",
   description: "Structured challenges, coaching-led programmes and practical workshops for teams of every size, on site or online. Tailored to your organisation.",
   main: `
-<section class="sw-hero sw-hero--page" data-theme="light" aria-labelledby="page-title">
+<section class="sw-hero sw-hero--video sw-hero--short" data-theme="dark" aria-labelledby="page-title">
+ <video class="sw-hero__video" autoplay muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/0b2e90_d43b4698c49b4f53a9fd3d122aebc158f000.jpg/v1/fill/w_1280,h_720,q_75/hero.jpg" aria-hidden="true" tabindex="-1">
+  <source src="https://video.wixstatic.com/video/0b2e90_d43b4698c49b4f53a9fd3d122aebc158/720p/mp4/file.mp4" type="video/mp4">
+ </video>
+ <div class="sw-hero__shade" aria-hidden="true"></div>
+ <button class="sw-motion-btn sw-hero__pause" type="button" data-video-toggle aria-pressed="false">Pause video</button>
  <div class="sw-container"><div class="sw-hero__copy">
   <span class="sw-label">Programmes</span>
   <h1 class="sw-h1" id="page-title">Programmes built around your people.</h1>
