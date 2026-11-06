@@ -515,9 +515,12 @@ ${ctaBand()}`,
 
 // ---------- About ----------
 const team = [
-  { name: "Josh Reilly", role: "Co-founder, fitness coach", img: "josh-reilly" },
-  { name: "Harvey Close", role: "Co-founder, lifestyle coach", img: "harvey-close" },
-  { name: "Joseph Whitaker", role: "Nutritionist and dietitian", img: "joseph-whitaker" },
+  { name: "Josh Reilly", role: "Co-founder and performance coach", img: "josh-reilly",
+    bio: "Ten years in health and fitness, coaching elite athletes, professionals, everyday gym-goers and older adults. Wellbeing and performance sit at the heart of his coaching." },
+  { name: "Harvey Close", role: "Co-founder and lifestyle coach", img: "harvey-close",
+    bio: "A former semi-professional footballer whose career took him to the other side of the world, Harvey knows how to perform under pressure and lead a team. His passion is wellbeing that fits around busy, sociable lives, delivered in a way people actually buy into." },
+  { name: "Joe Whittaker, MSc", role: "Nutritionist and dietitian", img: "joseph-whitaker",
+    bio: "With real lived experience of autoimmunity, Joe brings practical nutrition solutions and lifestyle changes. His drive to bring out the best in people through their lifestyle and nutrition choices, and his calm, compassionate approach, are why he gets results." },
 ];
 page({
   slug: "about",
@@ -550,7 +553,7 @@ page({
    ${team.map((p) => `<article class="sw-person">
     ${p.img ? `<div class="sw-person__photo"><picture><source srcset="/assets/team/${p.img}.webp" type="image/webp"><img src="/assets/team/${p.img}.jpg" alt="${p.name}, ${p.role.toLowerCase()} at Strive Wellbeing" width="900" height="1125" loading="lazy"></picture></div>` : photo(`Portrait of ${p.name}, 4:5`, "sw-photo--tall")}
     <div class="sw-stack" style="gap:4px"><h3 class="sw-h3">${p.name}</h3><p class="sw-small">${p.role}</p></div>
-    <p class="sw-todo">One-sentence bio${p.name === "Joseph Whitaker" ? "" : " and confirmed job title"}.</p>
+    <p class="sw-body sw-muted">${p.bio}</p>
    </article>`).join("\n   ")}
   </div>
  </div>
