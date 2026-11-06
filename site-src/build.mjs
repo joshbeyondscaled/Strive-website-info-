@@ -353,7 +353,7 @@ ${ctaBand()}`,
 });
 
 // ---------- Programmes ----------
-function programmeSection({ id, theme, rev, label, title, lead, facts, includedTitle, included, extra = "", photoCaption }) {
+function programmeSection({ id, theme, rev, label, title, lead, facts, includedTitle, included, extra = "", photoCaption, media = "" }) {
   return `<section class="sw-section${theme === "raised" ? " sw-section--raised" : ""}" data-theme="light" id="${id}" aria-labelledby="${id}-title">
  <div class="sw-container sw-split sw-split--top${rev ? " sw-split--rev" : ""}">
   <div class="sw-stack sw-stack--lg">
@@ -364,7 +364,7 @@ function programmeSection({ id, theme, rev, label, title, lead, facts, includedT
    <div class="sw-stack"><h3 class="sw-h3">${includedTitle}</h3><ul class="sw-list">${included.map((i) => `<li>${i}</li>`).join("")}</ul></div>
    ${extra}
   </div>
-  ${photo(photoCaption, "sw-photo--tall")}
+  ${media || photo(photoCaption, "sw-photo--tall")}
  </div>
 </section>`;
 }
@@ -424,6 +424,15 @@ ${programmeSection({
   includedTitle: "What employees get",
   included: ["A structured training programme they follow on their phone", "Nutritional advice", "Lifestyle and habit advice", "Optional health monitoring band tracking heart rate, heart rate variability, sleep and activity, so we can see real improvements day to day"],
   photoCaption: "App screens and the health monitoring band",
+  media: `<figure class="sw-app-shots">
+   <div class="sw-app-shots__grid">
+    ${[["app-session", "A completed upper body strength session in the app, with the warm-up, a client effort rating and a 40-minute duration", 800, 1457],
+       ["app-sleep", "Sleep tracking in the app: a week of nightly sleep split into light, REM and deep sleep", 800, 691],
+       ["app-movement", "Movement tracking in the app: a week of daily steps and total active time", 800, 847]]
+      .map(([f, alt, w, h]) => `<picture class="sw-app-shot sw-app-shot--${f}"><source srcset="/assets/app/${f}.webp" type="image/webp"><img src="/assets/app/${f}.jpg" alt="${alt}" width="${w}" height="${h}" loading="lazy"></picture>`).join("")}
+   </div>
+   <figcaption class="sw-small">Real screens from the coaching app: a logged session, sleep and daily movement.</figcaption>
+  </figure>`,
 })}
 
 <section class="sw-section" data-theme="light" aria-labelledby="delivery-title">
