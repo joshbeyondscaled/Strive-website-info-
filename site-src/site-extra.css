@@ -197,5 +197,11 @@ body.sw-page { min-height: 100vh; }
 [data-mode="light"] .sw-slider { background: var(--stone); }
 [data-mode="light"] .sw-was-dark .sw-stats > * { background: #ffffff; }
 [data-mode="light"] .sw-footer { background: var(--surface-sunken); }
-.sw-mode-badge { position: fixed; left: 16px; bottom: 16px; z-index: 60; background: var(--midnight); color: var(--stone); font: 600 13px/1 var(--font-sans); padding: 10px 14px; border-radius: var(--radius-sm); text-decoration: none; box-shadow: 0 4px 16px rgba(10, 12, 18, 0.2); }
-.sw-mode-badge:hover { background: var(--signal); color: var(--midnight); }
+
+/* Light / dark switch */
+.sw-theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-sm); cursor: pointer; transition: border-color .15s, color .15s; }
+.sw-theme-toggle:hover { border-color: var(--ink); }
+.sw-theme-toggle .sw-icon-moon { display: none; }
+[data-mode="light"] .sw-theme-toggle .sw-icon-sun { display: none; }
+[data-mode="light"] .sw-theme-toggle .sw-icon-moon { display: block; }
+@media (max-width: 420px) { .sw-header .sw-logo img { height: 22px; } .sw-header__end { gap: var(--space-2); } }

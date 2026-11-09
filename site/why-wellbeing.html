@@ -26,6 +26,10 @@
 <a class="sw-logo" href="/index.html"><img src="/assets/strive-logo-oneline-stone.svg" alt="Strive Wellbeing home" width="224" height="28"></a>
 <nav aria-label="Main"><ul class="sw-nav"><li><a href="/programmes.html">Programmes</a></li><li><a href="/why-wellbeing.html" aria-current="page">Why wellbeing</a></li><li><a href="/results.html">Results</a></li><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li></ul></nav>
 <div class="sw-header__end">
+<button class="sw-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" title="Light mode">
+<svg class="sw-icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+<svg class="sw-icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+</button>
 <a class="sw-btn sw-btn--primary sw-btn--sm" href="/contact.html">Book a call</a>
 <button class="sw-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
 </div>
@@ -174,21 +178,38 @@
 </div>
 </footer>
 <script>
-/* Light-mode preview: add ?theme=light to any page (?theme=dark to go back). Remembered for this browser tab. */
+/* Light / dark switch. Remembers each visitor's choice; ?theme=light or ?theme=dark also sets it. */
 (function () {
-try {
-var q = new URLSearchParams(location.search).get("theme");
-if (q === "light" || q === "dark") sessionStorage.setItem("sw-theme", q);
-if (sessionStorage.getItem("sw-theme") !== "light") return;
-} catch (e) { return; }
-var root = document.documentElement;
+var KEY = "sw-theme", root = document.documentElement;
+function store(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+function apply(mode) {
+if (mode === "light") {
 root.setAttribute("data-mode", "light");
 document.querySelectorAll('[data-theme="dark"]').forEach(function (el) { el.setAttribute("data-theme", "light"); el.classList.add("sw-was-dark"); });
 document.querySelectorAll('img[src$="-stone.svg"]').forEach(function (img) { img.src = img.getAttribute("src").replace("-stone.svg", "-ink.svg"); });
-var badge = document.createElement("a");
-badge.className = "sw-mode-badge"; badge.href = location.pathname + "?theme=dark";
-badge.textContent = "Light preview · switch to dark";
-document.body.appendChild(badge);
+} else {
+root.removeAttribute("data-mode");
+document.querySelectorAll(".sw-was-dark").forEach(function (el) { el.setAttribute("data-theme", "dark"); el.classList.remove("sw-was-dark"); });
+document.querySelectorAll('img[src$="-ink.svg"]').forEach(function (img) { img.src = img.getAttribute("src").replace("-ink.svg", "-stone.svg"); });
+}
+document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
+var light = mode === "light";
+b.setAttribute("aria-pressed", String(light));
+b.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
+b.setAttribute("title", light ? "Dark mode" : "Light mode");
+});
+}
+var q = null;
+try { q = new URLSearchParams(location.search).get("theme"); } catch (e) {}
+if (q === "light" || q === "dark") store(q);
+apply(stored() === "light" ? "light" : "dark");
+document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
+b.addEventListener("click", function () {
+var next = root.getAttribute("data-mode") === "light" ? "dark" : "light";
+store(next); apply(next);
+});
+});
 })();
 </script>
 <script src="/js/site.js" defer></script>
