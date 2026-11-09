@@ -173,6 +173,24 @@
 </div>
 </div>
 </footer>
+<script>
+/* Light-mode preview: add ?theme=light to any page (?theme=dark to go back). Remembered for this browser tab. */
+(function () {
+try {
+var q = new URLSearchParams(location.search).get("theme");
+if (q === "light" || q === "dark") sessionStorage.setItem("sw-theme", q);
+if (sessionStorage.getItem("sw-theme") !== "light") return;
+} catch (e) { return; }
+var root = document.documentElement;
+root.setAttribute("data-mode", "light");
+document.querySelectorAll('[data-theme="dark"]').forEach(function (el) { el.setAttribute("data-theme", "light"); el.classList.add("sw-was-dark"); });
+document.querySelectorAll('img[src$="-stone.svg"]').forEach(function (img) { img.src = img.getAttribute("src").replace("-stone.svg", "-ink.svg"); });
+var badge = document.createElement("a");
+badge.className = "sw-mode-badge"; badge.href = location.pathname + "?theme=dark";
+badge.textContent = "Light preview · switch to dark";
+document.body.appendChild(badge);
+})();
+</script>
 <script src="/js/site.js" defer></script>
 </body>
 </html>
