@@ -116,7 +116,7 @@ b.setAttribute("title", light ? "Dark mode" : "Light mode");
 var q = null;
 try { q = new URLSearchParams(location.search).get("theme"); } catch (e) {}
 if (q === "light" || q === "dark") store(q);
-apply(stored() === "light" ? "light" : "dark");
+apply(stored() === "dark" ? "dark" : "light");
 document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
 b.addEventListener("click", function () {
 var next = root.getAttribute("data-mode") === "light" ? "dark" : "light";

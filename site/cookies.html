@@ -41,7 +41,6 @@
 <main id="main">
 <section class="sw-section" data-theme="light" aria-labelledby="page-title">
 <div class="sw-container sw-prose">
-<p class="sw-todo">Draft for the founders to review before launch. Update this page if analytics are added later.</p>
 <span class="sw-label">Legal</span>
 <h1 class="sw-h1" id="page-title">Cookie policy</h1>
 <p class="sw-small">Last updated 6 November 2026</p>
@@ -116,7 +115,7 @@ b.setAttribute("title", light ? "Dark mode" : "Light mode");
 var q = null;
 try { q = new URLSearchParams(location.search).get("theme"); } catch (e) {}
 if (q === "light" || q === "dark") store(q);
-apply(stored() === "light" ? "light" : "dark");
+apply(stored() === "dark" ? "dark" : "light");
 document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
 b.addEventListener("click", function () {
 var next = root.getAttribute("data-mode") === "light" ? "dark" : "light";

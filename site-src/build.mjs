@@ -165,7 +165,7 @@ ${footer()}
   var q = null;
   try { q = new URLSearchParams(location.search).get("theme"); } catch (e) {}
   if (q === "light" || q === "dark") store(q);
-  apply(stored() === "light" ? "light" : "dark");
+  apply(stored() === "dark" ? "dark" : "light");
   document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
     b.addEventListener("click", function () {
       var next = root.getAttribute("data-mode") === "light" ? "dark" : "light";
@@ -498,55 +498,61 @@ ${ctaBand()}`,
 // ---------- Results ----------
 page({
   slug: "results",
-  title: "Results | Strive Wellbeing",
-  description: "Results from real Strive Wellbeing programmes, with what was measured, how many people took part and over what time. Case studies from our clients.",
+  title: "Our work and how we measure results | Strive Wellbeing",
+  description: "Wellbeing programmes Strive has delivered for UK employers, including Eric Wright Group, and how we measure and report what changes for your people.",
   main: `
 <section class="sw-hero sw-hero--page" data-theme="dark" aria-labelledby="page-title">
  <div class="sw-container sw-split">
   <div class="sw-hero__copy">
    <span class="sw-label">Results</span>
-   <h1 class="sw-h1" id="page-title">Results from real programmes.</h1>
-   <p class="sw-lead">We measure what changes, from sleep and activity to absence and how teams feel, and report it back to leadership.</p>
+   <h1 class="sw-h1" id="page-title">Our work with clients.</h1>
+   <p class="sw-lead">The programmes we've delivered, and how we measure what changes, from sleep and activity to absence and how teams feel.</p>
   </div>
   <div class="sw-bracket" style="padding:40px">
    <p class="sw-h2">Evidence over claims.</p>
-   <p class="sw-body sw-muted" style="margin-top:12px">Every number on this page comes with what was measured, how many people took part and over how long.</p>
+   <p class="sw-body sw-muted" style="margin-top:12px">When we share a result, it comes with what was measured, how many people took part and over how long.</p>
   </div>
  </div>
 </section>
 
-<section class="sw-section" data-theme="light" aria-labelledby="numbers-title">
+<section class="sw-section" data-theme="light" aria-labelledby="work-title">
  <div class="sw-container">
-  <div class="sw-head"><span class="sw-label">The numbers</span><h2 class="sw-h2" id="numbers-title">What clients have measured.</h2></div>
-  <div class="sw-grid sw-grid--3">
-   <div class="sw-todo">Result 1: what was measured, the number, how many people and over what time. For example "average sleep up 41 minutes, 42 staff, 8 weeks".</div>
-   <div class="sw-todo">Result 2: what was measured, the number, how many people and over what time.</div>
-   <div class="sw-todo">Result 3: what was measured, the number, how many people and over what time.</div>
-  </div>
- </div>
-</section>
-
-<section class="sw-section sw-section--raised" data-theme="light" aria-labelledby="cases-title">
- <div class="sw-container">
-  <div class="sw-head"><span class="sw-label">Case studies</span><h2 class="sw-h2" id="cases-title">How we've worked with clients.</h2></div>
+  <div class="sw-head"><span class="sw-label">Work delivered</span><h2 class="sw-h2" id="work-title">What we've delivered.</h2></div>
   <div class="sw-grid">
-   ${["K9 Security", "Eric Wright Group"].map((c) => `<article class="sw-card">
-    <span class="sw-label">Case study</span>
-    <h3 class="sw-h3">${c}</h3>
+   <article class="sw-card">
+    <span class="sw-label">Eric Wright Group · Walton Summit</span>
+    <h3 class="sw-h3">The February Reset: a 6-week wellbeing challenge</h3>
     <dl class="sw-facts" style="grid-template-columns:1fr">
-     <div><dt>The challenge</dt><dd class="sw-todo">What ${c} wanted to change.</dd></div>
-     <div><dt>What we did</dt><dd class="sw-todo">The programme, format and length.</dd></div>
-     <div><dt>The result</dt><dd class="sw-todo">What changed, with numbers and sample size.</dd></div>
+     <div><dt>The challenge</dt><dd>Give employees a practical, structured way to build healthier habits at the start of the year, open to everyone whatever their starting point.</dd></div>
+     <div><dt>What we did</dt><dd>Six weekly live seminars, each ending with one habit to track in the app: a daily walk, 2 litres of water, protein in the first meal, no caffeine after 2pm, a short daily reflection and 10 minutes of deliberate exercise. Employees also had on-demand workouts, nutrition resources and daily access to a coach through PT in your pocket.</dd></div>
+     <div><dt>What landed</dt><dd>Nutrition was the topic employees engaged with most. Participants who completed the end-of-challenge survey reported feeling healthier, and the challenge has shaped how we run every programme since.</dd></div>
     </dl>
-   </article>`).join("\n   ")}
+   </article>
+   <article class="sw-card">
+    <span class="sw-label">Eric Wright Water</span>
+    <h3 class="sw-h3">Lifestyle and nutrition seminars</h3>
+    <dl class="sw-facts" style="grid-template-columns:1fr">
+     <div><dt>What we did</dt><dd>An introductory seminar for staff, followed by lifestyle and nutrition presentations.</dd></div>
+     <div><dt>Why it matters</dt><dd>Seminars build trust and buy-in first, so people feel confident getting involved in a longer programme.</dd></div>
+    </dl>
+   </article>
   </div>
  </div>
 </section>
 
-<section class="sw-section" data-theme="light" aria-labelledby="quote-title">
+<section class="sw-section sw-section--raised" data-theme="light" aria-labelledby="measure-title">
  <div class="sw-container">
-  <h2 class="sw-label" id="quote-title">In their words</h2>
-  <div class="sw-todo" style="margin-top:24px;max-width:760px">One to three client quotes, each with name, role and company, approved by the client.</div>
+  <div class="sw-head">
+   <span class="sw-label">How we measure</span>
+   <h2 class="sw-h2" id="measure-title">Every programme ends with a clear report.</h2>
+   <p class="sw-body sw-muted">You see what changed, for how many people and over what time. Individual data stays private: leadership only ever sees anonymised, grouped results.</p>
+  </div>
+  <ol class="sw-steps">
+   <li><h3 class="sw-h3">Baseline survey</h3><p class="sw-body sw-muted">A short survey at the start on energy, sleep, stress, activity and time off sick.</p></li>
+   <li><h3 class="sw-h3">Health monitoring</h3><p class="sw-body sw-muted">Optional bands that track heart rate, heart rate variability, sleep and activity, day to day.</p></li>
+   <li><h3 class="sw-h3">Habit tracking</h3><p class="sw-body sw-muted">Weekly habits logged in the app, so we can see what people actually stick with.</p></li>
+   <li><h3 class="sw-h3">Report for leadership</h3><p class="sw-body sw-muted">The same survey at the end, compared with the baseline, plus what we recommend next.</p></li>
+  </ol>
  </div>
 </section>
 
@@ -656,7 +662,6 @@ page({
   main: `
 <section class="sw-section" data-theme="light" aria-labelledby="page-title">
  <div class="sw-container sw-prose">
-  <p class="sw-todo">Draft for the founders to review before launch. It is not legal advice.</p>
   <span class="sw-label">Legal</span>
   <h1 class="sw-h1" id="page-title">Privacy policy</h1>
   <p class="sw-small">Last updated ${updated}</p>
@@ -711,7 +716,6 @@ page({
   main: `
 <section class="sw-section" data-theme="light" aria-labelledby="page-title">
  <div class="sw-container sw-prose">
-  <p class="sw-todo">Draft for the founders to review before launch. Update this page if analytics are added later.</p>
   <span class="sw-label">Legal</span>
   <h1 class="sw-h1" id="page-title">Cookie policy</h1>
   <p class="sw-small">Last updated ${updated}</p>
