@@ -54,7 +54,8 @@ html,body{background:#05070D!important;margin:0!important}
 /* Welcome video — hidden until CONFIG.videoUrl is set; the player only loads when pressed */
 #bs .video{position:relative;aspect-ratio:16/9;margin-top:28px;border-radius:14px;overflow:hidden;background:var(--card) center/cover no-repeat;border:1px solid var(--line);cursor:pointer}
 #bs .video[hidden]{display:none}
-#bs .video.vertical{aspect-ratio:9/16;max-width:360px}
+#bs .video.vertical{aspect-ratio:9/16;max-width:250px;margin-left:auto;margin-right:auto}
+@media (min-width:640px){#bs .video.vertical{max-width:300px}}
 #bs .video iframe,#bs .video video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
 #bs .play{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:10px;font-size:.9rem;font-weight:600;background:linear-gradient(180deg,rgba(5,7,13,.1),rgba(5,7,13,.55))}
 #bs .play i{width:68px;height:68px;border-radius:50%;background:var(--blue);display:grid;place-items:center;transition:transform .15s ease}
@@ -165,8 +166,8 @@ html,body{background:#05070D!important;margin:0!important}
     groupUrl:    '[GROUP LINK]',
     callUrl:     '[ZOOM LINK]',
     callMinutes: 60,
-    videoUrl:    '',
-    videoVertical: false
+    videoUrl:    'https://youtube.com/shorts/bwyZ7027kiQ',
+    videoVertical: true
   };
 
   var root=document.getElementById('bs'); if(!root) return;
