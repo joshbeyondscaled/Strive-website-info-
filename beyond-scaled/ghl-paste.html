@@ -563,6 +563,14 @@
     watched.forEach(function(el){io.observe(el);});
   } else { set(false); }
 
+  // Pass ad tracking (utm_*, fbclid, gclid…) on to the application form so GHL keeps lead attribution
+  if(location.search.length>1){
+    var params=new URLSearchParams(location.search);
+    root.querySelectorAll('a.btn').forEach(function(a){
+      try{ var u=new URL(a.href); params.forEach(function(v,k){ if(!u.searchParams.has(k)) u.searchParams.set(k,v); }); a.href=u.toString(); }catch(e){}
+    });
+  }
+
   var y=document.getElementById('bs-year'); if(y) y.textContent=new Date().getFullYear();
 })();
 </script>
