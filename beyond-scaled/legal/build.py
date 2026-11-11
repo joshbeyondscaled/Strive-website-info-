@@ -10,7 +10,7 @@ HERE = pathlib.Path(__file__).parent
 # ---- Business details: fill these in once, then rebuild ---------------------
 DETAILS = {
     "BUSINESS": "JRFitness Ltd (Jrfitness Limited), trading as Beyond Scaled",
-    "COMPANY_NO": "[COMPANY NUMBER]",
+    "COMPANY_NO": "15251847",
     "ADDRESS": "8 Brownedge Close, Walton-le-Dale, Preston, PR5 4UJ",
     "EMAIL": "info@joshreilly.co.uk",
     "ICO": "ZB771249",
