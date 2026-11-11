@@ -3,7 +3,7 @@
      into a GoHighLevel Custom Code block (full-width, no padding, background #05070D).
 
      HOW TO EDIT
-       • Start date, Circle link, call link: the CONFIG block in the <script> at the bottom
+       • Start date, group link, call link: the CONFIG block in the <script> at the bottom
        • Placeholders: everything in [SQUARE BRACKETS]
      ===================================================================== -->
 
@@ -98,7 +98,7 @@ html,body{background:#05070D!important;margin:0!important}
           <div>
             <h3>Join the private group</h3>
             <p>Everything happens in here: the daily videos, your clips and my feedback.</p>
-            <a class="btn btn-full" id="bs-circle" href="[CIRCLE INVITE LINK]">Join the group
+            <a class="btn btn-full" id="bs-group" href="[GROUP LINK]">Join the group
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </li>
@@ -138,14 +138,14 @@ html,body{background:#05070D!important;margin:0!important}
 (function(){
   /* ============================ CONFIG ============================
      startDate   'auto' = the coming Sunday (or the date passed from the sign-up page). Or pin 'YYYY-MM-DD'.
-     circleUrl   Circle invite link.
-     callUrl     Where the live call happens (Zoom / Circle event link). Goes in the calendar invite.
+     groupUrl    Link to the private group / course in GoHighLevel.
+     callUrl     Recurring Zoom link for the Thursday call. Goes in the calendar invite.
      callMinutes Length of the live call.  [CHECK]
      ================================================================ */
   var CONFIG = {
     startDate:   'auto',
-    circleUrl:   '[CIRCLE INVITE LINK]',
-    callUrl:     '[CALL LINK — or "Link in the Circle group"]',
+    groupUrl:    '[GROUP LINK]',
+    callUrl:     '[ZOOM LINK]',
     callMinutes: 60
   };
 
@@ -155,7 +155,7 @@ html,body{background:#05070D!important;margin:0!important}
   var q=new URLSearchParams(location.search), name=(q.get('name')||'').trim().slice(0,40);
   if(name) document.getElementById('bs-name').textContent=', '+name;
 
-  document.getElementById('bs-circle').href=CONFIG.circleUrl;
+  document.getElementById('bs-group').href=CONFIG.groupUrl;
   var y=document.getElementById('bs-year'); if(y) y.textContent=new Date().getFullYear();
 
   // Start date: the coming Sunday (UK time). Before 7am on a Sunday, that same Sunday still counts.

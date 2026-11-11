@@ -30,7 +30,7 @@ Prefer a native GHL form? Swap the `<form>` for the GHL embed (see the comment a
 - [x] Start date: automatic. Always the coming Sunday (UK time), call that Thursday 5pm. Pin a date with `CONFIG.startDate` if you ever need to.
 - [ ] Headline: recommended version is in. The "in 5 days" alternative is in a `[CHECK]` comment.
 - [ ] Entry bar: "[close to / have] a strict pull-up" in *Who it's for*
-- [ ] `CONFIG.circleUrl` and `CONFIG.callUrl` (thank-you page)
+- [ ] `CONFIG.groupUrl` (GHL group/course) and `CONFIG.callUrl` (recurring Zoom link) on the thank-you page
 - [ ] Media: hero clip, Josh photo, Charlotte photo + face (with permission), logo
 - [ ] 2–3 extra testimonials, or leave them: unfilled ones hide themselves on the live page
 - [ ] `CONFIG.pixelId` (skip if the pixel is already in GHL's site-wide tracking) and `CONFIG.webhookUrl`
