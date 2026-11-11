@@ -124,7 +124,7 @@ html,body{background:#05070D!important;margin:0!important}
           <span class="num" aria-hidden="true">2</span>
           <div>
             <h3>Add the live call to your calendar</h3>
-            <p>Thursday <span data-date="call">[DATE]</span> at 5pm (UK).</p>
+            <p>Thursday <span data-date="call">[DATE]</span> at 7pm (UK).</p>
             <div class="cal">
               <a class="btn btn-ghost" id="bs-gcal" href="#" target="_blank" rel="noopener">Google Calendar</a>
               <button type="button" class="btn btn-ghost" id="bs-ics">Apple / Outlook</button>
@@ -218,7 +218,7 @@ html,body{background:#05070D!important;margin:0!important}
   var fmt=function(d){ return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'}); };
   root.querySelectorAll('[data-date]').forEach(function(el){ el.textContent=fmt(el.getAttribute('data-date')==='call'?call:start); });
 
-  // 5pm UK time → UTC (handles GMT/BST automatically)
+  // 7pm UK time → UTC (handles GMT/BST automatically)
   function londonToUtc(y,m,d,h){
     var guess=Date.UTC(y,m,d,h,0);
     var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hourCycle:'h23',year:'numeric',month:'numeric',day:'numeric',hour:'numeric',minute:'numeric'})
@@ -226,11 +226,11 @@ html,body{background:#05070D!important;margin:0!important}
     var asLondon=Date.UTC(p.year,p.month-1,p.day,p.hour,p.minute);
     return new Date(guess-(asLondon-guess));
   }
-  var s=londonToUtc(call.getUTCFullYear(),call.getUTCMonth(),call.getUTCDate(),17);
+  var s=londonToUtc(call.getUTCFullYear(),call.getUTCMonth(),call.getUTCDate(),19);
   var e=new Date(s.getTime()+CONFIG.callMinutes*6e4);
   var stamp=function(d){ return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,''); };
   var title='Kipping Pull-Up Workshop: live coaching call';
-  var details='Day 5 live call with Josh: retest against Day 1, live fault fixes and Q&A. Can\'t make it? Post a clip in the Beyond Scaled WhatsApp group before 4pm and watch the replay.';
+  var details='Day 5 live call with Josh: retest against Day 1, live fault fixes and Q&A. Can\'t make it? Post a clip in the Beyond Scaled WhatsApp group before 6pm and watch the replay.';
 
   document.getElementById('bs-gcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE'
     +'&text='+encodeURIComponent(title)+'&dates='+stamp(s)+'/'+stamp(e)

@@ -128,10 +128,10 @@ In the workflow settings, turn **"Allow re-entry"** off, so nobody gets the sequ
 | 11 | **Wait** | 1 minute, advanced window **Wednesday 07:00–07:30** |
 | 12 | **Send Email** | Email 6: "Day 4: Remove the box" |
 | 13 | **Wait** | 1 minute, advanced window **Thursday 07:00–07:30** |
-| 14 | **Send Email** | Email 7: "Today, 5pm: live call" |
-| 15 | **Wait** | 1 minute, advanced window **Thursday 16:00–16:15** |
+| 14 | **Send Email** | Email 7: "Today, 7pm: live call" |
+| 15 | **Wait** | 1 minute, advanced window **Thursday 18:00–18:15** |
 | 16 | **If/Else** | Phone is not empty → **Send SMS** SMS 2 (call in an hour) |
-| 17 | **Wait** | 1 minute, advanced window **Thursday 19:30–20:00** |
+| 17 | **Wait** | 1 minute, advanced window **Thursday 21:00–21:30** |
 | 18 | **Send Email** | Email 8: "Replay's up" |
 | 19 | *(optional)* **Wait** | 1 minute, advanced window **Friday 09:00–09:30** |
 | 20 | *(optional)* **Send Email** | Email 9: "What next" (the 6-week programme). Only if you want it. |
@@ -174,9 +174,9 @@ Each email is short on purpose: the content lives in the Beyond Scaled community
 > Two things to do now:
 >
 > **1. Join the Beyond Scaled community.** Everything happens in here: the daily videos, your clips and my feedback.
-> 👉 [GROUP LINK]
+> 👉 https://chat.whatsapp.com/Kf0ULuXc7XBBGYVSYvZIYd
 >
-> **2. Put Thursday in the diary.** Live coaching call, **Thursday [DATE] at 5pm (UK)**. Can't make it? Post a clip before 4pm and I'll cover it on the call. The replay goes up straight after.
+> **2. Put Thursday in the diary.** Live coaching call, **Thursday [DATE] at 7pm (UK)**. Can't make it? Post a clip before 6pm and I'll cover it on the call. The replay goes up straight after.
 >
 > All you need is a bar and a bit of floor. For Days 3 and 4, a box or anything stable at the right height.
 >
@@ -184,7 +184,7 @@ Each email is short on purpose: the content lives in the Beyond Scaled community
 > Josh
 
 ### SMS 1: Straight away (if they gave a mobile)
-> Hi {{contact.first_name}}, Josh here. You're in the Kipping Pull-Up Workshop 🤙 Starts Sunday. Join Beyond Scaled here so you don't miss Day 1: [GROUP LINK]
+> Hi {{contact.first_name}}, Josh here. You're in the Kipping Pull-Up Workshop 🤙 Starts Sunday. Join Beyond Scaled here so you don't miss Day 1: https://chat.whatsapp.com/Kf0ULuXc7XBBGYVSYvZIYd
 
 ### Email 2: Saturday 6pm
 **Subject:** Tomorrow: Day 1
@@ -196,7 +196,7 @@ Each email is short on purpose: the content lives in the Beyond Scaled community
 >
 > It's a test: where your technique and strength are right now. Don't skip it. On Thursday we retest, and this is what you'll compare against.
 >
-> Not in Beyond Scaled yet? [GROUP LINK]
+> Not in Beyond Scaled yet? https://chat.whatsapp.com/Kf0ULuXc7XBBGYVSYvZIYd
 >
 > Josh 🤙
 
@@ -206,7 +206,7 @@ Each email is short on purpose: the content lives in the Beyond Scaled community
 
 > Morning {{contact.first_name}},
 >
-> Day 1 is live: [GROUP LINK]
+> Day 1 is live: https://chat.whatsapp.com/Kf0ULuXc7XBBGYVSYvZIYd
 >
 > Watch the video, do the test, and post your clip in the community. 10–15 minutes.
 >
@@ -224,7 +224,7 @@ Each email is short on purpose: the content lives in the Beyond Scaled community
 >
 > Feel how much tension you actually need. This is the bit everyone skips, and it's why the timing falls apart later. You can do it at home.
 >
-> Day 2: [GROUP LINK]
+> Day 2: https://chat.whatsapp.com/Kf0ULuXc7XBBGYVSYvZIYd
 >
 > Josh 🤙
 
@@ -238,7 +238,7 @@ Each email is short on purpose: the content lives in the Beyond Scaled community
 >
 > You'll need a box, or anything stable at the right height.
 >
-> Day 3: [GROUP LINK]
+> Day 3: https://chat.whatsapp.com/Kf0ULuXc7XBBGYVSYvZIYd
 >
 > If today feels worse than yesterday, that's normal. It's usually right before it clicks.
 >
@@ -252,34 +252,34 @@ Each email is short on purpose: the content lives in the Beyond Scaled community
 >
 > Once your box drills are clean, we take the support away. **Power**: hip pop, not leg raise.
 >
-> Day 4: [GROUP LINK]
+> Day 4: https://chat.whatsapp.com/Kf0ULuXc7XBBGYVSYvZIYd
 >
-> **Tomorrow, 5pm (UK): live call.** We retest against Day 1, fix faults live and answer your questions. Can't make it? Post a clip in the community before 4pm tomorrow and I'll cover it.
+> **Tomorrow, 7pm (UK): live call.** We retest against Day 1, fix faults live and answer your questions. Can't make it? Post a clip in the community before 6pm tomorrow and I'll cover it.
 >
 > Josh 🤙
 
 ### Email 7: Thursday 7am · Day 5
-**Subject:** Today, 5pm: live call
-**Preview:** Post your clip before 4pm.
+**Subject:** Today, 7pm: live call
+**Preview:** Post your clip before 6pm.
 
 > Morning {{contact.first_name}},
 >
-> Live call **today at 5pm (UK)**: [CALL LINK]
+> Live call **today at 7pm (UK)**: https://us06web.zoom.us/j/87500259490?pwd=4RmIXaACaoqFoQi25t24nR19HKnui9.1
 >
 > - Retest against Day 1
 > - Live fault fixes
 > - Your questions answered
 >
-> Want me to look at your kip? Post a clip in the community **before 4pm**.
+> Want me to look at your kip? Post a clip in the community **before 6pm**.
 >
 > Can't make it? The replay goes up straight after.
 >
 > Josh 🤙
 
-### SMS 2: Thursday 4pm (if they gave a mobile)
-> Live call in 1 hour, 5pm UK 🤙 Join here: [CALL LINK]. Can't make it? Replay goes up after. Josh
+### SMS 2: Thursday 6pm (if they gave a mobile)
+> Live call in 1 hour, 7pm UK 🤙 Join here: https://us06web.zoom.us/j/87500259490?pwd=4RmIXaACaoqFoQi25t24nR19HKnui9.1. Can't make it? Replay goes up after. Josh
 
-### Email 8: Thursday 7:30pm
+### Email 8: Thursday 9pm
 **Subject:** Replay's up
 **Preview:** In case you missed it, or want to watch it back.
 
@@ -287,7 +287,7 @@ Each email is short on purpose: the content lives in the Beyond Scaled community
 >
 > Thanks for putting the work in this week.
 >
-> The replay of today's call is in the community: [GROUP LINK]
+> The replay of today's call is in the community: https://chat.whatsapp.com/Kf0ULuXc7XBBGYVSYvZIYd
 >
 > Whatever your retest looked like, the order is the same: position, then pattern, then power. Keep doing the floor work. It's the bit below the surface.
 >
