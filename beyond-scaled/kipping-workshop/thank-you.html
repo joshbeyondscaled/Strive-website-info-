@@ -35,6 +35,10 @@
 }
 /* ===================================================== */
 
+/* GoHighLevel wrappers: strip padding / max-width around the page so it runs edge to edge */
+html,body{background:#05070D!important;margin:0!important}
+:is(div,section,main):has(#bs){padding:0!important;margin:0!important;max-width:none!important;width:100%!important;background:transparent!important;transform:none!important;overflow:visible!important;border:0!important;box-shadow:none!important}
+
 #bs,#bs *{box-sizing:border-box}
 #bs{min-height:100vh;background:var(--black) linear-gradient(180deg,var(--navy) 0,var(--black) 900px) no-repeat;color:#fff;font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;display:flex;flex-direction:column}
 #bs h1,#bs h2,#bs h3,#bs p,#bs ol{margin:0;padding:0}
