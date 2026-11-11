@@ -47,13 +47,11 @@
 #bs .label{display:block;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-text);margin-bottom:14px}
 #bs .sub{font-size:1.15rem;color:var(--muted);margin-top:16px}
 
-#bs .top{padding:16px 0}
-#bs .logo{display:flex;align-items:center;height:36px;text-decoration:none}
-#bs .logo img{height:36px;width:auto}
-#bs .logo span{display:none;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;line-height:1.1}
-#bs .logo span small{display:block;font-weight:500;font-size:.72rem;color:var(--muted);letter-spacing:0}
-#bs .logo.no-img img{display:none}
-#bs .logo.no-img span{display:block}
+#bs .top{padding:20px 0 8px}
+#bs .top .wrap{display:flex;justify-content:center}
+#bs .logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+#bs .logo .mark{width:40px;height:auto;flex:none}
+#bs .logo .word{font-weight:800;font-size:1.3rem;letter-spacing:-.03em;line-height:1}
 
 #bs main{flex:1;padding:32px 0 72px}
 #bs .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
@@ -85,10 +83,11 @@
 <div id="bs">
   <header class="top">
     <div class="wrap">
-      <!-- [LOGO] Same logo as the landing page -->
-      <a class="logo" href="#" aria-label="Beyond Scaled by Josh Reilly">
-        <img src="./logo.png" alt="Beyond Scaled by Josh Reilly" width="144" height="36" onerror="this.parentNode.classList.add('no-img')">
-        <span aria-hidden="true">Beyond Scaled<small>by Josh Reilly</small></span>
+      <!-- [LOGO] Beyond Scaled symbol (drawn in code from icon-only.png in the Drive brand assets) + wordmark.
+           To use an image file instead, swap the <svg> for <img src="https://YOUR-LOGO.png" alt="" height="40">. -->
+      <a class="logo" href="#" aria-label="Beyond Scaled">
+        <svg class="mark" viewBox="0 0 414 351" aria-hidden="true"><rect x="36" y="216" width="81" height="135" fill="#fff"/><rect x="167" y="144" width="81" height="207" fill="#fff"/><rect x="297" y="0" width="81" height="351" fill="#2F5BFF"/><rect x="0" y="90" width="414" height="18" fill="#fff"/></svg>
+        <span class="word" aria-hidden="true">Beyond Scaled</span>
       </a>
     </div>
   </header>
