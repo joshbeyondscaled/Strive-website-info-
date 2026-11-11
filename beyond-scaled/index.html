@@ -12,670 +12,458 @@
      START GHL PASTE — copy everything from here to "END GHL PASTE"
      into a GoHighLevel Custom Code / Custom HTML block.
 
-     QUICK SWAP GUIDE — use Find & Replace. Every placeholder is in [SQUARE BRACKETS].
-       1. Form link ........ https://YOUR-GHL-FORM-URL   (every Apply button)
-       2. Brand ............ --bs-* variables in the [BRAND] block below
-       3. Numbers .......... [SPOTS] [MONTH] [RATING] [REVIEWS] [ATHLETES] [AVG PB]
-       4. Media ............ search [LOGO] [SALES VIDEO] [ABOUT PHOTO] [RESULT [REVIEW
-       5. Copy to check .... search [CHECK]
-     Delete any section you can't fill yet — each one is wrapped in a labelled comment.
+     HOW TO EDIT
+       • Form link: Find & Replace  https://YOUR-GHL-FORM-URL
+       • Colours / font: the 7 variables in the BRAND block below
+       • Placeholders: everything in [SQUARE BRACKETS]
+       • Media: search  [VIDEO]  [PHOTO]  [RESULT  [REVIEW  [LOGO]
+       • Copy to confirm: search  [CHECK]
+       • Don't need a section? Delete it — each one is between labelled comments.
      ===================================================================== -->
 
-<!-- [BRAND FONTS] Swap the family names here and in --bs-font-* below -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,800;75,900&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 
 <style>
-/* ===================== [BRAND] SWAP THESE ===================== */
+/* ======================= BRAND ======================= */
 #bs{
-  --bs-primary:#1F5BFF;      /* button + fill blue (white text on it = 5.3:1) */
-  --bs-on-primary:#FFFFFF;   /* text on primary */
-  --bs-accent:#6EA8FF;       /* blue for text/numbers on dark (6.8:1+) */
-  --bs-glow:31,91,255;       /* primary as R,G,B for glows */
-  --bs-black:#04060C;        /* base black */
-  --bs-navy:#0B1D48;         /* dark blue for gradients */
-  --bs-card:#0C1529;         /* cards */
-  --bs-card-2:#101C38;       /* raised / highlighted cards */
-  --bs-text:#FFFFFF;
-  --bs-muted:#A3B0C8;        /* muted text (7.4:1+) */
-  --bs-line:rgba(150,175,225,.16);
-  --bs-font-head:'Archivo','Arial Narrow',Impact,sans-serif;
-  --bs-font-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --blue:#1F5BFF;        /* buttons + ticks (white text on it = 5.3:1) */
+  --blue-text:#6EA8FF;   /* blue text on dark (6.8:1+) */
+  --navy:#0B1D48;        /* top of page gradient */
+  --black:#05070D;       /* page background */
+  --card:#0C1324;        /* cards + alternate sections */
+  --muted:#A3B0C8;       /* secondary text (7.4:1+) */
+  --line:rgba(160,180,220,.14);
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 }
-/* ============================================================== */
+/* ===================================================== */
 
 #bs,#bs *{box-sizing:border-box}
-#bs{background:var(--bs-black) linear-gradient(180deg,var(--bs-navy) 0,var(--bs-black) 1100px) no-repeat;color:var(--bs-text);font-family:var(--bs-font-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip;padding-bottom:80px}
+#bs{background:var(--black) linear-gradient(180deg,var(--navy) 0,var(--black) 900px) no-repeat;color:#fff;font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;padding-bottom:80px}
 #bs img,#bs video,#bs iframe{display:block;max-width:100%}
-#bs h1,#bs h2,#bs h3,#bs p,#bs ul,#bs ol,#bs figure,#bs blockquote,#bs table{margin:0;padding:0}
+#bs h1,#bs h2,#bs h3,#bs p,#bs ul,#bs ol,#bs figure,#bs blockquote{margin:0;padding:0}
 #bs ul,#bs ol{list-style:none}
 #bs a{color:inherit}
-#bs .wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 20px}
-#bs .narrow{max-width:820px}
-#bs section{padding:80px 0;position:relative}
-/* Section backgrounds: navy ↔ black gradients */
-#bs .soft{background:linear-gradient(180deg,var(--bs-navy) 0%,var(--bs-black) 100%)}
-#bs .light{background:linear-gradient(180deg,var(--bs-black) 0%,var(--bs-navy) 100%)}
-#bs .glow{background:radial-gradient(70% 50% at 50% 0%,rgba(var(--bs-glow),.22),transparent 70%)}
-#bs .muted{color:var(--bs-muted)}
+#bs .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+#bs .narrow{max-width:760px}
+#bs section{padding:72px 0}
+#bs .alt{background:var(--card)}
 #bs .center{text-align:center}
+#bs .muted{color:var(--muted)}
+#bs .blue{color:var(--blue-text)}
 #bs .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Type */
-#bs .h1,#bs .h2,#bs .h3{font-family:var(--bs-font-head);font-stretch:75%;font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.01em}
-#bs .h1{font-size:clamp(3rem,12.5vw,7rem)}
-#bs .h2{font-size:clamp(2.4rem,8.5vw,4.75rem)}
-#bs .h3{font-size:1.5rem;font-weight:800;line-height:1}
-#bs .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;color:var(--bs-accent)}
-#bs .eyebrow::before{content:"";width:10px;height:10px;background:var(--bs-primary);box-shadow:0 0 12px rgba(var(--bs-glow),.8)}
-#bs .lead{font-size:1.15rem;max-width:40ch;margin-top:18px}
-#bs .accent,#bs .hl{color:var(--bs-accent)}
+#bs h1,#bs h2{font-weight:800;letter-spacing:-.035em;line-height:1.05}
+#bs h1{font-size:clamp(2.6rem,10vw,4.75rem)}
+#bs h2{font-size:clamp(2rem,6.5vw,3rem)}
+#bs h3{font-size:1.08rem;font-weight:700;line-height:1.35}
+#bs .label{display:block;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-text);margin-bottom:14px}
+#bs .sub{font-size:1.15rem;color:var(--muted);max-width:38ch;margin-top:16px}
+#bs .center .sub{margin-left:auto;margin-right:auto}
 
-/* Buttons — links styled as buttons (they navigate to the form) */
-#bs .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 30px;background:var(--bs-primary);color:var(--bs-on-primary);font-weight:700;font-size:1.02rem;text-decoration:none;border:0;border-radius:6px;box-shadow:0 8px 28px -8px rgba(var(--bs-glow),.75),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .15s ease,box-shadow .15s ease}
-#bs .btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px -8px rgba(var(--bs-glow),.9),inset 0 1px 0 rgba(255,255,255,.18)}
-#bs .btn svg{width:18px;height:18px;flex:none}
-#bs .btn-sm{min-height:44px;padding:0 18px;font-size:.92rem}
+/* Button (a link styled as a button — it opens the form) */
+#bs .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;background:var(--blue);color:#fff;font-weight:700;font-size:1rem;text-decoration:none;border-radius:10px;transition:transform .15s ease,filter .15s ease}
+#bs .btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+#bs .btn svg{width:18px;height:18px}
+#bs .btn-sm{min-height:42px;padding:0 16px;font-size:.9rem;border-radius:8px}
 #bs a:focus-visible,#bs button:focus-visible,#bs [role=button]:focus-visible{outline:3px solid #fff;outline-offset:3px}
 #bs .cta{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:28px}
 #bs .center .cta{align-items:center}
-#bs .micro{font-size:.85rem;color:var(--bs-muted);display:flex;flex-wrap:wrap;gap:4px 14px}
-#bs .micro span::before{content:"✓ ";color:var(--bs-accent);font-weight:700}
+#bs .note{font-size:.85rem;color:var(--muted)}
 
-/* Announcement bar */
-#bs .bar{background:var(--bs-primary);color:var(--bs-on-primary);text-align:center;font-size:.86rem;font-weight:600;padding:9px 16px;line-height:1.35}
-#bs .bar .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#fff;margin-right:8px;vertical-align:1px;animation:bs-pulse 1.6s infinite}
-@keyframes bs-pulse{50%{opacity:.3}}
+/* Card — one style used everywhere */
+#bs .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+#bs .alt .card{background:var(--black)}
 
-/* Header */
-#bs .top{padding:16px 0;border-bottom:1px solid var(--bs-line)}
+/* Lists with ticks / crosses */
+#bs .ticks{display:grid;gap:12px}
+#bs .ticks li{display:flex;gap:12px;align-items:flex-start;line-height:1.45}
+#bs .ticks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;margin-top:1px}
+#bs .ticks.no li{color:var(--muted)}
+#bs .ticks.no li::before{content:"✕";background:rgba(255,255,255,.08);color:var(--muted)}
+
+/* Placeholder boxes — delete once real media is in */
+#bs .ph{position:absolute;inset:0;display:grid;place-items:center;padding:16px;text-align:center;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:#111A30}
+
+/* Bar + header */
+#bs .bar{background:var(--blue);text-align:center;font-size:.86rem;font-weight:600;padding:9px 16px;line-height:1.35}
+#bs .top{padding:16px 0}
 #bs .top .wrap{display:flex;align-items:center;justify-content:space-between}
-#bs .logo{display:flex;align-items:center;height:38px;color:#fff;text-decoration:none}
-#bs .logo img{height:38px;width:auto}
-#bs .logo .wordmark{display:none;font-family:var(--bs-font-head);font-stretch:75%;font-weight:900;font-size:1.3rem;text-transform:uppercase;letter-spacing:.02em;line-height:1}
-#bs .logo .wordmark small{display:block;font-family:var(--bs-font-body);font-weight:500;font-size:.66rem;letter-spacing:.12em;opacity:.75;margin-top:3px}
+#bs .logo{display:flex;align-items:center;height:36px;text-decoration:none}
+#bs .logo img{height:36px;width:auto}
+#bs .logo span{display:none;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;line-height:1.1}
+#bs .logo span small{display:block;font-weight:500;font-size:.72rem;color:var(--muted);letter-spacing:0}
 #bs .logo.no-img img{display:none}
-#bs .logo.no-img .wordmark{display:block}
+#bs .logo.no-img span{display:block}
 #bs .top .btn{display:none}
 
 /* Hero */
-#bs .hero{padding:40px 0 56px;background:radial-gradient(60% 55% at 85% 20%,rgba(var(--bs-glow),.28),transparent 70%)}
+#bs .hero{padding:32px 0 64px}
 #bs .hero-grid{display:grid;gap:28px}
-#bs .proofline{display:flex;align-items:center;gap:12px;margin-top:22px;font-size:.88rem;color:var(--bs-muted);line-height:1.35}
-#bs .avatars{display:flex;flex:none}
-#bs .avatars span{width:34px;height:34px;border-radius:50%;border:2px solid var(--bs-navy);margin-left:-10px;background:#1B2A4D center/cover;display:grid;place-items:center;font-size:.68rem;font-weight:700;color:#cfd8ea}
-#bs .avatars span:first-child{margin-left:0}
-#bs .stars{color:var(--bs-accent);letter-spacing:2px;font-size:.95rem}
-#bs .proofline b{color:#fff}
+#bs .rating{display:flex;align-items:center;gap:12px;margin-top:20px;font-size:.88rem;color:var(--muted);line-height:1.35}
+#bs .faces{display:flex;flex:none}
+#bs .faces span{width:32px;height:32px;border-radius:50%;border:2px solid var(--navy);margin-left:-8px;background:#1B2A4D center/cover;display:grid;place-items:center;font-size:.65rem;font-weight:700;color:#cfd8ea}
+#bs .faces span:first-child{margin-left:0}
+#bs .stars{color:var(--blue-text);letter-spacing:1px}
+#bs .rating b{color:#fff}
 
-/* Sales video (click-to-load) */
-#bs .vsl{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--bs-card);border:1px solid var(--bs-line);box-shadow:0 30px 80px -30px rgba(var(--bs-glow),.55)}
-#bs .vsl img{width:100%;height:100%;object-fit:cover}
-#bs .vsl iframe,#bs .vsl video{position:absolute;inset:0;width:100%;height:100%;border:0}
-#bs .vsl .play{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:12px;background:linear-gradient(180deg,rgba(4,6,12,.05),rgba(4,6,12,.55));color:#fff;font-weight:600;font-size:.9rem}
-#bs .vsl .play i{width:76px;height:76px;border-radius:50%;background:var(--bs-primary);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 10px rgba(var(--bs-glow),.22);transition:transform .15s ease}
-#bs .vsl .play i svg{width:28px;height:28px;margin-left:4px}
-#bs .vsl[role=button]{cursor:pointer}
-#bs .vsl[role=button]:hover .play i{transform:scale(1.06)}
+/* Video (loads only when played) */
+#bs .video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+#bs .video img{width:100%;height:100%;object-fit:cover}
+#bs .video iframe,#bs .video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+#bs .play{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:10px;font-size:.88rem;font-weight:600;background:rgba(5,7,13,.25)}
+#bs .play i{width:68px;height:68px;border-radius:50%;background:var(--blue);display:grid;place-items:center;transition:transform .15s ease}
+#bs .play i svg{width:24px;height:24px;margin-left:3px}
+#bs .video[role=button]{cursor:pointer}
+#bs .video[role=button]:hover .play i{transform:scale(1.06)}
 
-/* Stats strip */
-#bs .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--bs-line);border-radius:10px;background:rgba(12,21,41,.6)}
-#bs .stat{padding:22px 12px;text-align:center;border-right:1px solid var(--bs-line);border-bottom:1px solid var(--bs-line)}
-#bs .stat:nth-child(2n){border-right:0}
-#bs .stat:nth-child(n+3){border-bottom:0}
-#bs .stat b{display:block;font-family:var(--bs-font-head);font-stretch:75%;font-weight:900;font-size:clamp(1.7rem,8vw,2.3rem);line-height:1;color:var(--bs-accent);overflow-wrap:anywhere}
-#bs .stat span{font-size:.82rem;color:var(--bs-muted)}
+/* Swipe rows on mobile, grids on desktop */
+#bs .row{display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:32px -20px 0;padding:0 20px 8px;scrollbar-width:none}
+#bs .row::-webkit-scrollbar{display:none}
+#bs .row > *{scroll-snap-align:start}
+#bs .swipe{font-size:.8rem;color:var(--muted);margin-top:8px}
 
-/* Swipe rails on mobile, grids on desktop */
-#bs .rail{display:grid;grid-auto-flow:column;grid-auto-columns:82%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:36px -20px 0;padding:0 20px 10px;scrollbar-width:thin;scrollbar-color:var(--bs-primary) transparent}
-#bs .rail > *{scroll-snap-align:start}
-#bs .rail-hint{font-size:.8rem;color:var(--bs-muted);margin-top:6px}
+/* Results */
+#bs .result{padding:0;overflow:hidden}
+#bs .result .media{position:relative;aspect-ratio:4/5;background:#111A30}
+#bs .result .media video,#bs .result .media img{width:100%;height:100%;object-fit:cover}
+#bs .result .pb{position:absolute;left:12px;top:12px;background:var(--blue);font-weight:800;font-size:.95rem;padding:5px 10px;border-radius:6px}
+#bs .result figcaption{padding:16px 18px 18px}
+#bs .result figcaption p{font-size:.88rem;color:var(--muted)}
 
-/* Cards (shared) */
-#bs .rcard,#bs .review,#bs .why-item,#bs .phase,#bs .xlist li,#bs .start li,#bs .fitcol{background:var(--bs-card);border:1px solid var(--bs-line);border-radius:10px}
-
-/* Result cards */
-#bs .rcard{overflow:hidden;display:flex;flex-direction:column}
-#bs .rmedia{position:relative;aspect-ratio:4/5;background:#08101F}
-#bs .rmedia video,#bs .rmedia img{width:100%;height:100%;object-fit:cover}
-#bs .rmedia .badge{position:absolute;left:12px;top:12px;background:var(--bs-primary);color:#fff;font-family:var(--bs-font-head);font-stretch:75%;font-weight:900;font-size:1.45rem;line-height:1;padding:8px 10px;border-radius:4px;text-transform:uppercase}
-#bs .rbody{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px}
-#bs .rbody .lift{font-weight:700;font-size:1.02rem}
-#bs .rbody .lift s{color:var(--bs-muted);font-weight:500}
-#bs .rbody p{font-size:.9rem;color:var(--bs-muted)}
-
-/* Placeholders (delete once real media is in) */
-#bs .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--bs-muted);font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:16px;background:repeating-linear-gradient(135deg,#0D1730 0 12px,#0A1226 12px 24px)}
-
-/* Problem checklist */
-#bs .xlist{margin-top:32px;display:grid;gap:10px}
-#bs .xlist li{display:flex;gap:14px;align-items:flex-start;border-radius:8px;padding:18px;font-weight:600;font-size:1.05rem;line-height:1.35}
-#bs .xlist li i{flex:none;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;font-style:normal;font-size:.8rem;font-weight:800}
-#bs .turn{margin-top:30px;font-size:1.25rem;font-weight:600;max-width:34ch}
-
-/* Why */
-#bs .why-grid{display:grid;gap:14px;margin-top:36px}
-#bs .why-item{padding:26px}
-#bs .why-item .h3{margin-bottom:10px}
-#bs .why-item .num{font-family:var(--bs-font-head);font-stretch:75%;font-weight:900;color:var(--bs-accent);display:block;margin-bottom:12px}
-#bs .strike{text-decoration:line-through;text-decoration-thickness:5px;text-decoration-color:var(--bs-primary)}
+/* Problem */
+#bs .problem{display:grid;gap:10px;margin-top:28px}
+#bs .problem li{padding:16px 20px;font-weight:600}
+#bs .reason{margin-top:40px;display:grid;gap:14px}
+#bs .reason .card p{color:var(--muted);margin-top:6px}
 
 /* Method */
-#bs .phases{display:grid;gap:14px;margin-top:36px}
-#bs .phase{padding:24px}
-#bs .phase .wk{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(var(--bs-glow),.18);color:var(--bs-accent);border-radius:3px;padding:4px 8px;margin-bottom:14px}
-#bs .phase .h3{margin-bottom:8px}
-#bs .phase p{color:var(--bs-muted)}
-#bs .week{margin-top:14px;border-radius:10px;background:linear-gradient(135deg,var(--bs-primary) 0%,#123A9C 100%);color:#fff;padding:26px;display:grid;gap:20px}
-#bs .week-head{display:flex;align-items:center;gap:14px}
-#bs .week-head b{font-family:var(--bs-font-head);font-stretch:75%;font-weight:900;font-size:3.4rem;line-height:.85;white-space:nowrap}
-#bs .week-head span{font-weight:600;line-height:1.3}
-#bs .week ul{display:grid;gap:10px}
-#bs .week li{display:flex;gap:10px}
-#bs .week li::before{content:"";flex:none;width:8px;height:8px;margin-top:9px;background:#fff}
+#bs .steps{display:grid;gap:14px;margin-top:32px}
+#bs .steps .wk{font-size:.8rem;font-weight:600;color:var(--blue-text)}
+#bs .steps h3{font-size:1.3rem;margin:4px 0 6px}
+#bs .steps p{color:var(--muted)}
+#bs .weekly{margin-top:20px;font-size:1.1rem;font-weight:600}
 
 /* Fit */
-#bs .fit{display:grid;gap:14px;margin-top:36px}
-#bs .fitcol{padding:26px}
-#bs .fitcol.yes{background:var(--bs-card-2);border-color:rgba(var(--bs-glow),.6);box-shadow:0 20px 60px -30px rgba(var(--bs-glow),.6)}
-#bs .fitcol h3{font-family:var(--bs-font-head);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:1.4rem;line-height:1;margin-bottom:14px}
-#bs .fitcol li{display:flex;gap:12px;padding:8px 0;line-height:1.4}
-#bs .fitcol li i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:.72rem;font-weight:800;margin-top:1px}
-#bs .fitcol.yes li i{background:var(--bs-primary);color:#fff}
-#bs .fitcol.no{color:var(--bs-muted)}
-#bs .fitcol.no h3{color:#fff}
-#bs .fitcol.no li i{background:rgba(255,255,255,.08);color:var(--bs-muted)}
+#bs .fit{display:grid;gap:14px;margin-top:32px}
+#bs .fit h3{margin-bottom:16px}
 
-/* Offer stack */
-#bs .stack{margin-top:36px;border-radius:12px;overflow:hidden;border:1px solid var(--bs-line);background:var(--bs-card)}
-#bs .srow{display:flex;align-items:center;gap:14px;padding:18px;border-bottom:1px solid var(--bs-line)}
-#bs .srow .ico{flex:none;width:40px;height:40px;border-radius:6px;background:rgba(var(--bs-glow),.16);color:var(--bs-accent);display:grid;place-items:center}
-#bs .srow .ico svg{width:20px;height:20px}
-#bs .srow div{flex:1;min-width:0}
-#bs .srow h3{font-size:1rem;font-weight:700;line-height:1.3}
-#bs .srow p{font-size:.88rem;color:var(--bs-muted);line-height:1.4}
-#bs .srow .v{flex:none;font-weight:700;font-size:.95rem}
-#bs .srow.bonus{background:rgba(var(--bs-glow),.08)}
-#bs .srow.bonus .ico{background:var(--bs-primary);color:#fff}
-#bs .tag{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:3px;background:var(--bs-primary);color:#fff;margin-right:6px;vertical-align:2px}
-#bs .price{background:linear-gradient(135deg,#0E2560 0%,var(--bs-black) 100%);padding:32px 22px;text-align:center}
-#bs .price .was{font-size:1rem;color:var(--bs-muted)}
-#bs .price .was s{text-decoration-thickness:2px;color:#d6deee}
-#bs .price .now{display:block;font-family:var(--bs-font-head);font-stretch:75%;font-weight:900;font-size:clamp(4.2rem,19vw,6.5rem);line-height:.95;margin:8px 0 4px;color:#fff}
-#bs .price .now small{font-family:var(--bs-font-body);font-weight:500;font-size:1.1rem;color:var(--bs-muted)}
-#bs .price .terms{color:var(--bs-muted);font-size:.92rem}
-#bs .price .cta{align-items:center;margin-top:24px}
-#bs .spots{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:#fff;background:rgba(var(--bs-glow),.14);border:1px solid rgba(var(--bs-glow),.45);border-radius:999px;padding:6px 12px}
-#bs .spots::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--bs-accent);animation:bs-pulse 1.6s infinite}
+/* Offer */
+#bs .offer{margin-top:32px;padding:0;overflow:hidden}
+#bs .item{display:flex;justify-content:space-between;gap:16px;padding:16px 22px;border-bottom:1px solid var(--line)}
+#bs .item p{font-size:.88rem;color:var(--muted)}
+#bs .item .v{flex:none;color:var(--muted);font-weight:600}
+#bs .item .tag{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-text);margin-right:6px}
+#bs .price{padding:28px 22px;text-align:center}
+#bs .price .was{color:var(--muted)}
+#bs .price .now{font-size:clamp(3.2rem,14vw,4.5rem);font-weight:800;letter-spacing:-.04em;line-height:1.05}
+#bs .price .now small{font-size:1rem;font-weight:500;color:var(--muted);letter-spacing:0}
+#bs .price .cta{align-items:center;margin-top:20px}
+#bs .quote{margin-top:16px;display:flex;gap:14px;align-items:center}
+#bs .quote p{font-size:.95rem}
+#bs .quote cite{display:block;font-style:normal;font-size:.85rem;color:var(--muted);margin-top:2px}
 
 /* Reviews */
-#bs .review{padding:22px;display:flex;flex-direction:column;gap:12px}
-#bs .review h3{font-weight:700;font-size:1.05rem;line-height:1.3}
-#bs .review blockquote p{color:var(--bs-muted);font-size:.95rem}
-#bs .review figcaption{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:.88rem;line-height:1.3}
-#bs .review .av{width:38px;height:38px;border-radius:50%;background:#1B2A4D;display:grid;place-items:center;font-weight:700;font-size:.72rem;color:#cfd8ea;flex:none;overflow:hidden}
-#bs .review .av img{width:100%;height:100%;object-fit:cover}
-#bs .review figcaption b{display:block}
-#bs .review figcaption span{color:var(--bs-muted)}
-#bs .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
-#bs .shot{position:relative;aspect-ratio:9/16;border-radius:10px;overflow:hidden;border:1px solid var(--bs-line)}
-#bs .shot img{width:100%;height:100%;object-fit:cover}
-
-/* Comparison */
-#bs .compare{width:100%;margin-top:36px;border-collapse:separate;border-spacing:0;font-size:.9rem}
-#bs .compare th,#bs .compare td{padding:14px 6px;text-align:center;border-bottom:1px solid var(--bs-line);line-height:1.3}
-#bs .compare thead th{font-size:.72rem;font-weight:600;color:var(--bs-muted);letter-spacing:.04em;text-transform:uppercase;vertical-align:bottom}
-#bs .compare tbody th{text-align:left;padding-left:0;font-weight:600;width:40%}
-#bs .compare .us{background:rgba(var(--bs-glow),.14)}
-#bs .compare thead th.us{color:#fff;background:var(--bs-primary);border-radius:8px 8px 0 0;font-weight:800}
-#bs .compare tbody tr:last-child .us{border-radius:0 0 8px 8px}
-#bs .compare .y{color:var(--bs-accent);font-weight:800;font-size:1.1rem}
-#bs .compare .n{color:#5F6B85;font-size:1rem}
+#bs .review{display:flex;flex-direction:column;gap:10px}
+#bs .review blockquote p{color:var(--muted);font-size:.95rem}
+#bs .who{margin-top:auto;padding-top:6px;display:flex;align-items:center;gap:10px;font-size:.88rem;line-height:1.3}
+#bs .av{width:40px;height:40px;border-radius:50%;background:#1B2A4D;display:grid;place-items:center;font-weight:700;font-size:.72rem;color:#cfd8ea;flex:none;overflow:hidden}
+#bs .av img{width:100%;height:100%;object-fit:cover}
+#bs .who span{display:block;color:var(--muted)}
 
 /* About */
-#bs .about-grid{display:grid;gap:32px;align-items:center}
-#bs .photo{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--bs-card);border:1px solid var(--bs-line)}
+#bs .about{display:grid;gap:32px;align-items:center}
+#bs .photo{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#111A30}
 #bs .photo img{width:100%;height:100%;object-fit:cover}
-#bs .creds{margin-top:24px;display:grid;gap:10px}
-#bs .creds li{display:flex;gap:12px;align-items:center;font-weight:600}
-#bs .creds li::before{content:"";flex:none;width:8px;height:8px;background:var(--bs-primary);box-shadow:0 0 10px rgba(var(--bs-glow),.8)}
 
 /* Guarantee */
-#bs .gbox{border:2px solid var(--bs-primary);border-radius:14px;padding:40px 20px;text-align:center;background:radial-gradient(100% 80% at 50% 0%,rgba(var(--bs-glow),.22),transparent 70%),var(--bs-card);box-shadow:0 30px 80px -40px rgba(var(--bs-glow),.7)}
-#bs .seal{width:84px;height:84px;margin:0 auto 22px;border-radius:50%;background:var(--bs-primary);color:#fff;display:grid;place-items:center;box-shadow:0 0 0 10px rgba(var(--bs-glow),.18)}
-#bs .seal svg{width:42px;height:42px}
-#bs .gbox .h2{max-width:17ch;margin:0 auto}
-#bs .gbox .terms{margin-top:22px;font-size:.88rem;color:var(--bs-muted)}
-#bs .gbox ul{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
-#bs .gbox li{border:1px solid var(--bs-line);border-radius:999px;padding:6px 14px;font-size:.85rem;color:#fff}
-
-/* How to start */
-#bs .start{display:grid;gap:12px;margin-top:36px;counter-reset:s}
-#bs .start li{display:flex;gap:16px;align-items:center;padding:20px}
-#bs .start li::before{counter-increment:s;content:counter(s);flex:none;width:44px;height:44px;border-radius:50%;background:var(--bs-primary);color:#fff;display:grid;place-items:center;font-family:var(--bs-font-head);font-stretch:75%;font-weight:900;font-size:1.4rem}
-#bs .start h3{font-weight:700;font-size:1.1rem}
-#bs .start p{color:var(--bs-muted);font-size:.95rem}
+#bs .guarantee{border-color:var(--blue);padding:40px 24px;text-align:center}
+#bs .guarantee h2{max-width:18ch;margin:0 auto}
+#bs .guarantee .conditions{margin-top:20px;font-size:.9rem;color:var(--muted)}
 
 /* FAQ */
-#bs .faq{margin-top:32px;border-top:1px solid var(--bs-line)}
-#bs .faq-item{border-bottom:1px solid var(--bs-line)}
-#bs .faq-q{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;font-family:var(--bs-font-body);font-weight:600;font-size:1.06rem;line-height:1.35;color:#fff}
-#bs .faq-q:focus-visible{outline:3px solid #fff;outline-offset:2px}
-#bs .faq-q .pm{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--bs-line);display:grid;place-items:center;transition:transform .2s ease,background .2s ease}
-#bs .faq-q .pm svg{width:14px;height:14px}
-#bs .faq-q[aria-expanded="true"] .pm{transform:rotate(45deg);background:var(--bs-primary);border-color:var(--bs-primary)}
-#bs .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
-#bs .faq-a > div{overflow:hidden}
-#bs .faq-a p{padding:0 44px 22px 0;color:var(--bs-muted)}
-#bs .faq-q[aria-expanded="true"] + .faq-a{grid-template-rows:1fr}
+#bs .faq{margin-top:28px;border-top:1px solid var(--line)}
+#bs .faq > div{border-bottom:1px solid var(--line)}
+#bs .faq button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;font-family:var(--font);font-weight:600;font-size:1.04rem;line-height:1.4;color:#fff}
+#bs .faq button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+#bs .faq button::after{content:"+";flex:none;font-size:1.4rem;font-weight:400;line-height:1;color:var(--blue-text);transition:transform .2s ease}
+#bs .faq button[aria-expanded="true"]::after{transform:rotate(45deg)}
+#bs .faq .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
+#bs .faq .a > div{overflow:hidden}
+#bs .faq .a p{padding:0 32px 20px 0;color:var(--muted)}
+#bs .faq button[aria-expanded="true"] + .a{grid-template-rows:1fr}
 
-/* Final CTA */
-#bs .final{padding:96px 0;background:radial-gradient(70% 60% at 50% 100%,rgba(var(--bs-glow),.35),transparent 70%),linear-gradient(180deg,var(--bs-black),var(--bs-navy))}
-#bs .final .h2{font-size:clamp(2.8rem,11vw,6rem)}
-#bs .final .micro{justify-content:center}
-#bs .ps{margin:40px auto 0;max-width:46ch;font-size:.95rem;color:var(--bs-muted);border-top:1px solid var(--bs-line);padding-top:22px}
+/* Final */
+#bs .final{padding:88px 0;background:linear-gradient(180deg,var(--black),var(--navy))}
+#bs .howto{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;margin-top:20px;font-size:.92rem;color:var(--muted)}
+#bs .howto b{color:#fff}
+#bs .ps{margin:40px auto 0;max-width:46ch;font-size:.92rem;color:var(--muted)}
 #bs .ps b{color:#fff}
-#bs .foot{padding:24px 0;font-size:.8rem;color:var(--bs-muted);border-top:1px solid var(--bs-line);background:var(--bs-black)}
-#bs .foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
-#bs .foot nav{display:flex;gap:18px}
+#bs footer{padding:24px 0;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);background:var(--navy)}
+#bs footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+#bs footer nav{display:flex;gap:18px}
 
-/* Sticky mobile Apply bar */
-#bs .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(4,6,12,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--bs-line);display:flex;align-items:center;gap:12px;transition:transform .25s ease}
-#bs .sticky.is-hidden{transform:translateY(110%)}
-#bs .sticky .s-price{flex:none;font-size:.78rem;line-height:1.2;color:var(--bs-muted)}
-#bs .sticky .s-price b{display:block;font-size:1.05rem;color:#fff}
-#bs .sticky .btn{flex:1;min-height:52px}
+/* Sticky mobile button */
+#bs .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(5,7,13,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;transition:transform .25s ease}
+#bs .sticky.hide{transform:translateY(110%)}
+#bs .sticky p{flex:none;font-size:.78rem;line-height:1.2;color:var(--muted)}
+#bs .sticky p b{display:block;font-size:1.05rem;color:#fff}
+#bs .sticky .btn{flex:1;min-height:50px}
 
 @media (min-width:640px){
-  #bs .stats{grid-template-columns:repeat(4,minmax(0,1fr))}
-  #bs .stat{border-bottom:0}
-  #bs .stat:nth-child(2n){border-right:1px solid var(--bs-line)}
-  #bs .stat:last-child{border-right:0}
-  #bs .why-grid,#bs .fit{grid-template-columns:1fr 1fr}
-  #bs .rail{grid-auto-columns:46%}
+  #bs .reason,#bs .fit{grid-template-columns:1fr 1fr}
+  #bs .row{grid-auto-columns:46%}
 }
 @media (min-width:900px){
   #bs{font-size:18px;padding-bottom:0}
   #bs .wrap{padding:0 40px}
-  #bs section{padding:112px 0}
+  #bs section{padding:104px 0}
   #bs .top .btn{display:inline-flex}
-  #bs .hero{padding:72px 0 96px}
-  #bs .hero-grid{grid-template-columns:5fr 6fr;gap:56px;align-items:center}
+  #bs .hero{padding:56px 0 96px}
+  #bs .hero-grid{grid-template-columns:1fr 1.15fr;gap:56px;align-items:center}
   #bs .sticky{display:none}
-  #bs .rail{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;margin:40px 0 0;padding:0}
-  #bs .rail-hint{display:none}
-  #bs .shots{max-width:720px;margin:24px auto 0}
-  #bs .phases{grid-template-columns:repeat(3,1fr)}
-  #bs .week{grid-template-columns:auto 1fr;align-items:center;gap:40px;padding:32px 40px}
-  #bs .week ul{grid-template-columns:repeat(3,1fr)}
-  #bs .about-grid{grid-template-columns:5fr 6fr;gap:80px}
-  #bs .start{grid-template-columns:repeat(3,1fr)}
-  #bs .srow{padding:20px 28px}
-  #bs .price{display:grid;grid-template-columns:1fr auto;align-items:center;text-align:left;padding:36px 40px;gap:32px}
+  #bs .row{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;margin:40px 0 0;padding:0}
+  #bs .swipe{display:none}
+  #bs .steps{grid-template-columns:repeat(3,1fr)}
+  #bs .about{grid-template-columns:1fr 1.2fr;gap:72px}
+  #bs .price{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:32px 36px}
   #bs .price .cta{margin-top:0}
-  #bs .gbox{padding:64px 48px}
-  #bs .compare{font-size:1rem}
-  #bs .compare th,#bs .compare td{padding:16px 14px}
-  #bs .compare thead th{font-size:.8rem}
+  #bs .guarantee{padding:56px 48px}
 }
 @media (prefers-reduced-motion:reduce){
-  #bs *,#bs *::before,#bs *::after{transition:none!important;animation:none!important}
+  #bs *{transition:none!important}
 }
 </style>
 
 <div id="bs">
 
-  <!-- ===== ANNOUNCEMENT BAR — real scarcity only. Update each month or delete. ===== -->
-  <div class="bar" role="note"><span class="dot" aria-hidden="true"></span>Only [SPOTS] 1-2-1 spots open for [MONTH]</div>
+  <!-- ===== SCARCITY BAR — only if the limit is real. Update monthly or delete. ===== -->
+  <div class="bar" role="note">[SPOTS] 1-2-1 spots open for [MONTH]</div>
 
-  <!-- ===== HEADER — no nav links on purpose: one page, one action ===== -->
+  <!-- ===== HEADER — no menu on purpose: one page, one action ===== -->
   <header class="top">
     <div class="wrap">
-      <!-- [LOGO] Replace ./logo.png with your hosted logo URL (GHL Media Library). Use a white version. -->
+      <!-- [LOGO] Replace ./logo.png with your hosted logo (white version). Text shows if the image is missing. -->
       <a class="logo" href="#top" aria-label="Beyond Scaled by Josh Reilly">
-        <img src="./logo.png" alt="Beyond Scaled by Josh Reilly" width="152" height="38" onerror="this.parentNode.classList.add('no-img')">
-        <span class="wordmark" aria-hidden="true">Beyond Scaled<small>by Josh Reilly</small></span>
+        <img src="./logo.png" alt="Beyond Scaled by Josh Reilly" width="144" height="36" onerror="this.parentNode.classList.add('no-img')">
+        <span aria-hidden="true">Beyond Scaled<small>by Josh Reilly</small></span>
       </a>
       <a class="btn btn-sm" href="https://YOUR-GHL-FORM-URL">Apply for coaching</a>
     </div>
   </header>
 
   <main>
-  <!-- ===================== 1. HERO + SALES VIDEO ===================== -->
+  <!-- ============ 1. HERO ============ -->
   <section class="hero" id="top" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">For CrossFitters stuck on their clean</span>
-        <h1 class="h1" id="hero-title">PB your squat clean in <span class="accent">8 weeks.</span></h1>
-        <p class="lead muted">1-2-1 online coaching. 90 minutes a week, built around your classes.</p>
+        <span class="label">For CrossFitters stuck on their clean</span>
+        <h1 id="hero-title">PB your squat clean in <span class="blue">8 weeks.</span></h1>
+        <p class="sub">1-2-1 online coaching. 90 minutes a week, built around your classes.</p>
       </div>
 
       <div>
-        <!-- [SALES VIDEO]
-             1. Paste your video link into data-embed="" below:
-                  YouTube: https://www.youtube-nocookie.com/embed/VIDEO_ID
-                  Vimeo:   https://player.vimeo.com/video/VIDEO_ID
-                  MP4:     https://YOUR-VIDEO.mp4
-             2. Replace <div class="ph">…</div> with your thumbnail:
-                  <img src="https://YOUR-THUMBNAIL.webp" alt="" width="1280" height="720" fetchpriority="high">
-             The player only loads when someone presses play, so the page stays fast.
-             NO VIDEO YET? Use a strong photo of you coaching a clean as the thumbnail and leave data-embed empty
-             (the play button hides itself), or delete this .vsl block.
+        <!-- [VIDEO] Your sales video.
+             1. Put the link in data-embed=""  (YouTube: https://www.youtube-nocookie.com/embed/ID
+                Vimeo: https://player.vimeo.com/video/ID   or an .mp4 link)
+             2. Replace <div class="ph">…</div> with the thumbnail:
+                <img src="https://YOUR-THUMBNAIL.webp" alt="" width="1280" height="720" fetchpriority="high">
+             No video yet? Use your coaching photo as the thumbnail and leave data-embed empty — the play button hides.
 
-             VIDEO SCRIPT THAT CONVERTS (60–120 seconds, talk straight to camera, cut in lift clips):
-               1. Hook (0–5s):   "If your squat clean hasn't moved in months, watch this."
-               2. Problem:       Power-catching, missing the same weight, more volume not working.
-               3. Reframe:       It's not strength. It's speed under the bar, and nobody's watching your lifts.
-               4. The fix:       8 weeks. 3 × 30-minute sessions. I review every lift within 24 hours.
-               5. Proof:         One athlete's before/after clip with the kg number on screen.
-               6. Risk reversal: No PB in 8 weeks, I keep coaching you free.
-               7. CTA:           "Only [X] spots this month. Hit Apply below."  -->
-        <div class="vsl" data-embed="" aria-label="Play sales video: how the 8-week clean fix works">
-          <div class="ph">Sales video thumbnail</div>
-          <div class="play"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></i><span>Watch how it works · [2] min</span></div>
+             SCRIPT (60–120s, straight to camera, cut in lift clips):
+               1. "If your squat clean hasn't moved in months, watch this."
+               2. The problem: power-catching, missing the same weight, more volume not working.
+               3. Why: it's not strength. It's speed under the bar, and nobody's watching your lifts.
+               4. The fix: 8 weeks, 3 × 30 minutes a week, I review every lift within 24 hours.
+               5. Proof: one athlete's before/after clip, kg on screen.
+               6. Guarantee: no PB in 8 weeks, I keep coaching you free.
+               7. "Spots are limited. Hit Apply below." -->
+        <div class="video" data-embed="" aria-label="Play video: how the 8-week clean fix works">
+          <div class="ph">Video thumbnail</div>
+          <div class="play"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15l13-7.5z"/></svg></i><span>Watch how it works · [2] min</span></div>
         </div>
 
         <div class="cta">
           <a class="btn" href="https://YOUR-GHL-FORM-URL" data-watch>Apply for coaching
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <p class="micro"><span>2-minute application</span><span>No payment to apply</span></p>
+          <p class="note">2-minute application. No payment to apply.</p>
         </div>
 
-        <!-- [REVIEWS] Real rating + count only. Swap initials for athlete photos:
-             <span style="background-image:url(https://YOUR-FACE-1.webp)"></span> (remove the initials) -->
-        <div class="proofline">
-          <div class="avatars" aria-hidden="true"><span>AB</span><span>CD</span><span>EF</span><span>GH</span></div>
+        <!-- [REVIEW SUMMARY] Real rating + count only. Swap initials for faces:
+             <span style="background-image:url(https://YOUR-FACE.webp)"></span> -->
+        <div class="rating">
+          <div class="faces" aria-hidden="true"><span>AB</span><span>CD</span><span>EF</span><span>GH</span></div>
           <p><span class="stars" aria-hidden="true">★★★★★</span><br><b>[RATING]/5</b> from [REVIEWS]+ athletes</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 2. STATS STRIP — delete any stat you can't back up ===================== -->
-  <div class="wrap">
-    <ul class="stats" aria-label="Results at a glance">
-      <li class="stat"><b>[ATHLETES]+</b><span>athletes coached</span></li>
-      <li class="stat"><b>+[AVG PB]kg</b><span>average clean PB</span></li>
-      <li class="stat"><b>10</b><span>years coaching</span></li>
-      <li class="stat"><b>24h</b><span>video feedback</span></li>
-    </ul>
-  </div>
-
-  <!-- ===================== 3. RESULTS — proof early ===================== -->
-  <section aria-labelledby="results-title">
+  <!-- ============ 2. RESULTS — 3 PB lift videos ============ -->
+  <section class="alt" aria-labelledby="results-title">
     <div class="wrap">
-      <span class="eyebrow">Results</span>
-      <h2 class="h2" id="results-title">Real lifts. <span class="accent">Real PBs.</span></h2>
+      <span class="label">Results</span>
+      <h2 id="results-title">Real lifts. Real PBs.</h2>
+      <p class="sub">[ATHLETES]+ athletes coached. Average PB: +[X]kg.</p>
 
-      <div class="rail">
-        <!-- [RESULT 1] The PB lift video. preload="none" = nothing downloads until play. Copy a card to add more. -->
-        <figure class="rcard">
-          <div class="rmedia">
-            <!-- <video controls playsinline preload="none" poster="https://YOUR-POSTER-1.webp" aria-label="[Name] squat cleaning [85]kg"><source src="https://YOUR-PB-VIDEO-1.mp4" type="video/mp4"></video> -->
-            <div class="ph">PB lift video</div>
-            <span class="badge">+[10]kg</span>
-          </div>
-          <figcaption class="rbody">
-            <span class="lift"><s>[75]kg</s> → [85]kg squat clean</span>
-            <p>[Name] · [7] weeks · [Gym name]</p>
-          </figcaption>
+      <div class="row">
+        <!-- [RESULT 1] Vertical PB clip, 5–15s. preload="none" = nothing downloads until play.
+             <video controls playsinline preload="none" poster="https://YOUR-POSTER-1.webp" aria-label="[Name] squat cleaning [85]kg"><source src="https://YOUR-VIDEO-1.mp4" type="video/mp4"></video> -->
+        <figure class="card result">
+          <div class="media"><div class="ph">PB lift video</div><span class="pb">+[10]kg</span></div>
+          <figcaption><h3>[75]kg → [85]kg squat clean</h3><p>[Name] · [7] weeks · [Gym]</p></figcaption>
         </figure>
-
         <!-- [RESULT 2] -->
-        <figure class="rcard">
-          <div class="rmedia">
-            <!-- <video controls playsinline preload="none" poster="https://YOUR-POSTER-2.webp" aria-label="Describe the lift"><source src="https://YOUR-PB-VIDEO-2.mp4" type="video/mp4"></video> -->
-            <div class="ph">PB lift video</div>
-            <span class="badge">+[7.5]kg</span>
-          </div>
-          <figcaption class="rbody">
-            <span class="lift"><s>[100]kg</s> → [107.5]kg squat clean</span>
-            <p>[Name] · [8] weeks · [Gym name]</p>
-          </figcaption>
+        <figure class="card result">
+          <div class="media"><div class="ph">PB lift video</div><span class="pb">+[7.5]kg</span></div>
+          <figcaption><h3>[100]kg → [107.5]kg squat clean</h3><p>[Name] · [8] weeks · [Gym]</p></figcaption>
         </figure>
-
         <!-- [RESULT 3] -->
-        <figure class="rcard">
-          <div class="rmedia">
-            <!-- <video controls playsinline preload="none" poster="https://YOUR-POSTER-3.webp" aria-label="Describe the lift"><source src="https://YOUR-PB-VIDEO-3.mp4" type="video/mp4"></video> -->
-            <div class="ph">PB lift video</div>
-            <span class="badge">First squat clean</span>
-          </div>
-          <figcaption class="rbody">
-            <span class="lift">Power catch → full squat at [60]kg</span>
-            <p>[Name] · [5] weeks · [Gym name]</p>
-          </figcaption>
+        <figure class="card result">
+          <div class="media"><div class="ph">PB lift video</div><span class="pb">First squat clean</span></div>
+          <figcaption><h3>Power catch → full squat at [60]kg</h3><p>[Name] · [5] weeks · [Gym]</p></figcaption>
         </figure>
       </div>
-      <p class="rail-hint" aria-hidden="true">Swipe for more →</p>
+      <p class="swipe" aria-hidden="true">Swipe for more →</p>
     </div>
   </section>
 
-  <!-- ===================== 4. PROBLEM ===================== -->
-  <section class="soft" aria-labelledby="problem-title">
+  <!-- ============ 3. PROBLEM + WHY ============ -->
+  <section aria-labelledby="problem-title">
     <div class="wrap narrow">
-      <span class="eyebrow">Sound familiar?</span>
-      <h2 class="h2" id="problem-title">Your clean has stalled.</h2>
-      <ul class="xlist">
-        <li><i aria-hidden="true">✕</i>You power-catch anything heavy.</li>
-        <li><i aria-hidden="true">✕</i>You miss the same weight. Every time.</li>
-        <li><i aria-hidden="true">✕</i>You've added volume. Nothing's moved.</li>
-        <li><i aria-hidden="true">✕</i>Nobody has properly watched your clean in months.</li>
+      <span class="label">Sound familiar?</span>
+      <h2 id="problem-title">Your clean has stalled.</h2>
+      <ul class="problem">
+        <li class="card">You power-catch anything heavy.</li>
+        <li class="card">You miss the same weight every time.</li>
+        <li class="card">You've added volume. Nothing's moved.</li>
       </ul>
-      <p class="turn">More training won't fix it. <span class="hl">The right training</span> will.</p>
-    </div>
-  </section>
 
-  <!-- ===================== 5. WHY ===================== -->
-  <section class="glow" aria-labelledby="why-title">
-    <div class="wrap">
-      <span class="eyebrow">Why you're stuck</span>
-      <h2 class="h2" id="why-title">It's not <span class="strike">strength</span>.</h2>
-      <div class="why-grid">
-        <div class="why-item">
-          <span class="num">01</span>
-          <h3 class="h3">Speed under the bar.</h3>
-          <p class="muted">You can front squat it. You're not getting under it fast enough.</p>
-        </div>
-        <div class="why-item">
-          <span class="num">02</span>
-          <h3 class="h3">Nobody's watching.</h3>
-          <p class="muted">Class coaches watch twenty people. Nobody is reviewing your lifts.</p>
-        </div>
+      <h2 style="margin-top:56px">It's not strength.</h2>
+      <div class="reason">
+        <div class="card"><h3>It's speed under the bar.</h3><p>You can front squat it. You're not getting under it fast enough.</p></div>
+        <div class="card"><h3>And nobody's watching.</h3><p>Class coaches watch twenty people. Nobody is reviewing your lifts.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 6. THE METHOD ===================== -->
-  <section class="soft" aria-labelledby="method-title">
+  <!-- ============ 4. METHOD ============ -->
+  <section class="alt" aria-labelledby="method-title">
     <div class="wrap">
-      <span class="eyebrow">The method</span>
-      <h2 class="h2" id="method-title">The 8-week clean fix.</h2>
-      <!-- [CHECK] Phase names + descriptions — match how you actually coach it. -->
-      <ol class="phases">
-        <li class="phase"><span class="wk">Weeks 1–2</span><h3 class="h3">Diagnose</h3><p>Film your clean. I find exactly where it breaks.</p></li>
-        <li class="phase"><span class="wk">Weeks 3–6</span><h3 class="h3">Fix</h3><p>Drills built for your fault. Faster under the bar.</p></li>
-        <li class="phase"><span class="wk">Weeks 7–8</span><h3 class="h3">Peak &amp; test</h3><p>Heavy singles. New PB.</p></li>
+      <span class="label">The method</span>
+      <h2 id="method-title">The 8-week clean fix.</h2>
+      <!-- [CHECK] Phase names + descriptions — match how you coach it. -->
+      <ol class="steps">
+        <li class="card"><span class="wk">Weeks 1–2</span><h3>Diagnose</h3><p>Film your clean. I find exactly where it breaks.</p></li>
+        <li class="card"><span class="wk">Weeks 3–6</span><h3>Fix</h3><p>Drills built for your fault. Faster under the bar.</p></li>
+        <li class="card"><span class="wk">Weeks 7–8</span><h3>Peak and test</h3><p>Heavy singles. New PB.</p></li>
       </ol>
-      <div class="week">
-        <div class="week-head"><b>3×30</b><span>minutes a week.<br>Around your classes.</span></div>
-        <ul>
-          <li>Three 30-minute sessions</li>
-          <li>Film your working sets</li>
-          <li>I review every lift</li>
-        </ul>
-      </div>
+      <p class="weekly">3 × 30-minute sessions a week. <span class="muted">I review every lift.</span></p>
     </div>
   </section>
 
-  <!-- ===================== 7. WHO IT'S FOR ===================== -->
-  <section class="light" aria-labelledby="fit-title">
+  <!-- ============ 5. WHO IT'S FOR ============ -->
+  <section aria-labelledby="fit-title">
     <div class="wrap">
-      <span class="eyebrow">Is this for you?</span>
-      <h2 class="h2" id="fit-title">Not for everyone.</h2>
+      <span class="label">Is this for you?</span>
+      <h2 id="fit-title">Built for one type of athlete.</h2>
       <!-- [CHECK] Edit to match who you want applying. -->
       <div class="fit">
-        <div class="fitcol yes">
+        <div class="card">
           <h3>This is for you if</h3>
-          <ul>
-            <li><i aria-hidden="true">✓</i>You do CrossFit 3+ times a week</li>
-            <li><i aria-hidden="true">✓</i>Your squat clean has stalled</li>
-            <li><i aria-hidden="true">✓</i>You'll film your lifts</li>
-            <li><i aria-hidden="true">✓</i>You want a coach, not a PDF</li>
+          <ul class="ticks">
+            <li>You do CrossFit 3+ times a week</li>
+            <li>Your squat clean has stalled</li>
+            <li>You'll film your lifts</li>
+            <li>You want a coach, not a PDF</li>
           </ul>
         </div>
-        <div class="fitcol no">
+        <div class="card">
           <h3>It's not for you if</h3>
-          <ul>
-            <li><i aria-hidden="true">✕</i>You're brand new to barbells</li>
-            <li><i aria-hidden="true">✕</i>You won't send videos</li>
-            <li><i aria-hidden="true">✕</i>You want a cheap template</li>
+          <ul class="ticks no">
+            <li>You're brand new to barbells</li>
+            <li>You won't send videos</li>
+            <li>You want a cheap template</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 8. OFFER STACK ===================== -->
-  <section class="soft" aria-labelledby="offer-title">
+  <!-- ============ 6. OFFER ============ -->
+  <section class="alt" aria-labelledby="offer-title">
     <div class="wrap narrow">
       <div class="center">
-        <span class="eyebrow">Everything you get</span>
-        <h2 class="h2" id="offer-title">Your coaching.</h2>
+        <span class="label">Everything you get</span>
+        <h2 id="offer-title">Your coaching.</h2>
       </div>
 
-      <div class="stack">
-        <div class="srow">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
-          <div><h3>Personalised lifting programme</h3><p>Built for your lifts, gym and schedule.</p></div>
-          <span class="v">£60</span>
-        </div>
-        <div class="srow">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></span>
-          <div><h3>Weekly video breakdowns</h3><p>Back within 24 hours.</p></div>
-          <span class="v">£240</span>
-        </div>
-        <div class="srow">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span>
-          <div><h3>Monthly 1-2-1 call</h3><p>Review progress. Set the next block.</p></div>
-          <span class="v">£60</span>
-        </div>
-        <div class="srow">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/></svg></span>
-          <div><h3>Messaging access</h3><p>Questions answered between sessions.</p></div>
-          <span class="v">£40</span>
-        </div>
-        <div class="srow bonus">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2"/><path d="M12 7v6M8 21l4-8 4 8M6 10h12"/></svg></span>
-          <div><h3><span class="tag">Bonus</span>Mobility routine</h3><p>Front rack and catch position.</p></div>
-          <span class="v">£20</span>
-        </div>
-        <div class="srow bonus">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
-          <div><h3><span class="tag">Bonus</span>Heavy-day warm-up</h3><p>Primed for max attempts.</p></div>
-          <span class="v">£20</span>
-        </div>
-        <div class="srow bonus">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 5v14M18 5v14M3 9v6M21 9v6M6 12h12"/></svg></span>
-          <div><h3><span class="tag">Bonus</span>Lats &amp; Core Transfer Block</h3><p>Bar close. Tight in the catch.</p></div>
-          <span class="v">£30</span>
-        </div>
-
+      <div class="card offer">
+        <div class="item"><div><h3>Personalised lifting programme</h3><p>Built for your lifts, gym and schedule.</p></div><span class="v">£60</span></div>
+        <div class="item"><div><h3>Weekly video breakdowns</h3><p>Back within 24 hours.</p></div><span class="v">£240</span></div>
+        <div class="item"><div><h3>Monthly 1-2-1 call</h3><p>Review progress. Set the next block.</p></div><span class="v">£60</span></div>
+        <div class="item"><div><h3>Messaging access</h3><p>Questions answered between sessions.</p></div><span class="v">£40</span></div>
+        <div class="item"><div><h3><span class="tag">Bonus</span>Mobility routine</h3><p>Front rack and catch position.</p></div><span class="v">£20</span></div>
+        <div class="item"><div><h3><span class="tag">Bonus</span>Heavy-day warm-up</h3><p>Primed for max attempts.</p></div><span class="v">£20</span></div>
+        <div class="item"><div><h3><span class="tag">Bonus</span>Lats &amp; Core Transfer Block</h3><p>Bar close. Tight in the catch.</p></div><span class="v">£30</span></div>
         <div class="price">
           <div>
             <p class="was">Total value <s><span class="sr">was </span>£470</s></p>
-            <p class="now">£199<small>/month</small></p>
-            <p class="terms">1-2-1 · Fully online · About £6.60 a day</p>
+            <p class="now">£199<small> /month</small></p>
           </div>
           <div class="cta">
             <a class="btn" href="https://YOUR-GHL-FORM-URL">Apply for coaching
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <span class="spots">[SPOTS] spots left for [MONTH]</span>
+            <p class="note">[SPOTS] spots left for [MONTH]</p>
           </div>
         </div>
       </div>
+
+      <!-- [REVIEW — PRICE] One short quote that answers "is it worth it?" -->
+      <figure class="card quote">
+        <span class="av" aria-hidden="true">AB</span>
+        <div><blockquote><p>"[Short quote on value, e.g. Best money I've spent on my training.]"</p></blockquote><cite>[Name] · [+8kg]</cite></div>
+      </figure>
     </div>
   </section>
 
-  <!-- ===================== 9. REVIEWS WALL ===================== -->
-  <section class="light" aria-labelledby="reviews-title">
+  <!-- ============ 7. REVIEWS — 6 written ============ -->
+  <section aria-labelledby="reviews-title">
     <div class="wrap">
-      <span class="eyebrow">What athletes say</span>
-      <h2 class="h2" id="reviews-title">Don't take my word for it.</h2>
+      <span class="label">What athletes say</span>
+      <h2 id="reviews-title">Don't take my word for it.</h2>
 
-      <div class="rail">
-        <!-- [REVIEW 1] Headline = the result in their words. Quote: 2–3 lines max. Copy a card to add more.
-             Photo: replace the initials with <img src="https://YOUR-FACE.webp" alt="" width="76" height="76" loading="lazy"> -->
-        <figure class="review">
-          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
-          <h3>"[Headline result, e.g. Finally caught 80kg in a full squat]"</h3>
-          <blockquote><p>"[Two or three lines. What changed, how fast, how it felt.]"</p></blockquote>
-          <figcaption><span class="av" aria-hidden="true">AB</span><span><b>[Name]</b><span>[Gym name] · [+8kg]</span></span></figcaption>
-        </figure>
-        <!-- [REVIEW 2] -->
-        <figure class="review">
-          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
-          <h3>"[Headline result]"</h3>
-          <blockquote><p>"[Two or three lines. What changed, how fast, how it felt.]"</p></blockquote>
-          <figcaption><span class="av" aria-hidden="true">CD</span><span><b>[Name]</b><span>[Gym name] · [+10kg]</span></span></figcaption>
-        </figure>
-        <!-- [REVIEW 3] -->
-        <figure class="review">
-          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
-          <h3>"[Headline result]"</h3>
-          <blockquote><p>"[Two or three lines. What changed, how fast, how it felt.]"</p></blockquote>
-          <figcaption><span class="av" aria-hidden="true">EF</span><span><b>[Name]</b><span>[Gym name] · [+5kg]</span></span></figcaption>
-        </figure>
+      <!-- [REVIEW 1–6] Lead with the result in their words. 2 lines max. Real name, gym, kg.
+           Photo: replace initials with <img src="https://YOUR-FACE.webp" alt="" width="80" height="80" loading="lazy"> -->
+      <div class="row">
+        <figure class="card review"><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><h3>"[Result headline]"</h3><blockquote><p>"[Two lines: what changed and how fast.]"</p></blockquote><figcaption class="who"><span class="av" aria-hidden="true">AB</span><div><b>[Name]</b><span>[Gym] · [+8kg]</span></div></figcaption></figure>
+        <figure class="card review"><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><h3>"[Result headline]"</h3><blockquote><p>"[Two lines: what changed and how fast.]"</p></blockquote><figcaption class="who"><span class="av" aria-hidden="true">CD</span><div><b>[Name]</b><span>[Gym] · [+10kg]</span></div></figcaption></figure>
+        <figure class="card review"><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><h3>"[Result headline]"</h3><blockquote><p>"[Two lines: what changed and how fast.]"</p></blockquote><figcaption class="who"><span class="av" aria-hidden="true">EF</span><div><b>[Name]</b><span>[Gym] · [+5kg]</span></div></figcaption></figure>
+        <figure class="card review"><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><h3>"[Result headline]"</h3><blockquote><p>"[Two lines: what changed and how fast.]"</p></blockquote><figcaption class="who"><span class="av" aria-hidden="true">GH</span><div><b>[Name]</b><span>[Gym] · [+7.5kg]</span></div></figcaption></figure>
+        <figure class="card review"><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><h3>"[Result headline]"</h3><blockquote><p>"[Two lines: what changed and how fast.]"</p></blockquote><figcaption class="who"><span class="av" aria-hidden="true">IJ</span><div><b>[Name]</b><span>[Gym] · [+6kg]</span></div></figcaption></figure>
+        <figure class="card review"><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span><h3>"[Result headline]"</h3><blockquote><p>"[Two lines: what changed and how fast.]"</p></blockquote><figcaption class="who"><span class="av" aria-hidden="true">KL</span><div><b>[Name]</b><span>[Gym] · [+12kg]</span></div></figcaption></figure>
       </div>
-      <p class="rail-hint" aria-hidden="true">Swipe for more →</p>
-
-      <!-- [REVIEW SCREENSHOTS] Message / DM screenshots convert well. Crop 9:16, WebP, under 80KB each:
-           <img src="https://YOUR-SCREENSHOT-1.webp" alt="Message from [Name]: [short summary]" width="540" height="960" loading="lazy" decoding="async">
-           Delete this block if you don't use them. -->
-      <div class="shots">
-        <div class="shot"><div class="ph">DM screenshot</div></div>
-        <div class="shot"><div class="ph">DM screenshot</div></div>
-        <div class="shot"><div class="ph">DM screenshot</div></div>
-      </div>
+      <p class="swipe" aria-hidden="true">Swipe for more →</p>
     </div>
   </section>
 
-  <!-- ===================== 10. COMPARISON ===================== -->
-  <section class="glow" aria-labelledby="compare-title">
-    <div class="wrap narrow">
-      <span class="eyebrow">Why this works</span>
-      <h2 class="h2" id="compare-title">Not another programme.</h2>
-      <table class="compare">
-        <thead><tr><td></td><th scope="col">Class only</th><th scope="col">Online template</th><th scope="col" class="us">Beyond Scaled</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Built for your clean</th><td class="n">✕<span class="sr">No</span></td><td class="n">✕<span class="sr">No</span></td><td class="us y">✓<span class="sr">Yes</span></td></tr>
-          <tr><th scope="row">Every lift reviewed</th><td class="n">✕<span class="sr">No</span></td><td class="n">✕<span class="sr">No</span></td><td class="us y">✓<span class="sr">Yes</span></td></tr>
-          <tr><th scope="row">Feedback in 24h</th><td class="n">✕<span class="sr">No</span></td><td class="n">✕<span class="sr">No</span></td><td class="us y">✓<span class="sr">Yes</span></td></tr>
-          <tr><th scope="row">Fits around classes</th><td class="y">✓<span class="sr">Yes</span></td><td class="n">✕<span class="sr">No</span></td><td class="us y">✓<span class="sr">Yes</span></td></tr>
-          <tr><th scope="row">PB guarantee</th><td class="n">✕<span class="sr">No</span></td><td class="n">✕<span class="sr">No</span></td><td class="us y">✓<span class="sr">Yes</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ===================== 11. ABOUT JOSH ===================== -->
-  <section class="light" aria-labelledby="about-title">
-    <div class="wrap about-grid">
+  <!-- ============ 8. ABOUT JOSH ============ -->
+  <section class="alt" aria-labelledby="about-title">
+    <div class="wrap about">
       <div class="photo">
-        <!-- [ABOUT PHOTO] A coaching shot beats a posed headshot.
-             <img src="https://YOUR-JOSH-PHOTO.webp" alt="Josh Reilly coaching an athlete through a squat clean" width="800" height="1000" loading="lazy" decoding="async">
-             WebP, ~800×1000px, under 120KB. -->
+        <!-- [PHOTO] You coaching a clean, 4:5 portrait, WebP under 150KB:
+             <img src="https://YOUR-PHOTO.webp" alt="Josh Reilly coaching an athlete through a squat clean" width="800" height="1000" loading="lazy" decoding="async"> -->
         <div class="ph" role="img" aria-label="Photo of Josh Reilly">Photo of Josh coaching</div>
       </div>
       <div>
-        <span class="eyebrow">Your coach</span>
-        <h2 class="h2" id="about-title">Josh Reilly</h2>
-        <p class="lead muted">CrossFit strength and skills specialist. I fix cleans that have stopped moving.</p>
-        <!-- [CHECK] Add real credentials. Delete any you can't back up. -->
-        <ul class="creds">
+        <span class="label">Your coach</span>
+        <h2 id="about-title">Josh Reilly</h2>
+        <p class="sub">CrossFit strength and skills specialist. I fix cleans that have stopped moving.</p>
+        <!-- [CHECK] Real credentials only. -->
+        <ul class="ticks" style="margin-top:24px">
           <li>10 years coaching</li>
-          <li>CrossFit strength &amp; skills specialist</li>
           <li>[Qualification, e.g. Olympic weightlifting coach]</li>
           <li>[ATHLETES]+ athletes coached</li>
         </ul>
@@ -683,111 +471,64 @@
     </div>
   </section>
 
-  <!-- ===================== 12. GUARANTEE ===================== -->
-  <section class="glow" aria-labelledby="guarantee-title">
+  <!-- ============ 9. GUARANTEE ============ -->
+  <section aria-labelledby="guarantee-title">
     <div class="wrap narrow">
-      <div class="gbox">
-        <div class="seal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
-        <span class="eyebrow">The PB guarantee</span>
-        <h2 class="h2" id="guarantee-title">No PB in 8 weeks? I keep coaching you <span class="accent">free</span> until you hit one.</h2>
-        <div class="terms">
-          <p>To qualify:</p>
-          <ul>
-            <li>Log 3 sessions a week</li>
-            <li>Send a video weekly</li>
-            <li>Attend the monthly call</li>
-          </ul>
-        </div>
+      <div class="card guarantee">
+        <span class="label">The PB guarantee</span>
+        <h2 id="guarantee-title">No PB in 8 weeks? I keep coaching you free until you hit one.</h2>
+        <p class="conditions">To qualify: log 3 sessions a week, send a video weekly, attend the monthly call.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 13. HOW TO START ===================== -->
-  <section class="soft" aria-labelledby="start-title">
-    <div class="wrap">
-      <span class="eyebrow">How to start</span>
-      <h2 class="h2" id="start-title">Three steps.</h2>
-      <!-- [CHECK] Match to your real sales process. -->
-      <ol class="start">
-        <li><div><h3>Apply</h3><p>2-minute form. No payment.</p></div></li>
-        <li><div><h3>Quick call</h3><p>15 minutes. We check it's a fit.</p></div></li>
-        <li><div><h3>Start lifting</h3><p>Your programme within 48 hours.</p></div></li>
-      </ol>
-      <div class="cta">
-        <a class="btn" href="https://YOUR-GHL-FORM-URL">Apply for coaching
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 14. FAQ ===================== -->
-  <section class="light" aria-labelledby="faq-title">
+  <!-- ============ 10. FAQ ============ -->
+  <section class="alt" aria-labelledby="faq-title">
     <div class="wrap narrow">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="h2" id="faq-title">Questions.</h2>
+      <span class="label">FAQ</span>
+      <h2 id="faq-title">Questions.</h2>
       <div class="faq">
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-1-q">Do I need to leave my gym?<span class="pm" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1v12M1 7h12"/></svg></span></button>
-          <div class="faq-a" id="faq-1" role="region" aria-labelledby="faq-1-q"><div><p>No. Keep your classes. Your sessions fit around them.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-2-q">How long are sessions?<span class="pm" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1v12M1 7h12"/></svg></span></button>
-          <div class="faq-a" id="faq-2" role="region" aria-labelledby="faq-2-q"><div><p>30 minutes, 3 times a week. 90 minutes in total.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-3-q">What level do I need to be?<span class="pm" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1v12M1 7h12"/></svg></span></button>
-          <!-- [CHECK] -->
-          <div class="faq-a" id="faq-3" role="region" aria-labelledby="faq-3-q"><div><p>You can already clean. If you're power-catching or missing heavy squat cleans, you're ready.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-4-q">What equipment do I need?<span class="pm" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1v12M1 7h12"/></svg></span></button>
-          <div class="faq-a" id="faq-4" role="region" aria-labelledby="faq-4-q"><div><p>A barbell, plates, a rack and your phone to film. Your box has it all.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-5-q">What if I'm injured?<span class="pm" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1v12M1 7h12"/></svg></span></button>
-          <!-- [CHECK] -->
-          <div class="faq-a" id="faq-5" role="region" aria-labelledby="faq-5-q"><div><p>Tell me in your application. I'll programme around it. If you need a physio first, I'll tell you.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-6-q">What happens after I apply?<span class="pm" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1v12M1 7h12"/></svg></span></button>
-          <!-- [CHECK] -->
-          <div class="faq-a" id="faq-6" role="region" aria-labelledby="faq-6-q"><div><p>I read every application myself. If it's a fit, we book a quick call. If not, I'll tell you straight.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-7" id="faq-7-q">Can I cancel?<span class="pm" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1v12M1 7h12"/></svg></span></button>
-          <!-- [CHECK] Must match your billing terms. -->
-          <div class="faq-a" id="faq-7" role="region" aria-labelledby="faq-7-q"><div><p>Yes. Monthly, no contract. The guarantee needs the full 8 weeks.</p></div></div>
-        </div>
+        <div><button type="button" aria-expanded="false" aria-controls="f1" id="f1q">Do I need to leave my gym?</button><div class="a" id="f1" role="region" aria-labelledby="f1q"><div><p>No. Keep your classes. Your sessions fit around them.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f2" id="f2q">How long are sessions?</button><div class="a" id="f2" role="region" aria-labelledby="f2q"><div><p>30 minutes, 3 times a week. 90 minutes in total.</p></div></div></div>
+        <!-- [CHECK] -->
+        <div><button type="button" aria-expanded="false" aria-controls="f3" id="f3q">What level do I need to be?</button><div class="a" id="f3" role="region" aria-labelledby="f3q"><div><p>You can already clean. If you're power-catching or missing heavy squat cleans, you're ready.</p></div></div></div>
+        <!-- [CHECK] -->
+        <div><button type="button" aria-expanded="false" aria-controls="f4" id="f4q">What if I'm injured?</button><div class="a" id="f4" role="region" aria-labelledby="f4q"><div><p>Tell me in your application. I'll programme around it. If you need a physio first, I'll tell you.</p></div></div></div>
+        <!-- [CHECK] -->
+        <div><button type="button" aria-expanded="false" aria-controls="f5" id="f5q">What happens after I apply?</button><div class="a" id="f5" role="region" aria-labelledby="f5q"><div><p>I read every application myself. If it's a fit, we book a 15-minute call. If not, I'll tell you straight.</p></div></div></div>
+        <!-- [CHECK] Must match your billing terms. -->
+        <div><button type="button" aria-expanded="false" aria-controls="f6" id="f6q">Can I cancel?</button><div class="a" id="f6" role="region" aria-labelledby="f6q"><div><p>Yes. Monthly, no contract. The guarantee needs the full 8 weeks.</p></div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 15. FINAL CTA ===================== -->
+  <!-- ============ 11. FINAL CTA ============ -->
   <section class="final center" aria-labelledby="final-title">
     <div class="wrap">
-      <span class="eyebrow">[SPOTS] spots for [MONTH]</span>
-      <h2 class="h2" id="final-title">8 weeks from now.<br><span class="accent">New PB.</span></h2>
+      <h2 id="final-title">8 weeks from now.<br><span class="blue">New PB.</span></h2>
+      <!-- [CHECK] Match to your real process. -->
+      <p class="howto"><span><b>1.</b> Apply (2 min)</span><span><b>2.</b> Quick call</span><span><b>3.</b> Start lifting</span></p>
       <div class="cta">
         <a class="btn" href="https://YOUR-GHL-FORM-URL" data-watch>Apply for coaching
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <p class="micro"><span>£199/month</span><span>PB guarantee</span><span>Cancel any time</span></p>
+        <p class="note">£199/month · PB guarantee · Cancel any time</p>
       </div>
       <p class="ps"><b>P.S.</b> Spots are capped because I review every lift myself. When they're gone, the next intake is [NEXT MONTH].</p>
     </div>
   </section>
   </main>
 
-  <footer class="foot">
+  <footer>
     <div class="wrap">
       <span>© <span id="bs-year">2026</span> Beyond Scaled by Josh Reilly</span>
-      <!-- [LEGAL] Link your privacy policy and terms. -->
+      <!-- [CHECK] Link your privacy policy and terms. -->
       <nav aria-label="Legal"><a href="https://YOUR-PRIVACY-URL">Privacy</a><a href="https://YOUR-TERMS-URL">Terms</a></nav>
     </div>
   </footer>
 
-  <!-- Sticky Apply bar (mobile only; hides while the hero or final Apply button is on screen) -->
-  <div class="sticky is-hidden" id="bs-sticky" aria-hidden="true">
-    <p class="s-price"><b>£199</b>/month</p>
+  <!-- Sticky mobile button — hides while the top or bottom Apply button is on screen -->
+  <div class="sticky hide" id="bs-sticky" aria-hidden="true">
+    <p><b>£199</b>/month</p>
     <a class="btn" href="https://YOUR-GHL-FORM-URL" tabindex="-1">Apply for coaching</a>
   </div>
 </div>
@@ -796,8 +537,8 @@
 (function(){
   var root=document.getElementById('bs'); if(!root) return;
 
-  // Sales video: the player loads only on click. With no link set, the play button hides.
-  root.querySelectorAll('.vsl').forEach(function(v){
+  // Video: player loads only when pressed. No link set = play button hidden.
+  root.querySelectorAll('.video').forEach(function(v){
     var src=(v.getAttribute('data-embed')||'').trim();
     if(!src){ var p=v.querySelector('.play'); if(p) p.style.display='none'; v.removeAttribute('aria-label'); return; }
     v.setAttribute('role','button'); v.tabIndex=0;
@@ -805,16 +546,15 @@
       var el;
       if(/\.mp4(\?|$)/i.test(src)){ el=document.createElement('video'); el.src=src; el.controls=true; el.autoplay=true; el.playsInline=true; }
       else { el=document.createElement('iframe'); el.src=src+(src.indexOf('?')>-1?'&':'?')+'autoplay=1'; el.allow='autoplay; fullscreen; picture-in-picture'; el.allowFullscreen=true; el.title='Sales video'; }
-      v.innerHTML=''; v.appendChild(el); v.removeAttribute('role'); v.removeAttribute('tabindex'); v.removeAttribute('aria-label');
+      v.innerHTML=''; v.appendChild(el); ['role','tabindex','aria-label'].forEach(function(a){v.removeAttribute(a);});
       v.removeEventListener('click',play); v.removeEventListener('keydown',key);
-      if(el.focus) el.focus();
     }
     function key(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); } }
     v.addEventListener('click',play); v.addEventListener('keydown',key);
   });
 
-  // FAQ accordion — one open at a time
-  var qs=root.querySelectorAll('.faq-q');
+  // FAQ — one open at a time
+  var qs=root.querySelectorAll('.faq button');
   qs.forEach(function(q){
     q.addEventListener('click',function(){
       var open=q.getAttribute('aria-expanded')==='true';
@@ -823,16 +563,13 @@
     });
   });
 
-  // Sticky bar: hidden while the hero or final Apply button is on screen
+  // Sticky button
   var bar=document.getElementById('bs-sticky'), link=bar.querySelector('a');
+  function set(hide){ bar.classList.toggle('hide',hide); link.tabIndex=hide?-1:0; bar.setAttribute('aria-hidden',hide?'true':'false'); }
   var watched=root.querySelectorAll('[data-watch]');
-  function set(hide){ bar.classList.toggle('is-hidden',hide); link.tabIndex=hide?-1:0; bar.setAttribute('aria-hidden',hide?'true':'false'); }
-  if('IntersectionObserver' in window && watched.length){
-    var visible=new Set();
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ e.isIntersecting?visible.add(e.target):visible.delete(e.target); });
-      set(visible.size>0);
-    });
+  if('IntersectionObserver' in window){
+    var seen=new Set();
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?seen.add(e.target):seen.delete(e.target); }); set(seen.size>0); });
     watched.forEach(function(el){io.observe(el);});
   } else { set(false); }
 
