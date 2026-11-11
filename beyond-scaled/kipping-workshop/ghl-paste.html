@@ -615,7 +615,8 @@ html.bs-lock{overflow:hidden}
 <script>
 (function(){
   /* ============================ CONFIG ============================
-     startDate     The Sunday it starts, YYYY-MM-DD. Fills every date on the page and the GHL tag.  [CHECK]
+     startDate     'auto' = always the coming Sunday (UK time). Fills every date on the page and the GHL tag.
+                   To pin one intake instead, put a Sunday as 'YYYY-MM-DD'.
      webhookUrl    GHL inbound webhook (Automation → Workflow → trigger "Inbound Webhook").
                    Map first_name, email, phone; add the tag from the "tags" field.
      thankYouUrl   Your thank-you page.
@@ -624,7 +625,7 @@ html.bs-lock{overflow:hidden}
      showEmptySlots  true = show unfilled [TESTIMONIAL] cards (preview only). Keep false live.
      ================================================================ */
   var CONFIG = {
-    startDate:   '2026-11-15',
+    startDate:   'auto',
     webhookUrl:  'https://YOUR-GHL-INBOUND-WEBHOOK-URL',
     thankYouUrl: 'https://YOUR-THANK-YOU-PAGE-URL',
     pixelId:     '[PIXEL ID]',
@@ -635,9 +636,18 @@ html.bs-lock{overflow:hidden}
   var isSet=function(v){ return v && v.indexOf('YOUR-')<0 && v.indexOf('[')<0; };
 
   // Dates — one start date fills every [DATE] on the page
-  var start=/^\d{4}-\d{2}-\d{2}$/.test(CONFIG.startDate)?new Date(CONFIG.startDate+'T12:00:00Z'):null;
-  var tag='kpu-workshop-'+(start?CONFIG.startDate:'STARTDATE');
-  if(start){
+  // Start date: the coming Sunday (UK time). Before 7am on a Sunday, that same Sunday still counts.
+  function comingSunday(){
+    var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',year:'numeric',month:'numeric',day:'numeric',hour:'numeric',hourCycle:'h23'})
+      .formatToParts(new Date()).forEach(function(x){ p[x.type]=x.value; });
+    var d=new Date(Date.UTC(+p.year,+p.month-1,+p.day,12)), add=(7-d.getUTCDay())%7;
+    if(add===0 && +p.hour>=7) add=7;
+    d.setUTCDate(d.getUTCDate()+add); return d.toISOString().slice(0,10);
+  }
+  var startDate=/^\d{4}-\d{2}-\d{2}$/.test(CONFIG.startDate)?CONFIG.startDate:comingSunday();
+  var start=new Date(startDate+'T12:00:00Z');
+  var tag='kpu-workshop-'+startDate;
+  {
     var fmt=function(d){ return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'}); };
     var call=new Date(start.getTime()+4*864e5);
     root.querySelectorAll('[data-date]').forEach(function(el){ el.textContent=fmt(el.getAttribute('data-date')==='call'?call:start); });
@@ -711,7 +721,7 @@ html.bs-lock{overflow:hidden}
 
     if(window.fbq) fbq('track','Lead');
 
-    var next=new URLSearchParams(tracking); next.set('name',f.first_name.value.trim());
+    var next=new URLSearchParams(tracking); next.set('name',f.first_name.value.trim()); next.set('start',startDate);
     function go(){ location.href=CONFIG.thankYouUrl+(CONFIG.thankYouUrl.indexOf('?')>-1?'&':'?')+next.toString(); }
 
     if(isSet(CONFIG.webhookUrl)){

@@ -132,13 +132,13 @@
 <script>
 (function(){
   /* ============================ CONFIG ============================
-     startDate   Same Sunday as the landing page, YYYY-MM-DD.  [CHECK]
+     startDate   'auto' = the coming Sunday (or the date passed from the sign-up page). Or pin 'YYYY-MM-DD'.
      circleUrl   Circle invite link.
      callUrl     Where the live call happens (Zoom / Circle event link). Goes in the calendar invite.
      callMinutes Length of the live call.  [CHECK]
      ================================================================ */
   var CONFIG = {
-    startDate:   '2026-11-15',
+    startDate:   'auto',
     circleUrl:   '[CIRCLE INVITE LINK]',
     callUrl:     '[CALL LINK — or "Link in the Circle group"]',
     callMinutes: 60
@@ -153,8 +153,17 @@
   document.getElementById('bs-circle').href=CONFIG.circleUrl;
   var y=document.getElementById('bs-year'); if(y) y.textContent=new Date().getFullYear();
 
-  if(!/^\d{4}-\d{2}-\d{2}$/.test(CONFIG.startDate)) return;
-  var start=new Date(CONFIG.startDate+'T12:00:00Z'), call=new Date(start.getTime()+4*864e5);
+  // Start date: the coming Sunday (UK time). Before 7am on a Sunday, that same Sunday still counts.
+  function comingSunday(){
+    var p={}; new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',year:'numeric',month:'numeric',day:'numeric',hour:'numeric',hourCycle:'h23'})
+      .formatToParts(new Date()).forEach(function(x){ p[x.type]=x.value; });
+    var d=new Date(Date.UTC(+p.year,+p.month-1,+p.day,12)), add=(7-d.getUTCDay())%7;
+    if(add===0 && +p.hour>=7) add=7;
+    d.setUTCDate(d.getUTCDate()+add); return d.toISOString().slice(0,10);
+  }
+  var iso=/^\d{4}-\d{2}-\d{2}$/;
+  var startDate=iso.test(q.get('start')||'')?q.get('start'):(iso.test(CONFIG.startDate)?CONFIG.startDate:comingSunday());
+  var start=new Date(startDate+'T12:00:00Z'), call=new Date(start.getTime()+4*864e5);
   var fmt=function(d){ return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'}); };
   root.querySelectorAll('[data-date]').forEach(function(el){ el.textContent=fmt(el.getAttribute('data-date')==='call'?call:start); });
 
@@ -179,7 +188,7 @@
   document.getElementById('bs-ics').addEventListener('click',function(){
     var esc=function(t){ return t.replace(/([,;\\])/g,'\\$1'); };
     var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Beyond Scaled//Workshop//EN','BEGIN:VEVENT',
-      'UID:kpu-'+CONFIG.startDate+'@beyondscaled','DTSTAMP:'+stamp(new Date()),'DTSTART:'+stamp(s),'DTEND:'+stamp(e),
+      'UID:kpu-'+startDate+'@beyondscaled','DTSTAMP:'+stamp(new Date()),'DTSTART:'+stamp(s),'DTEND:'+stamp(e),
       'SUMMARY:'+esc(title),'DESCRIPTION:'+esc(details),'LOCATION:'+esc(CONFIG.callUrl),
       'BEGIN:VALARM','TRIGGER:-PT30M','ACTION:DISPLAY','DESCRIPTION:'+esc(title),'END:VALARM',
       'END:VEVENT','END:VCALENDAR'].join('\r\n');

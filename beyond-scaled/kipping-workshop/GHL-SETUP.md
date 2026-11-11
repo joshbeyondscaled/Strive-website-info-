@@ -46,7 +46,7 @@ In each pasted element, scroll to the bottom and find the `CONFIG` block.
 **Landing page (`ghl-paste.html`):**
 | Setting | What to put |
 |---|---|
-| `startDate` | The Sunday it starts, e.g. `'2026-11-15'` |
+| `startDate` | Leave as `'auto'`. It always shows the coming Sunday (UK time). After 7am on a Sunday it moves on to the next week. |
 | `webhookUrl` | From Part 2, step A2. Leave it until then. |
 | `thankYouUrl` | Your Step 2 URL, e.g. `'https://yourdomain.com/kipping-workshop-thanks'` |
 | `pixelId` | Your Meta Pixel ID (numbers only). **Leave as-is** if the pixel is already in GoHighLevel's site-wide tracking code, or page views will count twice. |
@@ -54,7 +54,7 @@ In each pasted element, scroll to the bottom and find the `CONFIG` block.
 **Thank-you page (`thank-you-ghl-paste.html`):**
 | Setting | What to put |
 |---|---|
-| `startDate` | Same Sunday as above |
+| `startDate` | Leave as `'auto'`. It picks up the date from the sign-up page. |
 | `circleUrl` | Circle invite link |
 | `callUrl` | Live call link (Zoom/Circle event), or `'Link in the Circle group'` |
 
@@ -100,7 +100,7 @@ Because Workflow B starts from the tag, you can also add someone by hand (just t
 
 **A4. Action: Add Tag.** Add **two** tags:
 - `kpu-workshop` ← this is the one that starts Workflow B
-- `kpu-workshop-2026-11-15` ← one per intake, so you can see who joined which week. Change it each intake.
+- `{{inboundWebhookRequest.tags}}` ← the page sends `kpu-workshop-YYYY-MM-DD` with that week's Sunday, so each intake gets its own tag automatically. Nothing to change each week.
 
 **A5.** Save and **Publish** the workflow.
 
@@ -138,9 +138,8 @@ In the workflow settings, turn **"Allow re-entry"** off, so nobody gets the sequ
 
 **How the timing works.** Each Wait holds the person until the next Saturday, Sunday and so on. Whatever day they sign up, Day 1 lands on Sunday and the call reminder lands on Thursday. You **don't** have to change dates in the workflow each intake.
 
-> **Sign-up cut-off:** anyone who signs up on Sunday *after* 7am gets held until the
-> *next* Sunday. That's fine if you run it every week. If not, close sign-ups on
-> Saturday night: switch the ads off, or change the page's date to the next intake.
+> **Sign-up cut-off:** anyone who signs up on Sunday *after* 7am joins the *next* week's
+> intake. The page already shows them next Sunday's date at that point, so the page and the emails always match.
 >
 > If your account has no "Advanced window" on the Wait step, use
 > **Wait → Specific date/time** for each step instead, and update the dates each intake.

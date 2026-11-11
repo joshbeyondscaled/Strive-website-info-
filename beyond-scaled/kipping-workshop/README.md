@@ -27,7 +27,7 @@ GHL set-up: Automation → new Workflow → trigger **Inbound Webhook** → copy
 Prefer a native GHL form? Swap the `<form>` for the GHL embed (see the comment above it).
 
 ## Before launch
-- [ ] `CONFIG.startDate` in **both** files (the Sunday, `YYYY-MM-DD`). Currently a sample: `2026-11-15`. It fills every date, the call date (+4 days), the calendar invite and the tag.
+- [x] Start date: automatic. Always the coming Sunday (UK time), call that Thursday 5pm. Pin a date with `CONFIG.startDate` if you ever need to.
 - [ ] Headline: recommended version is in. The "in 5 days" alternative is in a `[CHECK]` comment.
 - [ ] Entry bar: "[close to / have] a strict pull-up" in *Who it's for*
 - [ ] `CONFIG.circleUrl` and `CONFIG.callUrl` (thank-you page)
