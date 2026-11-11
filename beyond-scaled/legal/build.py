@@ -9,10 +9,11 @@ HERE = pathlib.Path(__file__).parent
 
 # ---- Business details: fill these in once, then rebuild ---------------------
 DETAILS = {
-    "BUSINESS": "[BUSINESS NAME, e.g. Josh Reilly trading as Beyond Scaled]",
-    "ADDRESS": "[BUSINESS ADDRESS]",
-    "EMAIL": "[CONTACT EMAIL]",
-    "ICO": "[ICO REGISTRATION NUMBER]",
+    "BUSINESS": "JRFitness Ltd (Jrfitness Limited), trading as Beyond Scaled",
+    "COMPANY_NO": "[COMPANY NUMBER]",
+    "ADDRESS": "8 Brownedge Close, Walton-le-Dale, Preston, PR5 4UJ",
+    "EMAIL": "info@joshreilly.co.uk",
+    "ICO": "ZB771249",
     "UPDATED": "11 November 2026",
     "SITE": "https://joshreilly.co.uk",
 }
@@ -29,7 +30,7 @@ SHELL = """<!DOCTYPE html>
 <!-- =====================================================================
      START GHL PASTE: {title}. Copy everything to "END GHL PASTE" into one
      GoHighLevel Custom JS/HTML element. Page path: {path}
-     Business details are in [SQUARE BRACKETS]. Fill them in before going live.
+     Business details come from DETAILS in build.py.
      ===================================================================== -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,7 +83,7 @@ html,body{{background:#05070D!important;margin:0!important}}
 {body}
   </div></main>
   <footer><div class="wrap">
-    <span>© <span id="bs-year">2026</span> Beyond Scaled</span>
+    <span>© <span id="bs-year">2026</span> JRFitness Ltd, trading as Beyond Scaled. Registered in England and Wales, company no. {company_no}. Registered office: {address}.</span>
     <nav aria-label="Legal"><a href="{site}/privacy-policy">Privacy policy</a><a href="{site}/terms">Terms</a></nav>
   </div></footer>
 </div>
@@ -105,7 +106,7 @@ def build(name, title, path):
     body = (HERE / f"{name}-body.html").read_text()
     for k, v in DETAILS.items():
         body = body.replace("{{" + k + "}}", v)
-    html = SHELL.format(title=title, path=path, body=body, site=DETAILS["SITE"], logo=logo_uri())
+    html = SHELL.format(title=title, path=path, body=body, site=DETAILS["SITE"], logo=logo_uri(), company_no=DETAILS["COMPANY_NO"], address=DETAILS["ADDRESS"])
     (HERE / f"{name}.html").write_text(html)
     blk = html[html.index("<!-- ====="):html.index("<!-- ===================== END GHL PASTE")]
     (HERE / f"{name}-ghl-paste.html").write_text(blk + "<!-- ===================== END GHL PASTE ===================== -->\n")
