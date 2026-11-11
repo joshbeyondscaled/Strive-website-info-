@@ -12,6 +12,8 @@ Built on `beyond-scaled/BRAND-KIT.md` (same CSS and components as the squat clea
 The paste files are the same as the previews, except the paste version hides unfilled testimonial
 slots and points at `https://YOUR-THANK-YOU-PAGE-URL`.
 
+**Going live:** step-by-step GoHighLevel set-up, the automation and all the email/SMS copy are in [`GHL-SETUP.md`](GHL-SETUP.md).
+
 ## How the form works
 Every "Save my free spot" button opens one sign-up form (first name, email, optional mobile, consent).
 On submit it:
