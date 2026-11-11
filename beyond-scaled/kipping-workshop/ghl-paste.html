@@ -1,0 +1,734 @@
+<!-- =====================================================================
+     START GHL PASTE — copy everything from here to "END GHL PASTE"
+     into a GoHighLevel Custom Code / Custom HTML block.
+     (Full-width section, no padding, page background #05070D.)
+
+     HOW TO EDIT
+       • Dates, form, pixel, thank-you page: the CONFIG block in the <script> at the bottom
+         (one start date fills every date on the page, the calendar and the GHL tag)
+       • Colours / font: the 7 variables in the BRAND block below
+       • Placeholders: everything in [SQUARE BRACKETS]
+       • Media: search  [CLIP]  [PHOTO]  [LOGO]  [TESTIMONIAL
+       • Copy to confirm: search  [CHECK]
+       • Don't need a section? Delete it — each one is between labelled comments.
+     ===================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+
+<style>
+/* ======================= BRAND ======================= */
+#bs{
+  --blue:#1F5BFF;        /* buttons + ticks (white text on it = 5.3:1) */
+  --blue-text:#6EA8FF;   /* blue text on dark (6.8:1+) */
+  --navy:#0B1D48;        /* top of page gradient */
+  --black:#05070D;       /* page background */
+  --card:#0C1324;        /* cards + alternate sections */
+  --muted:#A3B0C8;       /* secondary text (7.4:1+) */
+  --line:rgba(160,180,220,.14);
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+/* ===================================================== */
+
+#bs,#bs *{box-sizing:border-box}
+#bs{background:var(--black) linear-gradient(180deg,var(--navy) 0,var(--black) 900px) no-repeat;color:#fff;font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;padding-bottom:80px}
+#bs img,#bs video,#bs iframe,#bs svg{display:block;max-width:100%}
+#bs h1,#bs h2,#bs h3,#bs p,#bs ul,#bs ol,#bs dl,#bs dd,#bs figure,#bs blockquote{margin:0;padding:0}
+#bs ul,#bs ol{list-style:none}
+#bs a{color:inherit}
+#bs .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+#bs .narrow{max-width:760px}
+#bs section{padding:72px 0}
+#bs .alt{background:var(--card)}
+#bs .center{text-align:center}
+#bs .muted{color:var(--muted)}
+#bs .blue{color:var(--blue-text)}
+#bs .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Type */
+#bs h1,#bs h2{font-weight:800;letter-spacing:-.035em;line-height:1.05}
+#bs h1{font-size:clamp(2.6rem,10vw,4.75rem)}
+#bs h2{font-size:clamp(2rem,6.5vw,3rem)}
+#bs h3{font-size:1.08rem;font-weight:700;line-height:1.35}
+#bs .label{display:block;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-text);margin-bottom:14px}
+#bs .sub{font-size:1.15rem;color:var(--muted);max-width:38ch;margin-top:16px}
+#bs .center .sub{margin-left:auto;margin-right:auto}
+#bs .lead{margin-top:28px;font-size:1.1rem;font-weight:600;line-height:1.45}
+
+/* Button — a real <button>: every CTA opens the same sign-up form */
+#bs .btn{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;background:var(--blue);color:#fff;font-family:var(--font);font-weight:700;font-size:1rem;line-height:1.2;text-align:center;text-decoration:none;border-radius:10px;cursor:pointer;transition:transform .15s ease,filter .15s ease}
+#bs .btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+#bs .btn svg{width:18px;height:18px;flex:none}
+#bs .btn-sm{min-height:44px;padding:0 16px;font-size:.9rem;border-radius:8px}
+#bs .btn-full{width:100%}
+#bs .btn[disabled]{opacity:.7;cursor:wait;transform:none}
+#bs a:focus-visible,#bs button:focus-visible,#bs input:focus-visible,#bs [role=button]:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#bs .cta{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:28px}
+#bs .center .cta{align-items:center}
+#bs .note{font-size:.85rem;color:var(--muted)}
+
+/* Card — one style used everywhere */
+#bs .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+#bs .alt .card{background:var(--black)}
+#bs .card.hl{border-color:var(--blue)}
+
+/* Lists with ticks / crosses */
+#bs .ticks{display:grid;gap:12px}
+#bs .ticks li{display:flex;gap:12px;align-items:flex-start;line-height:1.45}
+#bs .ticks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;margin-top:1px}
+#bs .ticks.no li{color:var(--muted)}
+#bs .ticks.no li::before{content:"✕";background:rgba(255,255,255,.08);color:var(--muted)}
+
+/* Placeholder boxes — delete once real media is in */
+#bs .ph{position:absolute;inset:0;display:grid;place-items:center;padding:16px;text-align:center;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:#111A30}
+
+/* Header */
+#bs .top{padding:16px 0}
+#bs .top .wrap{display:flex;align-items:center;justify-content:space-between}
+#bs .logo{display:flex;align-items:center;height:36px;text-decoration:none}
+#bs .logo img{height:36px;width:auto}
+#bs .logo span{display:none;font-weight:800;font-size:1.05rem;letter-spacing:-.01em;line-height:1.1}
+#bs .logo span small{display:block;font-weight:500;font-size:.72rem;color:var(--muted);letter-spacing:0}
+#bs .logo.no-img img{display:none}
+#bs .logo.no-img span{display:block}
+#bs .top .btn{display:none}
+
+/* Hero */
+#bs .hero{padding:24px 0 64px}
+#bs .hero-grid{display:grid;gap:36px}
+#bs .clip{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+#bs .clip video,#bs .clip img{width:100%;height:100%;object-fit:cover}
+
+/* Proof strip */
+#bs .proof{padding:40px 0}
+#bs .proof figure{display:flex;gap:16px;align-items:center;justify-content:center;text-align:left}
+#bs .proof blockquote p{font-size:clamp(1.1rem,3.6vw,1.4rem);font-weight:700;line-height:1.35;letter-spacing:-.01em}
+#bs .proof cite{display:block;font-style:normal;font-size:.9rem;color:var(--muted);margin-top:6px}
+#bs .av{width:48px;height:48px;border-radius:50%;background:#1B2A4D;display:grid;place-items:center;font-weight:700;font-size:.78rem;color:#cfd8ea;flex:none;overflow:hidden}
+#bs .av img{width:100%;height:100%;object-fit:cover}
+
+/* Problem */
+#bs .problem{display:grid;gap:10px;margin-top:28px}
+#bs .problem li{padding:16px 20px;font-weight:600}
+
+/* Comparison */
+#bs .compare{display:grid;gap:14px;margin-top:32px}
+#bs .compare h3{margin-bottom:16px}
+
+/* PPP Framework */
+#bs .steps{display:grid;gap:14px;margin-top:32px;counter-reset:ppp}
+#bs .steps li{counter-increment:ppp}
+#bs .steps li::before{content:counter(ppp);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:2px solid var(--blue);color:#fff;font-weight:800;margin-bottom:16px}
+#bs .steps h3{font-size:1.3rem;margin-bottom:6px}
+#bs .steps p{color:var(--muted)}
+#bs .order{margin-top:20px;font-size:1.1rem;font-weight:600}
+
+/* Day-by-day timeline */
+#bs .days{display:grid;gap:14px;margin-top:32px}
+#bs .days li{position:relative;padding-left:42px}
+#bs .days li::before{content:"";position:absolute;left:13px;top:0;bottom:-14px;width:2px;background:var(--line)}
+#bs .days li:first-child::before{top:24px}
+#bs .days li:last-child::before{bottom:auto;height:24px}
+#bs .days .dot{position:absolute;left:0;top:20px;width:28px;height:28px;border-radius:50%;background:var(--black);border:2px solid var(--blue);display:grid;place-items:center;font-size:.78rem;font-weight:800;z-index:1}
+#bs .days li:last-child .dot{background:var(--blue)}
+#bs .wk{display:block;font-size:.8rem;font-weight:600;color:var(--blue-text)}
+#bs .days h3{font-size:1.2rem;margin:2px 0 6px}
+#bs .days p{color:var(--muted)}
+
+/* Iceberg */
+#bs .berg{margin-top:32px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+#bs .layer{display:grid;grid-template-columns:36% 1fr}
+#bs .layer svg{width:100%;height:100%;min-height:100%}
+#bs .layer .txt{padding:22px 20px 22px 6px;align-self:center}
+#bs .layer h3{margin-top:4px}
+#bs .layer p{color:var(--muted);font-size:.95rem;margin-top:6px}
+#bs .layer.up{min-height:150px}
+#bs .layer.up polygon{fill:#E8EFFD}
+#bs .layer.sea{min-height:120px;background:#0F2560;border-top:2px solid rgba(110,168,255,.55)}
+#bs .layer.sea polygon{fill:rgba(232,239,253,.55)}
+#bs .layer.down{min-height:260px;background:linear-gradient(180deg,#0F2560,#071230)}
+#bs .layer.down polygon{fill:rgba(232,239,253,.2);stroke:rgba(232,239,253,.35);stroke-width:1.5}
+#bs .layer.down h3{font-size:1.2rem}
+#bs .layer.down p{color:#C3CEE3}
+#bs .here{display:inline-block;margin-bottom:10px;padding:4px 10px;border-radius:6px;background:var(--blue);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+#bs .caption{margin-top:20px;font-size:1.1rem;font-weight:600}
+
+/* What you get */
+#bs .get{margin-top:32px}
+#bs .get .ticks{gap:16px}
+#bs .get .free{font-weight:800;font-size:1.1rem}
+
+/* Fit */
+#bs .fit{display:grid;gap:14px;margin-top:32px}
+#bs .fit h3{margin-bottom:16px}
+
+/* About */
+#bs .about{display:grid;gap:32px;align-items:center}
+#bs .photo{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#111A30}
+#bs .photo img{width:100%;height:100%;object-fit:cover}
+#bs .bio{display:grid;gap:14px;margin-top:20px;color:var(--muted)}
+#bs .bio b{color:#fff;font-weight:600}
+#bs .signoff{margin-top:20px;font-size:1.2rem;font-weight:700}
+
+/* Case study */
+#bs .case{display:grid;padding:0;overflow:hidden;margin-top:32px}
+#bs .case .photo{border-radius:0;aspect-ratio:16/10}
+#bs .case .body{padding:24px}
+#bs .case blockquote p{font-size:1.15rem;font-weight:700;line-height:1.4}
+#bs .case cite{display:block;font-style:normal;font-size:.9rem;color:var(--muted);margin-top:6px}
+#bs .story{display:grid;gap:16px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
+#bs .story dt{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-text)}
+#bs .story dd{margin-top:2px}
+#bs .story .after dd{font-size:1.2rem;font-weight:800}
+
+/* Extra testimonial slots — hidden automatically while they still say [TESTIMONIAL */
+#bs .slots{display:grid;gap:14px;margin-top:14px}
+#bs .review{display:flex;flex-direction:column;gap:10px}
+#bs .review blockquote p{color:var(--muted);font-size:.95rem}
+#bs .who{margin-top:auto;padding-top:6px;display:flex;align-items:center;gap:10px;font-size:.88rem;line-height:1.3}
+#bs .who .av{width:40px;height:40px;font-size:.72rem}
+#bs .who span{display:block;color:var(--muted)}
+#bs .slot{border-style:dashed}
+#bs .slot-hidden{display:none!important}
+
+/* FAQ */
+#bs .faq{margin-top:28px;border-top:1px solid var(--line)}
+#bs .faq > div{border-bottom:1px solid var(--line)}
+#bs .faq button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;min-height:44px;cursor:pointer;font-family:var(--font);font-weight:600;font-size:1.04rem;line-height:1.4;color:#fff}
+#bs .faq button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+#bs .faq button::after{content:"+";flex:none;font-size:1.4rem;font-weight:400;line-height:1;color:var(--blue-text);transition:transform .2s ease}
+#bs .faq button[aria-expanded="true"]::after{transform:rotate(45deg)}
+#bs .faq .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
+#bs .faq .a > div{overflow:hidden}
+#bs .faq .a p{padding:0 32px 20px 0;color:var(--muted)}
+#bs .faq button[aria-expanded="true"] + .a{grid-template-rows:1fr}
+
+/* Final */
+#bs .final{padding:88px 0;background:linear-gradient(180deg,var(--black),var(--navy))}
+#bs footer{padding:24px 0;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);background:var(--navy)}
+#bs footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+#bs footer nav{display:flex;gap:18px}
+
+/* Sticky mobile button */
+#bs .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(5,7,13,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;transition:transform .25s ease}
+#bs .sticky.hide{transform:translateY(110%)}
+#bs .sticky p{flex:none;font-size:.78rem;line-height:1.2;color:var(--muted)}
+#bs .sticky p b{display:block;font-size:1.05rem;color:#fff}
+#bs .sticky .btn{flex:1;min-height:50px}
+
+/* Sign-up form (modal) */
+#bs .modal{width:calc(100% - 24px);max-width:480px;max-height:calc(100dvh - 24px);margin:auto;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--card);color:#fff;overflow:auto}
+#bs .modal::backdrop{background:rgba(5,7,13,.8);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+#bs .modal-in{position:relative;padding:28px 22px 24px}
+#bs .modal h2{font-size:clamp(1.7rem,6vw,2.1rem);padding-right:40px}
+#bs .modal .sub{font-size:1rem;margin-top:10px}
+#bs .x{all:unset;position:absolute;right:10px;top:10px;width:44px;height:44px;display:grid;place-items:center;border-radius:8px;cursor:pointer;color:var(--muted);font-size:1.6rem;line-height:1}
+#bs .x:hover{color:#fff}
+#bs .field{display:grid;gap:6px;margin-top:18px}
+#bs .field label{font-size:.9rem;font-weight:600}
+#bs .field label span{font-weight:400;color:var(--muted)}
+#bs .field input{width:100%;min-height:52px;padding:0 14px;border-radius:10px;border:1px solid rgba(160,180,220,.3);background:var(--black);color:#fff;font:inherit;font-size:16px}
+#bs .field input:focus{border-color:var(--blue-text);outline:none}
+#bs .field input:focus-visible{outline:3px solid #fff;outline-offset:2px}
+#bs .field .hint{font-size:.8rem;color:var(--muted)}
+#bs .consent{display:flex;gap:12px;align-items:flex-start;margin-top:20px;font-size:.9rem;line-height:1.45;cursor:pointer}
+#bs .consent input{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:var(--blue)}
+#bs .form-error{margin-top:14px;font-size:.9rem;color:#FFB4B4}
+#bs .form-error:empty{display:none}
+#bs .modal .btn{margin-top:22px}
+#bs .modal .note{margin-top:10px;text-align:center}
+html.bs-lock{overflow:hidden}
+
+@media (min-width:640px){
+  #bs .compare,#bs .fit{grid-template-columns:1fr 1fr}
+  #bs .slots{grid-template-columns:repeat(3,1fr)}
+  #bs .layer{grid-template-columns:40% 1fr}
+  #bs .layer .txt{padding:28px 32px 28px 12px}
+  #bs .modal-in{padding:36px 36px 30px}
+}
+@media (min-width:900px){
+  #bs{font-size:18px;padding-bottom:0}
+  #bs .wrap{padding:0 40px}
+  #bs section{padding:104px 0}
+  #bs .proof{padding:48px 0}
+  #bs .top .btn{display:inline-flex}
+  #bs .hero{padding:48px 0 96px}
+  #bs .hero-grid{grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
+  #bs .clip{aspect-ratio:4/5}
+  #bs .sticky{display:none}
+  #bs .steps{grid-template-columns:repeat(3,1fr)}
+  #bs .about{grid-template-columns:1fr 1.2fr;gap:72px}
+  #bs .case{grid-template-columns:.8fr 1.2fr}
+  #bs .case .photo{aspect-ratio:auto;height:100%;min-height:360px}
+  #bs .case .body{padding:36px}
+}
+@media (prefers-reduced-motion:reduce){
+  #bs *{transition:none!important}
+}
+</style>
+
+<div id="bs">
+
+  <!-- ===== HEADER — no menu on purpose: one page, one action ===== -->
+  <header class="top">
+    <div class="wrap">
+      <!-- [LOGO] Replace ./logo.png with your hosted logo (white version). Text shows if the image is missing. -->
+      <a class="logo" href="#top" aria-label="Beyond Scaled by Josh Reilly">
+        <img src="./logo.png" alt="Beyond Scaled by Josh Reilly" width="144" height="36" onerror="this.parentNode.classList.add('no-img')">
+        <span aria-hidden="true">Beyond Scaled<small>by Josh Reilly</small></span>
+      </a>
+      <button type="button" class="btn btn-sm" data-signup>Save my free spot</button>
+    </div>
+  </header>
+
+  <main>
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="label">Free 5-day workshop · Starts Sunday <span data-date="start">[DATE]</span></span>
+        <!-- [CHECK] Headline choice. Alternative: "Your first kipping pull-up in 5 days."
+             It reads as a guarantee, so if you use it the subhead must say not everyone gets there in 5 days. -->
+        <h1 id="hero-title">Stop scaling pull-ups. <span class="blue">Get your first kipping pull-up the right way.</span></h1>
+        <p class="sub">A free 5-day workshop for CrossFitters stuck on scaled. 10–15 minutes a day, using the PPP Framework: the order most people skip.</p>
+        <div class="cta">
+          <button type="button" class="btn" data-signup data-watch>Save my free spot
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="note">Free. 10–15 mins a day. Just a bar and some floor.</p>
+        </div>
+      </div>
+
+      <!-- [CLIP] Josh on the bar mid-kip, or a short muted loop (fault → fix). Placeholder until Dean sends footage.
+           Muted, no sound, under 2MB. Replace the <div class="ph">…</div> with:
+           <video autoplay muted loop playsinline preload="metadata" poster="https://YOUR-POSTER.webp" aria-label="Josh fixing a kipping pull-up fault"><source src="https://YOUR-CLIP.mp4" type="video/mp4"></video>
+           Or a photo:
+           <img src="https://YOUR-PHOTO.webp" alt="Josh Reilly mid-kip on the pull-up bar" width="800" height="1000" fetchpriority="high"> -->
+      <div class="clip">
+        <div class="ph" role="img" aria-label="Clip of Josh on the pull-up bar (coming soon)">Clip: Josh mid-kip<br>(fault → fix)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. PROOF STRIP ============ -->
+  <div class="alt proof">
+    <div class="wrap">
+      <figure>
+        <!-- [PHOTO] Charlotte's face (with permission): replace CL with <img src="https://YOUR-FACE.webp" alt="" width="96" height="96" loading="lazy"> -->
+        <span class="av" aria-hidden="true">CL</span>
+        <div>
+          <blockquote><p>"I nailed my first kipping pull-up in 1 day. I've since managed 10+."</p></blockquote>
+          <cite>Charlotte Leathard</cite>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ============ 3. THE PROBLEM ============ -->
+  <section aria-labelledby="problem-title">
+    <div class="wrap narrow">
+      <span class="label">The problem</span>
+      <h2 id="problem-title">Sound familiar?</h2>
+      <ul class="problem">
+        <li class="card">You scale pull-ups in every WOD.</li>
+        <li class="card">You can kip swing all day, but your chin never gets over the bar.</li>
+        <li class="card">You get one rep… then it falls apart.</li>
+        <li class="card">Your grip goes before you've even started.</li>
+        <li class="card">You dread workouts with kipping in them.</li>
+      </ul>
+      <p class="lead">It's not talent, and it's not that you're "not a gymnast". <span class="blue">It's the order you've been learning it in.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 4. WHY THE USUAL APPROACH DOESN'T WORK ============ -->
+  <section class="alt" aria-labelledby="compare-title">
+    <div class="wrap">
+      <span class="label">Why it hasn't clicked yet</span>
+      <h2 id="compare-title">Why the usual approach doesn't work.</h2>
+      <div class="compare">
+        <div class="card">
+          <h3>The usual way</h3>
+          <ul class="ticks no">
+            <li>"Just do more reps"</li>
+            <li>Jump straight to the bar</li>
+            <li>Random tips from mates and YouTube</li>
+            <li>Ring rows and bands that don't build the skill</li>
+            <li>A coach watching 20 people at once</li>
+          </ul>
+        </div>
+        <div class="card hl">
+          <h3>The Beyond Scaled way</h3>
+          <ul class="ticks">
+            <li>Good reps only. Bad reps lock faults in</li>
+            <li>Own the positions on the floor first</li>
+            <li>One clear progression, step by step</li>
+            <li>Scaling that rehearses the real movement</li>
+            <li>Feedback on your own clips</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. THE METHOD: PPP FRAMEWORK ============ -->
+  <section aria-labelledby="ppp-title">
+    <div class="wrap">
+      <span class="label">The method</span>
+      <h2 id="ppp-title">The PPP Framework</h2>
+      <p class="sub">You can't kip what you can't hold.</p>
+      <ol class="steps">
+        <li class="card"><h3>Position</h3><p>Hollow, arch and an active hang. The most important step and the one most people get wrong. Without it, nothing else lands.</p></li>
+        <li class="card"><h3>Pattern</h3><p>Link the positions in time and space with toe-spotted box drills, so your body knows where to be under the bar and at the top.</p></li>
+        <li class="card"><h3>Power</h3><p>Hip pop, not leg raise. Take the box away and turn the swing into a pull-up.</p></li>
+      </ol>
+      <p class="order">Position → Pattern → Power. <span class="muted">Always in that order.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ 6. WHAT HAPPENS EACH DAY ============ -->
+  <section class="alt" aria-labelledby="days-title">
+    <div class="wrap narrow">
+      <span class="label">Sunday to Thursday</span>
+      <h2 id="days-title">What happens each day.</h2>
+      <ol class="days">
+        <li><span class="dot" aria-hidden="true">1</span><div class="card"><span class="wk">Day 1 · Sunday</span><h3>Test</h3><p>Find out exactly where you are now, so you can see the difference by Thursday.</p></div></li>
+        <li><span class="dot" aria-hidden="true">2</span><div class="card"><span class="wk">Day 2 · Monday</span><h3>Floor drills</h3><p>Hollow and arch. Feel how much tension you actually need. This is the bit everyone skips.</p></div></li>
+        <li><span class="dot" aria-hidden="true">3</span><div class="card"><span class="wk">Day 3 · Tuesday</span><h3>To the bar</h3><p>Toe-spotted box drills. Learn the timing without fighting your bodyweight.</p></div></li>
+        <li><span class="dot" aria-hidden="true">4</span><div class="card"><span class="wk">Day 4 · Wednesday</span><h3>Remove the box</h3><p>Once your box drills are clean, we take the support away.</p></div></li>
+        <li><span class="dot" aria-hidden="true">5</span><div class="card hl"><span class="wk">Day 5 · Thursday 5pm</span><h3>Live call</h3><p>Retest against Day 1, live fault fixes and your questions answered. Can't make it? Post a clip beforehand and watch the replay.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 7. THE ICEBERG ============ -->
+  <section aria-labelledby="berg-title">
+    <div class="wrap narrow">
+      <span class="label">The bigger picture</span>
+      <h2 id="berg-title">Most people only see the tip.</h2>
+      <figure>
+        <div class="berg">
+          <div class="layer up">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="54,6 46,40 40,100 68,100 62,48"/></svg>
+            <div class="txt"><span class="wk">Above the surface</span><h3>Chest-to-bar, bar muscle-ups, and better mechanics in handstand walks and HSPU.</h3></div>
+          </div>
+          <div class="layer sea">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon points="40,0 68,0 76,100 32,100"/></svg>
+            <div class="txt"><span class="wk">Sea level</span><h3>The kipping pull-up itself.</h3><p>Workouts start to feel different.</p></div>
+          </div>
+          <div class="layer down">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon vector-effect="non-scaling-stroke" points="32,0 76,0 90,22 96,52 84,82 60,98 34,95 12,74 5,44 16,16"/></svg>
+            <div class="txt"><span class="here">This workshop</span><span class="wk">Below the surface</span><h3>The boring foundation work nobody sees.</h3><p>This is what separates people who get it from people who don't.</p></div>
+          </div>
+        </div>
+        <figcaption class="caption">This workshop is about the bit below the surface.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 8. WHAT YOU GET ============ -->
+  <section class="alt" aria-labelledby="get-title">
+    <div class="wrap narrow">
+      <div class="center">
+        <span class="label">What you get</span>
+        <h2 id="get-title">Everything's included.</h2>
+      </div>
+      <div class="card get">
+        <ul class="ticks">
+          <li>5 short daily coaching videos</li>
+          <li>10–15 minute sessions you can fit around your training</li>
+          <li>A private Circle group with other CrossFitters working on the same thing</li>
+          <li>Feedback from Josh on the clips you post</li>
+          <li>A live coaching call on Thursday at 5pm (plus replay)</li>
+          <li class="free">All free</li>
+        </ul>
+      </div>
+      <div class="center">
+        <div class="cta">
+          <button type="button" class="btn" data-signup>Save my free spot
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="note">Starts Sunday <span data-date="start">[DATE]</span>. No card needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. WHO IT'S FOR ============ -->
+  <section aria-labelledby="fit-title">
+    <div class="wrap">
+      <span class="label">Is this for you?</span>
+      <h2 id="fit-title">Who it's for.</h2>
+      <div class="fit">
+        <div class="card">
+          <h3>This is for you if</h3>
+          <ul class="ticks">
+            <!-- [CHECK] Entry bar: pick "have" or "are close to" a strict pull-up and delete the other. -->
+            <li>You can do a banded pull-up and hang from the bar, and you're [close to / have] a strict pull-up</li>
+            <li>You do CrossFit and you're tired of scaling</li>
+            <li>You're happy to do the "boring" positional work properly</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>This isn't for you if</h3>
+          <ul class="ticks no">
+            <li>You want a quick fix without the basics</li>
+            <li>You're not willing to film a clip and ask for feedback</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10. MEET JOSH ============ -->
+  <section class="alt" aria-labelledby="about-title">
+    <div class="wrap about">
+      <div class="photo">
+        <!-- [PHOTO] Josh headshot or on the bar, 4:5 portrait, WebP under 150KB:
+             <img src="https://YOUR-PHOTO.webp" alt="Josh Reilly on the pull-up bar" width="800" height="1000" loading="lazy" decoding="async"> -->
+        <div class="ph" role="img" aria-label="Photo of Josh Reilly">Photo of Josh</div>
+      </div>
+      <div>
+        <span class="label">Your coach</span>
+        <h2 id="about-title">Hi, I'm Josh <span aria-hidden="true">👋</span></h2>
+        <div class="bio">
+          <p>I used to dread classes with kipping in them. I was strong, but I couldn't get the positions right. When I learnt the order (position, then pattern, then power) it changed everything.</p>
+          <p>I've been coaching for <b>10+ years</b> and worked with <b>250+ clients</b>. I've got a First Class degree in Sports, Exercise and Nutritional Sciences and a postgrad diploma in Strength and Conditioning. My degree taught me to explain training; coaching taught me to understand people.</p>
+          <p>This workshop is the exact process I use with my clients, for free.</p>
+        </div>
+        <p class="signoff">Josh <span aria-hidden="true">🤙</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11. CASE STUDY: CHARLOTTE ============ -->
+  <section aria-labelledby="case-title">
+    <div class="wrap">
+      <span class="label">Case study</span>
+      <h2 id="case-title">Charlotte's story.</h2>
+      <article class="card case">
+        <div class="photo">
+          <!-- [PHOTO] Charlotte (with her permission):
+               <img src="https://YOUR-CHARLOTTE-PHOTO.webp" alt="Charlotte Leathard doing a kipping pull-up" width="800" height="1000" loading="lazy" decoding="async"> -->
+          <div class="ph" role="img" aria-label="Photo of Charlotte Leathard">Photo of Charlotte</div>
+        </div>
+        <div class="body">
+          <blockquote><p>"I nailed my first kipping pull-up in 1 day. I've since managed 10+."</p></blockquote>
+          <cite>Charlotte Leathard</cite>
+          <dl class="story">
+            <div><dt>Before</dt><dd>Couldn't string two kip swings together, and was worried about hurting her neck.</dd></div>
+            <div><dt>What she did</dt><dd>The PPP Framework: floor positions → box drills → box removed.</dd></div>
+            <div class="after"><dt>After</dt><dd>10+ kipping pull-ups in 2 weeks.</dd></div>
+          </dl>
+        </div>
+      </article>
+      <p class="lead">It wasn't talent. It was the order. <span class="muted">Everyone's timeline is different, but the order is the same.</span></p>
+
+      <!-- [TESTIMONIAL] slots. Replace the bracketed text with a real name, result and quote.
+           Any card still containing "[TESTIMONIAL" hides itself on the live page. Delete unused ones when you like. -->
+      <div class="slots">
+        <figure class="card review slot"><h3>"[TESTIMONIAL — RESULT]"</h3><blockquote><p>"[TESTIMONIAL — QUOTE]"</p></blockquote><figcaption class="who"><span class="av" aria-hidden="true">AB</span><div><b>[TESTIMONIAL — NAME]</b><span>[Gym]</span></div></figcaption></figure>
+        <figure class="card review slot"><h3>"[TESTIMONIAL — RESULT]"</h3><blockquote><p>"[TESTIMONIAL — QUOTE]"</p></blockquote><figcaption class="who"><span class="av" aria-hidden="true">CD</span><div><b>[TESTIMONIAL — NAME]</b><span>[Gym]</span></div></figcaption></figure>
+        <figure class="card review slot"><h3>"[TESTIMONIAL — RESULT]"</h3><blockquote><p>"[TESTIMONIAL — QUOTE]"</p></blockquote><figcaption class="who"><span class="av" aria-hidden="true">EF</span><div><b>[TESTIMONIAL — NAME]</b><span>[Gym]</span></div></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12. FAQ ============ -->
+  <section class="alt" aria-labelledby="faq-title">
+    <div class="wrap narrow">
+      <span class="label">FAQ</span>
+      <h2 id="faq-title">Questions.</h2>
+      <div class="faq">
+        <div><button type="button" aria-expanded="false" aria-controls="f1" id="f1q">I don't have time.</button><div class="a" id="f1" role="region" aria-labelledby="f1q"><div><p>It's 10–15 minutes a day. Do it before or after training, or instead of a workout on a rough day.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f2" id="f2q">What kit do I need?</button><div class="a" id="f2" role="region" aria-labelledby="f2q"><div><p>A floor and a bar. For the box drills, anything stable at the right height works.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f3" id="f3q">I'm not strong enough yet.</button><div class="a" id="f3" role="region" aria-labelledby="f3q"><div><p>Strength is part of the skill, not a gate you have to pass first. The floor drills are strength work.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f4" id="f4q">I've tried before and it never stuck.</button><div class="a" id="f4" role="region" aria-labelledby="f4q"><div><p>Most people quit at the dip, the session that feels worse than yesterday, which is usually right before it clicks. We'll expect it and push through it.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f5" id="f5q">My shoulders niggle.</button><div class="a" id="f5" role="region" aria-labelledby="f5q"><div><p>Good positions take stress off the shoulders. Real pain is different: get it checked, don't push through.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f6" id="f6q">My gym's always busy.</button><div class="a" id="f6" role="region" aria-labelledby="f6q"><div><p>The floor work happens at home. You only need the bar for about 5 minutes.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f7" id="f7q">My coach hasn't shown me this.</button><div class="a" id="f7" role="region" aria-labelledby="f7q"><div><p>Your coach is running a class of 20. That's not a criticism, just reality. This is the individual attention a class can't give.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f8" id="f8q">What if I can't make the live call?</button><div class="a" id="f8" role="region" aria-labelledby="f8q"><div><p>Post a clip in the group before 4pm on Thursday and I'll cover it on the call. The replay goes up straight after.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f9" id="f9q">Why is it free? What's the catch?</button><div class="a" id="f9" role="region" aria-labelledby="f9q"><div><p>No catch. I'd rather show you what I can do than tell you. At the end I'll tell you about my 6-week programme for anyone who wants to keep going. It's completely up to you.</p></div></div></div>
+      </div>
+      <div class="cta">
+        <button type="button" class="btn" data-signup>Save my free spot
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 13. FINAL CTA ============ -->
+  <section class="final center" aria-labelledby="final-title">
+    <div class="wrap">
+      <h2 id="final-title">Ready to stop <span class="blue">scaling?</span></h2>
+      <p class="sub">Free 5-day workshop. Starts Sunday <span data-date="start">[DATE]</span>.</p>
+      <div class="cta">
+        <button type="button" class="btn" data-signup data-watch>Save my free spot
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="note">Free. No card needed.</p>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- ============ 14. FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <span>© <span id="bs-year">2026</span> Beyond Scaled</span>
+      <!-- [CHECK] Link your privacy policy and terms. -->
+      <nav aria-label="Legal"><a href="https://YOUR-PRIVACY-URL">Privacy policy</a><a href="https://YOUR-TERMS-URL">Terms</a></nav>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile button — shows once you scroll past the hero, hides near the final button -->
+  <div class="sticky hide" id="bs-sticky" aria-hidden="true">
+    <p><b>Free</b>5-day workshop</p>
+    <button type="button" class="btn" data-signup tabindex="-1">Save my free spot</button>
+  </div>
+
+  <!-- ============ SIGN-UP FORM — every "Save my free spot" button opens this ============
+       Sends the contact to GHL (see CONFIG.webhookUrl), fires the Meta Pixel Lead event,
+       then goes to the thank-you page.
+       Prefer a native GHL form? Replace the <form>…</form> with your GHL form embed,
+       set its redirect to the thank-you page and add the tag in the form's workflow. -->
+  <dialog class="modal" id="bs-signup" aria-labelledby="signup-title">
+    <div class="modal-in">
+      <button type="button" class="x" data-close aria-label="Close">×</button>
+      <h2 id="signup-title">Save your free spot</h2>
+      <p class="sub">Starts Sunday <span data-date="start">[DATE]</span>. 10–15 mins a day.</p>
+      <form id="bs-form" novalidate>
+        <div class="field">
+          <label for="bs-name">First name</label>
+          <input id="bs-name" name="first_name" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="bs-email">Email</label>
+          <input id="bs-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        </div>
+        <div class="field">
+          <label for="bs-phone">Mobile <span>(optional)</span></label>
+          <input id="bs-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="bs-phone-hint">
+          <span class="hint" id="bs-phone-hint">Only used for a reminder before Thursday's call.</span>
+        </div>
+        <label class="consent"><input type="checkbox" name="consent" value="yes" required> <span>I'm happy to get emails about the workshop. Unsubscribe anytime.</span></label>
+        <p class="form-error" id="bs-error" role="alert"></p>
+        <button type="submit" class="btn btn-full">Save my free spot
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="note">Free. No card needed.</p>
+      </form>
+    </div>
+  </dialog>
+</div>
+
+<script>
+(function(){
+  /* ============================ CONFIG ============================
+     startDate     The Sunday it starts, YYYY-MM-DD. Fills every date on the page and the GHL tag.  [CHECK]
+     webhookUrl    GHL inbound webhook (Automation → Workflow → trigger "Inbound Webhook").
+                   Map first_name, email, phone; add the tag from the "tags" field.
+     thankYouUrl   Your thank-you page.
+     pixelId       Meta Pixel ID (numbers only). Leave as-is if the pixel is already in GHL's
+                   site-wide tracking code, otherwise PageView fires twice.
+     showEmptySlots  true = show unfilled [TESTIMONIAL] cards (preview only). Keep false live.
+     ================================================================ */
+  var CONFIG = {
+    startDate:   '2026-11-15',
+    webhookUrl:  'https://YOUR-GHL-INBOUND-WEBHOOK-URL',
+    thankYouUrl: 'https://YOUR-THANK-YOU-PAGE-URL',
+    pixelId:     '[PIXEL ID]',
+    showEmptySlots: false
+  };
+
+  var root=document.getElementById('bs'); if(!root) return;
+  var isSet=function(v){ return v && v.indexOf('YOUR-')<0 && v.indexOf('[')<0; };
+
+  // Dates — one start date fills every [DATE] on the page
+  var start=/^\d{4}-\d{2}-\d{2}$/.test(CONFIG.startDate)?new Date(CONFIG.startDate+'T12:00:00Z'):null;
+  var tag='kpu-workshop-'+(start?CONFIG.startDate:'STARTDATE');
+  if(start){
+    var fmt=function(d){ return d.toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'}); };
+    var call=new Date(start.getTime()+4*864e5);
+    root.querySelectorAll('[data-date]').forEach(function(el){ el.textContent=fmt(el.getAttribute('data-date')==='call'?call:start); });
+  }
+
+  // Meta Pixel — PageView on load, Lead on sign-up
+  if(/^\d+$/.test(CONFIG.pixelId) && !window.fbq){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init',CONFIG.pixelId); fbq('track','PageView');
+  }
+
+  // Empty testimonial slots hide themselves
+  if(!CONFIG.showEmptySlots){
+    root.querySelectorAll('.slot').forEach(function(s){ if(s.textContent.indexOf('[TESTIMONIAL')>-1) s.classList.add('slot-hidden'); });
+  }
+
+  // FAQ — one open at a time
+  var qs=root.querySelectorAll('.faq button');
+  qs.forEach(function(q){
+    q.addEventListener('click',function(){
+      var open=q.getAttribute('aria-expanded')==='true';
+      qs.forEach(function(o){o.setAttribute('aria-expanded','false');});
+      q.setAttribute('aria-expanded',open?'false':'true');
+    });
+  });
+
+  // Sticky button — hidden while the hero or final button is on screen
+  var bar=document.getElementById('bs-sticky'), sBtn=bar.querySelector('button');
+  function setBar(hide){ bar.classList.toggle('hide',hide); sBtn.tabIndex=hide?-1:0; bar.setAttribute('aria-hidden',hide?'true':'false'); }
+  if('IntersectionObserver' in window){
+    var seen=new Set();
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?seen.add(e.target):seen.delete(e.target); }); setBar(seen.size>0); });
+    root.querySelectorAll('[data-watch]').forEach(function(el){io.observe(el);});
+  } else { setBar(false); }
+
+  // Sign-up modal
+  var dlg=document.getElementById('bs-signup'), form=document.getElementById('bs-form'), err=document.getElementById('bs-error');
+  var opener=null;
+  function openForm(e){
+    opener=e.currentTarget;
+    if(dlg.showModal){ dlg.showModal(); document.documentElement.classList.add('bs-lock'); }
+    else { dlg.setAttribute('open',''); }
+    setTimeout(function(){ document.getElementById('bs-name').focus(); },50);
+  }
+  function closeForm(){ if(dlg.open){ dlg.close ? dlg.close() : dlg.removeAttribute('open'); } }
+  root.querySelectorAll('[data-signup]').forEach(function(b){ b.addEventListener('click',openForm); });
+  dlg.querySelector('[data-close]').addEventListener('click',closeForm);
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) closeForm(); });
+  dlg.addEventListener('close',function(){ document.documentElement.classList.remove('bs-lock'); if(opener) opener.focus(); });
+
+  // Ad tracking (utm_*, fbclid, gclid…) — sent to GHL and passed on to the thank-you page
+  var tracking=new URLSearchParams(location.search);
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); err.textContent='';
+    var f=form.elements;
+    if(!f.first_name.value.trim()){ err.textContent='Please add your first name.'; f.first_name.focus(); return; }
+    if(!f.email.checkValidity()||!f.email.value.trim()){ err.textContent='Please check your email address.'; f.email.focus(); return; }
+    if(!f.consent.checked){ err.textContent='Please tick the box so we can email you the workshop.'; f.consent.focus(); return; }
+
+    var btn=form.querySelector('[type=submit]'); btn.disabled=true; btn.firstChild.textContent='Saving your spot… ';
+    var data=new URLSearchParams();
+    data.set('first_name',f.first_name.value.trim());
+    data.set('email',f.email.value.trim());
+    data.set('phone',f.phone.value.trim());
+    data.set('consent','yes');
+    data.set('tags',tag);
+    data.set('source','Kipping pull-up workshop page');
+    data.set('page_url',location.href.split('#')[0]);
+    tracking.forEach(function(v,k){ if(!data.has(k)) data.set(k,v); });
+
+    if(window.fbq) fbq('track','Lead');
+
+    var next=new URLSearchParams(tracking); next.set('name',f.first_name.value.trim());
+    function go(){ location.href=CONFIG.thankYouUrl+(CONFIG.thankYouUrl.indexOf('?')>-1?'&':'?')+next.toString(); }
+
+    if(isSet(CONFIG.webhookUrl)){
+      var done=false, finish=function(){ if(!done){ done=true; go(); } };
+      fetch(CONFIG.webhookUrl,{method:'POST',mode:'no-cors',keepalive:true,body:data}).then(finish,finish);
+      setTimeout(finish,4000);
+    } else { go(); }
+  });
+
+  var y=document.getElementById('bs-year'); if(y) y.textContent=new Date().getFullYear();
+})();
+</script>
+
+<!-- ===================== END GHL PASTE ===================== -->
