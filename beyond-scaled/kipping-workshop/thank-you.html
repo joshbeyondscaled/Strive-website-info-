@@ -61,6 +61,16 @@ html,body{background:#05070D!important;margin:0!important}
 #bs .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
 #bs .card.hl{border-color:var(--blue)}
 #bs .steps{display:grid;gap:14px;margin-top:36px}
+/* Welcome video — hidden until CONFIG.videoUrl is set; the player only loads when pressed */
+#bs .video{position:relative;aspect-ratio:16/9;margin-top:28px;border-radius:14px;overflow:hidden;background:var(--card) center/cover no-repeat;border:1px solid var(--line);cursor:pointer}
+#bs .video[hidden]{display:none}
+#bs .video.vertical{aspect-ratio:9/16;max-width:360px}
+#bs .video iframe,#bs .video video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+#bs .play{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:10px;font-size:.9rem;font-weight:600;background:linear-gradient(180deg,rgba(5,7,13,.1),rgba(5,7,13,.55))}
+#bs .play i{width:68px;height:68px;border-radius:50%;background:var(--blue);display:grid;place-items:center;transition:transform .15s ease}
+#bs .play i svg{width:24px;height:24px;margin-left:3px}
+#bs .video:hover .play i{transform:scale(1.06)}
+#bs .video:focus-visible{outline:3px solid #fff;outline-offset:3px}
 #bs .step{display:flex;gap:16px;align-items:flex-start}
 #bs .num{flex:none;width:36px;height:36px;border-radius:50%;border:2px solid var(--blue);display:grid;place-items:center;font-weight:800;font-size:.9rem}
 #bs .hl .num{background:var(--blue)}
@@ -101,6 +111,11 @@ html,body{background:#05070D!important;margin:0!important}
       <span class="label">Free 5-day kipping pull-up workshop</span>
       <h1>You're in<span id="bs-name"></span>. <span aria-hidden="true">🤙</span></h1>
       <p class="sub">Three quick things before Sunday <span data-date="start">[DATE]</span>.</p>
+
+      <!-- [VIDEO] Welcome video from Josh. Set CONFIG.videoUrl below; stays hidden until then. -->
+      <div class="video" id="bs-video" role="button" tabindex="0" aria-label="Play welcome video from Josh" hidden>
+        <div class="play"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15l13-7.5z"/></svg></i><span>A quick hello from Josh · 1 min</span></div>
+      </div>
 
       <ol class="steps">
         <li class="card hl step">
@@ -151,15 +166,43 @@ html,body{background:#05070D!important;margin:0!important}
      groupUrl    Link to join the Beyond Scaled community (GoHighLevel now; Circle later is fine too).
      callUrl     Recurring Zoom link for the Thursday call. Goes in the calendar invite.
      callMinutes Length of the live call.  [CHECK]
+     videoUrl    Welcome video. A YouTube link (unlisted is fine), a Vimeo link, or an .mp4 link.
+                 Leave '' to hide the video.
+     videoVertical true if the video is filmed portrait (phone upright), false for landscape.
      ================================================================ */
   var CONFIG = {
     startDate:   'auto',
     groupUrl:    '[GROUP LINK]',
     callUrl:     '[ZOOM LINK]',
-    callMinutes: 60
+    callMinutes: 60,
+    videoUrl:    '',
+    videoVertical: false
   };
 
   var root=document.getElementById('bs'); if(!root) return;
+
+  // Welcome video: shows a thumbnail, loads the player only when pressed
+  (function(){
+    var v=document.getElementById('bs-video'), url=(CONFIG.videoUrl||'').trim(); if(!v||!url) return;
+    var yt=url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/|live\/))([\w-]{11})/);
+    var vm=url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    var src=yt?'https://www.youtube-nocookie.com/embed/'+yt[1]+'?autoplay=1&rel=0&playsinline=1'
+           :vm?'https://player.vimeo.com/video/'+vm[1]+'?autoplay=1'
+           :url;
+    if(yt) v.style.backgroundImage='url(https://i.ytimg.com/vi/'+yt[1]+'/hqdefault.jpg)';
+    if(CONFIG.videoVertical) v.classList.add('vertical');
+    v.hidden=false;
+    function play(){
+      var el;
+      if(/\.mp4(\?|$)/i.test(src)){ el=document.createElement('video'); el.src=src; el.controls=true; el.autoplay=true; el.playsInline=true; }
+      else { el=document.createElement('iframe'); el.src=src; el.allow='autoplay; fullscreen; picture-in-picture'; el.allowFullscreen=true; el.title='Welcome video from Josh'; }
+      v.innerHTML=''; v.appendChild(el); v.style.cursor='default';
+      ['role','tabindex','aria-label'].forEach(function(a){ v.removeAttribute(a); });
+      v.removeEventListener('click',play); v.removeEventListener('keydown',key);
+    }
+    function key(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); } }
+    v.addEventListener('click',play); v.addEventListener('keydown',key);
+  })();
 
   // Welcome by first name (passed from the sign-up form)
   var q=new URLSearchParams(location.search), name=(q.get('name')||'').trim().slice(0,40);
