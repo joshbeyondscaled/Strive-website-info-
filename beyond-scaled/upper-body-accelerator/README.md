@@ -30,9 +30,9 @@ The thank-you page fires `Purchase` (97, GBP) once per visit. If the GHL order f
 ## Before launch
 - [ ] `CONFIG.startDate` in **both** files (the Monday, `YYYY-MM-DD`). Currently a sample: `2026-11-23` (the Monday after the 15 Nov workshop). It fills every date; doors close the Friday before.
 - [ ] Headline: the recommended one is in. The "10+ kipping pull-ups in 6 weeks" alternative and its caveat are in a `[CHECK]` comment.
-- [ ] What's included beyond FITR (dashed row in "What's included")
+- [ ] What's included beyond CoachRx (dashed row in "What's included")
 - [ ] Kit list, what happens after the 6 weeks, refund policy (FAQ)
-- [ ] `CONFIG.checkoutUrl`, `CONFIG.waitlistUrl` (sales page); `CONFIG.fitrUrl`, `CONFIG.bookingUrl` (thank-you page; with no booking link set it says "I'll message you before Monday")
+- [ ] `CONFIG.checkoutUrl`, `CONFIG.waitlistUrl` (sales page); `CONFIG.coachrxUrl`, `CONFIG.bookingUrl` (thank-you page; with no booking link set it says "I'll message you before Monday")
 - [ ] VSL link + thumbnail, photos of Josh and Charlotte (with permission)
 - [ ] 2–3 extra testimonials. Unfilled ones hide themselves on the live page.
 - [ ] `CONFIG.pixelId` in both files (skip if the pixel is already in GHL's site-wide tracking)

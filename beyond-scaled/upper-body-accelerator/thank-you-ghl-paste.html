@@ -4,7 +4,7 @@
      (Full-width section, no padding, page background #05070D.)
 
      HOW TO EDIT
-       • Start date, FITR link, booking link, pixel: the CONFIG block in the <script> at the bottom
+       • Start date, CoachRx link, booking link, pixel: the CONFIG block in the <script> at the bottom
        • Copy to confirm: search  [CHECK]
      ===================================================================== -->
 
@@ -93,10 +93,10 @@
         <li class="card hl step">
           <span class="num" aria-hidden="true">1</span>
           <div>
-            <h3>Download FITR and log in</h3>
+            <h3>Download CoachRx and log in</h3>
             <!-- [CHECK] Which email they should use to log in -->
-            <p>Your programme lives in the FITR app. Log in with the email you just paid with.</p>
-            <a class="btn btn-full" id="bs-fitr" href="[FITR LINK]">Get the FITR app
+            <p>Your programme lives in the CoachRx app. Log in with the email you just paid with.</p>
+            <a class="btn btn-full" id="bs-coachrx" href="[COACHRX LINK]">Get the CoachRx app
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </li>
@@ -140,7 +140,7 @@
 (function(){
   /* ============================ CONFIG ============================
      startDate   The Monday it starts, YYYY-MM-DD (same as the sales page).   [CHECK]
-     fitrUrl     FITR download / invite link.
+     coachrxUrl  CoachRx download / invite link.
      bookingUrl  Onboarding booking link. Leave as-is and step 2 says
                  "I'll message you before Monday" instead.
      pixelId     Meta Pixel ID. Fires Purchase (£97, GBP) once per visit.
@@ -149,7 +149,7 @@
      ================================================================ */
   var CONFIG = {
     startDate:  '2026-11-23',
-    fitrUrl:    '[FITR LINK]',
+    coachrxUrl: '[COACHRX LINK]',
     bookingUrl: '[BOOKING LINK]',
     pixelId:    '[PIXEL ID]',
     price:      97
@@ -161,7 +161,7 @@
   var q=new URLSearchParams(location.search), name=(q.get('first_name')||q.get('name')||'').trim().split(' ')[0];
   if(name && name.length<30){ var h=document.getElementById('bs-hi'); h.firstChild.textContent="You're in, "+name+". "; }
 
-  document.getElementById('bs-fitr').href=isSet(CONFIG.fitrUrl)?CONFIG.fitrUrl:'#';
+  document.getElementById('bs-coachrx').href=isSet(CONFIG.coachrxUrl)?CONFIG.coachrxUrl:'#';
   if(!isSet(CONFIG.bookingUrl)){ document.getElementById('bs-book').hidden=true; document.getElementById('bs-book-alt').hidden=false; }
   else document.getElementById('bs-book').href=CONFIG.bookingUrl;
 
@@ -187,7 +187,7 @@
   document.querySelectorAll('#bs [data-date="start"]').forEach(function(el){ el.textContent=start.toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'}); });
   var d=function(x){ return x.toISOString().slice(0,10).replace(/-/g,''); };
   var title='Week 1, Day 1: baseline test (6-Week Accelerator)';
-  var details='Week 1 starts today. Do your baseline test in FITR and write your numbers down: you retest against them in Week 6.';
+  var details='Week 1 starts today. Do your baseline test in CoachRx and write your numbers down: you retest against them in Week 6.';
   document.getElementById('bs-gcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)
     +'&dates='+d(start)+'/'+d(next)+'&details='+encodeURIComponent(details);
   document.getElementById('bs-ics').addEventListener('click',function(){
