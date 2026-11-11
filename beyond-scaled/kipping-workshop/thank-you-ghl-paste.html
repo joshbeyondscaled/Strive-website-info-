@@ -96,9 +96,9 @@ html,body{background:#05070D!important;margin:0!important}
         <li class="card hl step">
           <span class="num" aria-hidden="true">1</span>
           <div>
-            <h3>Join the private group</h3>
+            <h3>Join the Beyond Scaled community</h3>
             <p>Everything happens in here: the daily videos, your clips and my feedback.</p>
-            <a class="btn btn-full" id="bs-group" href="[GROUP LINK]">Join the group
+            <a class="btn btn-full" id="bs-group" href="[GROUP LINK]">Join Beyond Scaled
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </li>
@@ -138,7 +138,7 @@ html,body{background:#05070D!important;margin:0!important}
 (function(){
   /* ============================ CONFIG ============================
      startDate   'auto' = the coming Sunday (or the date passed from the sign-up page). Or pin 'YYYY-MM-DD'.
-     groupUrl    Link to the private group / course in GoHighLevel.
+     groupUrl    Link to join the Beyond Scaled community (GoHighLevel now; Circle later is fine too).
      callUrl     Recurring Zoom link for the Thursday call. Goes in the calendar invite.
      callMinutes Length of the live call.  [CHECK]
      ================================================================ */
@@ -184,7 +184,7 @@ html,body{background:#05070D!important;margin:0!important}
   var e=new Date(s.getTime()+CONFIG.callMinutes*6e4);
   var stamp=function(d){ return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,''); };
   var title='Kipping Pull-Up Workshop: live coaching call';
-  var details='Day 5 live call with Josh: retest against Day 1, live fault fixes and Q&A. Can\'t make it? Post a clip in the group before 4pm and watch the replay.';
+  var details='Day 5 live call with Josh: retest against Day 1, live fault fixes and Q&A. Can\'t make it? Post a clip in the Beyond Scaled community before 4pm and watch the replay.';
 
   document.getElementById('bs-gcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE'
     +'&text='+encodeURIComponent(title)+'&dates='+stamp(s)+'/'+stamp(e)

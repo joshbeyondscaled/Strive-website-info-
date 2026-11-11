@@ -55,7 +55,7 @@ In each pasted element, scroll to the bottom and find the `CONFIG` block.
 | Setting | What to put |
 |---|---|
 | `startDate` | Leave as `'auto'`. It picks up the date from the sign-up page. |
-| `groupUrl` | Link to the private group / course in GoHighLevel |
+| `groupUrl` | Link to join the Beyond Scaled community |
 | `callUrl` | Your recurring Zoom link |
 
 Also on both pages: search for `YOUR-PRIVACY-URL` and `YOUR-TERMS-URL` and swap in your links.
@@ -161,7 +161,7 @@ In the workflow settings, turn **"Allow re-entry"** off, so nobody gets the sequ
 ## The messages
 
 Everything in `[SQUARE BRACKETS]` gets filled in. `{{contact.first_name}}` is GoHighLevel's first-name field.
-Each email is short on purpose: the content lives in the private group, and the email just gets them there.
+Each email is short on purpose: the content lives in the Beyond Scaled community, and the email just gets them there.
 
 ### Email 1: You're in (straight away)
 **Subject:** You're in, {{contact.first_name}} 🤙
@@ -173,7 +173,7 @@ Each email is short on purpose: the content lives in the private group, and the 
 >
 > Two things to do now:
 >
-> **1. Join the private group.** Everything happens in here: the daily videos, your clips and my feedback.
+> **1. Join the Beyond Scaled community.** Everything happens in here: the daily videos, your clips and my feedback.
 > 👉 [GROUP LINK]
 >
 > **2. Put Thursday in the diary.** Live coaching call, **Thursday [DATE] at 5pm (UK)**. Can't make it? Post a clip before 4pm and I'll cover it on the call. The replay goes up straight after.
@@ -184,7 +184,7 @@ Each email is short on purpose: the content lives in the private group, and the 
 > Josh
 
 ### SMS 1: Straight away (if they gave a mobile)
-> Hi {{contact.first_name}}, Josh here. You're in the Kipping Pull-Up Workshop 🤙 Starts Sunday. Join the group here so you don't miss Day 1: [GROUP LINK]
+> Hi {{contact.first_name}}, Josh here. You're in the Kipping Pull-Up Workshop 🤙 Starts Sunday. Join Beyond Scaled here so you don't miss Day 1: [GROUP LINK]
 
 ### Email 2: Saturday 6pm
 **Subject:** Tomorrow: Day 1
@@ -192,11 +192,11 @@ Each email is short on purpose: the content lives in the private group, and the 
 
 > Hi {{contact.first_name}},
 >
-> Day 1 goes up in the group tomorrow morning.
+> Day 1 goes up in the Beyond Scaled community tomorrow morning.
 >
 > It's a test: where your technique and strength are right now. Don't skip it. On Thursday we retest, and this is what you'll compare against.
 >
-> Not in the group yet? [GROUP LINK]
+> Not in Beyond Scaled yet? [GROUP LINK]
 >
 > Josh 🤙
 
@@ -208,7 +208,7 @@ Each email is short on purpose: the content lives in the private group, and the 
 >
 > Day 1 is live: [GROUP LINK]
 >
-> Watch the video, do the test, and post your clip in the group. 10–15 minutes.
+> Watch the video, do the test, and post your clip in the community. 10–15 minutes.
 >
 > This is your starting line. By Thursday you'll see the difference.
 >
@@ -254,7 +254,7 @@ Each email is short on purpose: the content lives in the private group, and the 
 >
 > Day 4: [GROUP LINK]
 >
-> **Tomorrow, 5pm (UK): live call.** We retest against Day 1, fix faults live and answer your questions. Can't make it? Post a clip in the group before 4pm tomorrow and I'll cover it.
+> **Tomorrow, 5pm (UK): live call.** We retest against Day 1, fix faults live and answer your questions. Can't make it? Post a clip in the community before 4pm tomorrow and I'll cover it.
 >
 > Josh 🤙
 
@@ -270,7 +270,7 @@ Each email is short on purpose: the content lives in the private group, and the 
 > - Live fault fixes
 > - Your questions answered
 >
-> Want me to look at your kip? Post a clip in the group **before 4pm**.
+> Want me to look at your kip? Post a clip in the community **before 4pm**.
 >
 > Can't make it? The replay goes up straight after.
 >
@@ -287,7 +287,7 @@ Each email is short on purpose: the content lives in the private group, and the 
 >
 > Thanks for putting the work in this week.
 >
-> The replay of today's call is in the group: [GROUP LINK]
+> The replay of today's call is in the community: [GROUP LINK]
 >
 > Whatever your retest looked like, the order is the same: position, then pattern, then power. Keep doing the floor work. It's the bit below the surface.
 >
