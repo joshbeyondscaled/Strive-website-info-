@@ -83,7 +83,7 @@ html,body{{background:#05070D!important;margin:0!important}}
 {body}
   </div></main>
   <footer><div class="wrap">
-    <span>© <span id="bs-year">2026</span> JRFitness Ltd, trading as Beyond Scaled. Registered in England and Wales, company no. {company_no}. Registered office: {address}.</span>
+    <span>© <span id="bs-year">2026</span> JRFitness Ltd, trading as Beyond Scaled. Registered in England and Wales, company no. {company_no}.</span>
     <nav aria-label="Legal"><a href="{site}/privacy-policy">Privacy policy</a><a href="{site}/terms">Terms</a></nav>
   </div></footer>
 </div>
