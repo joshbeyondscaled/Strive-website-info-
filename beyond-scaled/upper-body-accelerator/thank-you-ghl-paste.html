@@ -4,7 +4,7 @@
      (Full-width section, no padding, page background #05070D.)
 
      HOW TO EDIT
-       • CoachRx link, CoachRx code, "I'm in" trigger link, pixel: the CONFIG block in the <script> at the bottom
+       • "I'm in" trigger link, pixel: the CONFIG block in the <script> at the bottom
        • Copy to confirm: search  [CHECK]
      ===================================================================== -->
 
@@ -73,7 +73,7 @@
 @media (min-width:900px){ #bs{font-size:18px} #bs main{padding:56px 0 104px} #bs .wrap{padding:0 40px} }
 @media (prefers-reduced-motion:reduce){ #bs *{transition:none!important} }
 #bs .code{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 14px}
-#bs .code #bs-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.25rem;font-weight:700;letter-spacing:.06em;padding:8px 14px;border:1px dashed var(--blue-text);border-radius:10px}
+#bs .code-unused{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.25rem;font-weight:700;letter-spacing:.06em;padding:8px 14px;border:1px dashed var(--blue-text);border-radius:10px}
 #bs .next{margin-top:18px}
 #bs .next ul{margin:10px 0 12px;padding-left:1.2em;color:var(--muted)}
 #bs .next li{margin:6px 0}
@@ -98,18 +98,15 @@
         <li class="card hl step">
           <span class="num" aria-hidden="true">1</span>
           <div>
-            <h3>Get your programme on CoachRx</h3>
-            <p id="bs-code-note">Use this code at checkout. It'll show £0. Then create your account.</p>
-            <p class="code" id="bs-code-wrap"><span id="bs-code">[CODE]</span> <button type="button" class="btn btn-ghost" id="bs-copy">Copy code</button></p>
-            <a class="btn btn-full" id="bs-coachrx" href="#">Go to CoachRx
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <h3>Watch for your CoachRx invite</h3>
+            <p>I'll add you to CoachRx myself within 24 hours. You'll get an email from CoachRx: open it, set your password and download the app. If you can't see it, check your spam folder.</p>
           </div>
         </li>
         <li class="card step">
           <span class="num" aria-hidden="true">2</span>
           <div>
             <h3>Tell me you're in</h3>
-            <p>Once your CoachRx account is set up, tap this so I know you're ready.</p>
+            <p>Once you've accepted the invite and can see your programme, tap this so I know you're ready.</p>
             <a class="btn btn-full" id="bs-imin" href="#">I'm in
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <p class="fallback" id="bs-imin-alt" hidden>Reply to your confirmation email once you're in.</p>
@@ -151,10 +148,8 @@
 <script>
 (function(){
   /* ============================ CONFIG ============================
-     coachrxUrl   Your CoachRx storefront link for the programme.
-     coachrxCode  The 100% discount code. CoachRx can't limit or expire a code, so change it after
-                  6 Dec and check redemptions against GHL buyers. Using a free programme link instead?
-                  Leave this as '[CODE]' and the code box hides itself.
+     Buyers don't get a CoachRx link: Josh adds each buyer in CoachRx (Add client, then
+     Assign program) from the GHL purchase notification.
      imInUrl      The GHL trigger link "I'm in" (adds ubg-coachrx-joined).
                   Leave as-is and step 2 says "reply to your confirmation email" instead.
      whatsapp     Your WhatsApp number, digits only with country code.
@@ -163,8 +158,6 @@
                   leave this as-is so it isn't counted twice.
      ================================================================ */
   var CONFIG = {
-    coachrxUrl:  '[COACHRX LINK]',
-    coachrxCode: '[CODE]',
     imInUrl:     '[I\'M IN TRIGGER LINK]',
     whatsapp:    '447793458864',
     pixelId:     '[PIXEL ID]',
@@ -178,13 +171,6 @@
   var q=new URLSearchParams(location.search), name=(q.get('first_name')||q.get('name')||'').trim().split(' ')[0];
   if(name && name.length<30){ var h=$('bs-hi'); h.firstChild.textContent="You're in, "+name+". "; }
 
-  $('bs-coachrx').href=isSet(CONFIG.coachrxUrl)?CONFIG.coachrxUrl:'#';
-  if(isSet(CONFIG.coachrxCode)) $('bs-code').textContent=CONFIG.coachrxCode;
-  else { $('bs-code-wrap').hidden=true; $('bs-code-note').textContent='Tap below to open your programme, then create your account.'; }
-  $('bs-copy').addEventListener('click',function(){
-    var b=this;
-    try{ navigator.clipboard.writeText(CONFIG.coachrxCode).then(function(){ b.textContent='Copied'; }); }catch(e){}
-  });
   if(!isSet(CONFIG.imInUrl)){ $('bs-imin').hidden=true; $('bs-imin-alt').hidden=false; }
   else $('bs-imin').href=CONFIG.imInUrl;
   $('bs-wa').href='https://wa.me/'+CONFIG.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent("Hi Josh, I've just joined the Upper Body Gymnastics Programme.");
