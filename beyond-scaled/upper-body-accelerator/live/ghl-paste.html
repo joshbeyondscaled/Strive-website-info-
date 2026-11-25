@@ -1,0 +1,445 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>#bs{--blue:#1F5BFF;--blue-text:#6EA8FF;--navy:#0B1D48;--black:#05070D;--card:#0C1324;--muted:#A3B0C8;--line:rgba(160,180,220,.14);--font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;}#bs,#bs *{box-sizing:border-box}#bs [hidden]{display:none!important}#bs{background:var(--black) linear-gradient(180deg,var(--navy) 0,var(--black) 900px) no-repeat;color:#fff;font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;padding-bottom:80px}#bs img,#bs video,#bs iframe,#bs svg{display:block;max-width:100%}#bs h1,#bs h2,#bs h3,#bs p,#bs ul,#bs ol,#bs dl,#bs dd,#bs figure,#bs blockquote,#bs fieldset,#bs legend{margin:0;padding:0}#bs fieldset{border:0;min-width:0}#bs ul,#bs ol{list-style:none}#bs a{color:inherit}#bs .wrap{max-width:1120px;margin:0 auto;padding:0 20px}#bs .narrow{max-width:760px}#bs section{padding:72px 0}#bs .alt{background:var(--card)}#bs .center{text-align:center}#bs .muted{color:var(--muted)}#bs .blue{color:var(--blue-text)}#bs .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}#bs h1,#bs h2{font-weight:800;letter-spacing:-.035em;line-height:1.05}#bs h1{font-size:clamp(2.6rem,10vw,4.75rem)}#bs h2{font-size:clamp(2rem,6.5vw,3rem)}#bs h3{font-size:1.08rem;font-weight:700;line-height:1.35}#bs .label{display:block;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-text);margin-bottom:14px}#bs .sub{font-size:1.15rem;color:var(--muted);max-width:40ch;margin-top:16px}#bs .center .sub{margin-left:auto;margin-right:auto}#bs .lead{margin-top:28px;font-size:1.1rem;font-weight:600;line-height:1.45}#bs .btn{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;background:var(--blue);color:#fff;font-family:var(--font);font-weight:700;font-size:1rem;line-height:1.2;text-align:center;text-decoration:none;border-radius:10px;cursor:pointer;transition:transform .15s ease,filter .15s ease}#bs .btn:hover{transform:translateY(-1px);filter:brightness(1.1)}#bs .btn svg{width:18px;height:18px;flex:none}#bs .btn-full{width:100%}#bs a:focus-visible,#bs button:focus-visible,#bs input:focus-visible+span,#bs [role=button]:focus-visible{outline:3px solid #fff;outline-offset:3px}#bs .cta{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:28px}#bs .center .cta{align-items:center}#bs .note{font-size:.85rem;color:var(--muted)}#bs .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}#bs .alt .card{background:var(--black)}#bs .card.hl{border-color:var(--blue)}#bs .ticks{display:grid;gap:12px}#bs .ticks li{display:flex;gap:12px;align-items:flex-start;line-height:1.45}#bs .ticks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;margin-top:1px}#bs .ticks.no li{color:var(--muted)}#bs .ticks.no li::before{content:"✕";background:rgba(255,255,255,.08);color:var(--muted)}#bs .ph{position:absolute;inset:0;display:grid;place-items:center;padding:16px;text-align:center;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:#111A30}#bs .doors{background:var(--blue);color:#fff;text-align:center;font-size:.85rem;font-weight:600;line-height:1.35;padding:9px 16px}#bs .top{padding:20px 0 8px}#bs .top .wrap{display:flex;justify-content:center}#bs .logo{display:inline-flex;text-decoration:none}#bs .logo img{height:28px;width:auto;max-width:100%}@media (min-width:640px){#bs .logo img{height:32px}}#bs .hero{padding:28px 0 56px}#bs .hero h1{max-width:16ch;margin:0 auto}#bs .hero .sub{max-width:46ch}#bs .video{position:relative;aspect-ratio:16/9;max-width:880px;margin:32px auto 0;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line)}#bs .video img{width:100%;height:100%;object-fit:cover}#bs .video iframe,#bs .video video{position:absolute;inset:0;width:100%;height:100%;border:0}#bs .play{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:10px;font-size:.88rem;font-weight:600;background:rgba(5,7,13,.25)}#bs .play i{width:68px;height:68px;border-radius:50%;background:var(--blue);display:grid;place-items:center;transition:transform .15s ease}#bs .play i svg{width:24px;height:24px;margin-left:3px}#bs .video[role=button]{cursor:pointer}#bs .video[role=button]:hover .play i{transform:scale(1.06)}#bs .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:880px;margin:20px auto 0}#bs .facts li{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(12,19,36,.6);text-align:left;font-size:.85rem;color:var(--muted);line-height:1.3}#bs .facts b{display:block;color:#fff;font-size:1.05rem;margin-bottom:2px}#bs .proof{padding:40px 0}#bs .proof figure{display:flex;gap:16px;align-items:center;justify-content:center;text-align:left}#bs .proof blockquote p{font-size:clamp(1.1rem,3.6vw,1.4rem);font-weight:700;line-height:1.35;letter-spacing:-.01em}#bs .proof cite{display:block;font-style:normal;font-size:.9rem;color:var(--muted);margin-top:6px}#bs .av{width:48px;height:48px;border-radius:50%;background:#1B2A4D;display:grid;place-items:center;font-weight:700;font-size:.78rem;color:#cfd8ea;flex:none;overflow:hidden}#bs .av img{width:100%;height:100%;object-fit:cover}#bs .problem{display:grid;gap:10px;margin-top:28px}#bs .problem button{all:unset;box-sizing:border-box;width:100%;display:flex;gap:14px;align-items:center;min-height:56px;padding:16px 20px;background:var(--card);border:1px solid var(--line);border-radius:14px;font-family:var(--font);font-weight:600;line-height:1.4;color:#fff;cursor:pointer;transition:border-color .15s ease}#bs .problem button::before{content:"";flex:none;width:24px;height:24px;border-radius:50%;border:2px solid rgba(160,180,220,.4);display:grid;place-items:center;font-size:.75rem;font-weight:800}#bs .problem button:hover{border-color:rgba(110,168,255,.5)}#bs .problem button[aria-pressed="true"]{border-color:var(--blue)}#bs .problem button[aria-pressed="true"]::before{content:"✓";background:var(--blue);border-color:var(--blue)}#bs .tally{margin-top:16px;min-height:1.6em;font-size:.95rem;color:var(--muted)}#bs .tally b{color:#fff}#bs .swap{margin-top:32px;padding:0;overflow:hidden}#bs .swap-head{display:none}#bs .swap li{display:grid;gap:6px;padding:18px 22px;border-top:1px solid var(--line)}#bs .swap li:first-child{border-top:0}#bs .swap .old{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(163,176,200,.5)}#bs .swap .new{display:flex;gap:10px;font-weight:600;line-height:1.45}#bs .swap .new::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;margin-top:1px}#bs .steps{display:grid;gap:14px;margin-top:32px}#bs .steps li{position:relative}#bs .steps .big{display:block;font-size:3rem;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--blue-text);margin-bottom:14px}#bs .steps h3{font-size:1.3rem;margin-bottom:6px}#bs .steps p{color:var(--muted)}#bs .order{margin-top:20px;font-size:1.1rem;font-weight:600}#bs .rail{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:32px}#bs .rail span{height:10px;border-radius:3px}#bs .rail .p1{background:rgba(31,91,255,.35)}#bs .rail .p2{background:rgba(31,91,255,.65)}#bs .rail .p3{background:var(--blue)}#bs .rail-lab{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:8px;font-size:.75rem;color:var(--muted);text-align:center}#bs .phases{display:grid;gap:14px;margin-top:24px}#bs .phases li{position:relative;padding-left:42px}#bs .phases li::before{content:"";position:absolute;left:13px;top:0;bottom:-14px;width:2px;background:var(--line)}#bs .phases li:first-child::before{top:24px}#bs .phases li:last-child::before{bottom:auto;height:24px}#bs .phases .dot{position:absolute;left:0;top:20px;width:28px;height:28px;border-radius:50%;background:var(--black);border:2px solid var(--blue);display:grid;place-items:center;font-size:.78rem;font-weight:800;z-index:1}#bs .phases li:last-child .dot{background:var(--blue)}#bs .wk{display:block;font-size:.8rem;font-weight:600;color:var(--blue-text)}#bs .phases h3{font-size:1.2rem;margin:2px 0 6px}#bs .phases p{color:var(--muted)}#bs .phases .warn{margin-top:10px;color:#fff;font-weight:600}#bs .week{margin-top:48px}#bs .week h3{font-size:1.3rem}#bs .tabs{display:inline-flex;gap:4px;margin-top:16px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--black)}#bs .tabs button{all:unset;box-sizing:border-box;min-height:44px;padding:0 16px;border-radius:9px;font-family:var(--font);font-weight:600;font-size:.92rem;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center}#bs .tabs button[aria-selected="true"]{background:var(--blue);color:#fff}#bs .grid7{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:16px}#bs .grid3{display:grid;gap:8px;margin-top:16px}#bs .day{padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--black);line-height:1.35}#bs .day small{display:block;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-text)}#bs .day b{display:block;margin:4px 0 2px;font-size:.98rem}#bs .day span{font-size:.82rem;color:var(--muted)}#bs .day.rest{border-style:dashed;color:var(--muted)}#bs .day.rest b{color:var(--muted)}#bs .same{margin-top:16px;font-weight:600}#bs .check{margin-top:32px}#bs .q{margin-top:26px}#bs .q:first-child{margin-top:0}#bs .q legend{font-weight:700;font-size:1.05rem;margin-bottom:12px}#bs .opts{display:grid;gap:8px}#bs .opts label{position:relative;cursor:pointer}#bs .opts input{position:absolute;opacity:0;width:1px;height:1px}#bs .opts span{display:flex;align-items:center;min-height:48px;padding:10px 16px;border:1px solid rgba(160,180,220,.3);border-radius:10px;font-size:.95rem;line-height:1.35;transition:border-color .15s ease}#bs .opts label:hover span{border-color:var(--blue-text)}#bs .opts input:checked+span{border-color:var(--blue);background:rgba(31,91,255,.18);font-weight:600}#bs .result{margin-top:24px}#bs .result[hidden]{display:none}#bs .levels{display:grid;gap:8px;margin:16px 0 18px}#bs .levels li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-weight:600}#bs .lvl{flex:none;padding:4px 10px;border-radius:6px;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}#bs .lvl.l0{background:rgba(255,255,255,.08);color:#fff}#bs .lvl.l1{background:rgba(31,91,255,.3);color:#fff}#bs .lvl.l2{background:var(--blue);color:#fff}#bs .result .verdict{font-size:1.1rem;font-weight:700;line-height:1.45}#bs .result .why{margin-top:8px;color:var(--muted)}#bs .progress{margin-top:8px;font-size:.85rem;color:var(--muted)}#bs .offer{margin-top:32px;padding:0;overflow:hidden}#bs .item{display:flex;gap:14px;align-items:flex-start;padding:16px 22px;border-bottom:1px solid var(--line)}#bs .item::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;margin-top:2px}#bs .item p{color:var(--muted);font-size:.92rem;margin-top:2px}#bs .item.tbc{border-bottom-style:dashed}#bs .price{padding:28px 22px;text-align:center}#bs .price .now{font-size:clamp(3.2rem,14vw,4.5rem);font-weight:800;letter-spacing:-.04em;line-height:1.05}#bs .price .now small{font-size:1rem;font-weight:500;color:var(--muted);letter-spacing:0}#bs .price .per{color:var(--muted);margin-top:4px}#bs .price .cta{align-items:center;margin-top:20px}#bs .fit{display:grid;gap:14px;margin-top:32px}#bs .fit h3{margin-bottom:16px}#bs .about{display:grid;gap:32px;align-items:center}#bs .photo{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#111A30}#bs .photo img{width:100%;height:100%;object-fit:cover}#bs .bio{display:grid;gap:14px;margin-top:20px;color:var(--muted)}#bs .bio b{color:#fff;font-weight:600}#bs .signoff{margin-top:20px;font-size:1.2rem;font-weight:700}#bs .case{display:grid;padding:0;overflow:hidden;margin-top:32px}#bs .case .photo{border-radius:0;aspect-ratio:16/10}#bs .case .body{padding:24px}#bs .case blockquote p{font-size:1.15rem;font-weight:700;line-height:1.4}#bs .case cite{display:block;font-style:normal;font-size:.9rem;color:var(--muted);margin-top:6px}#bs .story{display:grid;gap:16px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}#bs .story dt{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-text)}#bs .story dd{margin-top:2px}#bs .story .after dd{font-size:1.2rem;font-weight:800}#bs .slots{display:grid;gap:14px;margin-top:14px}#bs .review{display:flex;flex-direction:column;gap:10px}#bs .review blockquote p{color:var(--muted);font-size:.95rem}#bs .who{margin-top:auto;padding-top:6px;display:flex;align-items:center;gap:10px;font-size:.88rem;line-height:1.3}#bs .who .av{width:40px;height:40px;font-size:.72rem}#bs .who span{display:block;color:var(--muted)}#bs .slot{border-style:dashed}#bs .slot-hidden{display:none!important}#bs .faq{margin-top:28px;border-top:1px solid var(--line)}#bs .faq>div{border-bottom:1px solid var(--line)}#bs .faq button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;min-height:44px;cursor:pointer;font-family:var(--font);font-weight:600;font-size:1.04rem;line-height:1.4;color:#fff}#bs .faq button::after{content:"+";flex:none;font-size:1.4rem;font-weight:400;line-height:1;color:var(--blue-text);transition:transform .2s ease}#bs .faq button[aria-expanded="true"]::after{transform:rotate(45deg)}#bs .faq .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}#bs .faq .a>div{overflow:hidden}#bs .faq .a p{padding:0 32px 20px 0;color:var(--muted)}#bs .faq button[aria-expanded="true"] + .a{grid-template-rows:1fr}#bs .final{padding:88px 0;background:linear-gradient(180deg,var(--black),var(--navy))}#bs .final .note{max-width:44ch}#bs footer{padding:24px 0;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);background:var(--navy)}#bs footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}#bs footer nav{display:flex;flex-wrap:wrap;gap:18px}#bs .sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(5,7,13,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;transition:transform .25s ease}#bs .sticky.hide{transform:translateY(110%)}#bs .sticky p{flex:none;font-size:.78rem;line-height:1.2;color:var(--muted)}#bs .sticky p b{display:block;font-size:1.05rem;color:#fff}#bs .sticky .btn{flex:1;min-height:50px;padding:0 16px}#bs .if-closed{display:none}#bs.is-closed .if-closed{display:revert}#bs.is-closed .if-open{display:none}@media (min-width:640px){#bs .facts{grid-template-columns:repeat(4,1fr)}#bs .fit{grid-template-columns:1fr 1fr}#bs .slots{grid-template-columns:repeat(2,1fr)}#bs .grid7{grid-template-columns:repeat(4,1fr)}#bs .grid3{grid-template-columns:repeat(3,1fr)}#bs .opts{grid-template-columns:repeat(3,1fr)}#bs .swap-head{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:16px 22px;border-bottom:1px solid var(--line);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}#bs .swap-head span:last-child{color:var(--blue-text)}#bs .swap li{grid-template-columns:1fr 1fr;gap:24px;align-items:center}}@media (min-width:900px){#bs{font-size:18px;padding-bottom:0}#bs .wrap{padding:0 40px}#bs section{padding:104px 0}#bs .proof{padding:48px 0}#bs .hero{padding:48px 0 88px}#bs .sticky{display:none}#bs .steps{grid-template-columns:repeat(3,1fr)}#bs .steps li:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);z-index:1;width:26px;height:26px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-size:.85rem;font-weight:800}#bs .grid7{grid-template-columns:repeat(7,1fr)}#bs .about{grid-template-columns:1fr 1.2fr;gap:72px}#bs .case{grid-template-columns:.8fr 1.2fr}#bs .case .photo{aspect-ratio:auto;height:100%;min-height:360px}#bs .case .body{padding:36px}#bs .price{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:32px 36px}#bs .price .cta{margin-top:0}}@media (prefers-reduced-motion:reduce){#bs *{transition:none!important}}#bs .video:has(>.ph):not(:has(img)){display:none}#bs .photo:has(>.ph){display:none}#bs .about:has(>.photo>.ph){grid-template-columns:1fr!important;max-width:760px}#bs .case:has(>.photo>.ph){grid-template-columns:1fr!important}</style>
+<div id="bs">
+<p class="doors">
+<span class="if-open">Black Friday: £97 · Closes Sunday 6 December, 11:59pm</span>
+<span class="if-closed">Black Friday has closed. The Kipping Pull-Up Masterclass opens in January.</span>
+</p>
+<header class="top">
+<div class="wrap">
+<a class="logo" href="#top" aria-label="Beyond Scaled">
+<img src="https://cdn.jsdelivr.net/gh/joshbeyondscaled/Strive-website-info-@e5ed33e/beyond-scaled/upper-body-accelerator/logo.png" alt="Beyond Scaled" width="307" height="32">
+</a>
+</div>
+</header>
+<main>
+<section class="hero center" id="top" aria-labelledby="hero-title">
+<div class="wrap">
+<span class="label">Black Friday · The 6-week Upper Body Gymnastics Programme</span>
+<h1 id="hero-title">Stop scaling <span class="blue">pull-ups in class.</span></h1>
+<p class="sub">More unbroken reps in 6 weeks, by adding a 10–15 minute warm-up to the classes you already do. No extra sessions.</p>
+<div class="video" data-embed="" aria-label="Play video: how the programme works">
+<div class="ph">Video thumbnail<br>(Josh to camera)</div>
+<div class="play"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4.5v15l13-7.5z"/></svg></i><span>Watch how it works · [6] min</span></div>
+</div>
+<div class="cta">
+<a class="btn" href="#" data-buy data-watch><span data-lab>Get the programme — £97</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<p class="note if-open">One payment. Black Friday closes Sunday 6 December, 11:59pm.</p>
+<p class="note if-closed">Black Friday has closed. Join the waitlist and you'll hear first when the January masterclass opens.</p>
+</div>
+<ul class="facts">
+<li><b>6 weeks</b>8 weeks' access, so Christmas is covered</li>
+<li><b>10–15 min</b>before 3 classes a week</li>
+<li><b>Day 1 + week 6</b>scorecard and retest</li>
+<li><b>£97</b>until Sun 6 Dec</li>
+</ul>
+</div>
+</section>
+<div class="alt proof">
+<div class="wrap">
+<figure>
+<span class="av" aria-hidden="true">CL</span>
+<div>
+<blockquote><p>15+ unbanded kipping pull-ups in 6 weeks.</p></blockquote>
+<cite>Charlotte Leathard</cite>
+</div>
+</figure>
+</div>
+</div>
+<section aria-labelledby="problem-title">
+<div class="wrap narrow">
+<span class="label">The problem</span>
+<h2 id="problem-title">Sound familiar?</h2>
+<p class="sub">Tap the ones that sound like you.</p>
+<ul class="problem">
+<li><button type="button" aria-pressed="false">You still reach for a band when pull-ups come up in class.</button></li>
+<li><button type="button" aria-pressed="false">You do extra kips at the end of class, and nothing changes.</button></li>
+<li><button type="button" aria-pressed="false">Your legs bend, or you lose tension when you pop your hips.</button></li>
+<li><button type="button" aria-pressed="false">You get one rep, then it falls apart.</button></li>
+<li><button type="button" aria-pressed="false">You feel like the weakest at gymnastics in your class.</button></li>
+</ul>
+<p class="tally" id="bs-tally" aria-live="polite"></p>
+<p class="lead">The fix isn't more reps. It's building the strength and breaking the movement down. <span class="blue">Slow is smooth, smooth is fast.</span></p>
+</div>
+</section>
+<section class="alt" aria-labelledby="compare-title">
+<div class="wrap narrow">
+<span class="label">Why it hasn't moved</span>
+<h2 id="compare-title">Why the usual approach doesn't work.</h2>
+<div class="card swap">
+<div class="swap-head" aria-hidden="true"><span>The usual way</span><span>The Beyond Scaled way</span></div>
+<ul>
+<li><span class="old"><span class="sr">Usual way: </span>"Just do more reps"</span><span class="new">Quality reps only. Junk volume locks faults in</span></li>
+<li><span class="old"><span class="sr">Usual way: </span>Extra kips at the end of class, when you're already knackered</span><span class="new">10–15 minutes before class, while you're fresh</span></li>
+<li><span class="old"><span class="sr">Usual way: </span>Chase the skill first</span><span class="new">Build the strength that makes the skill possible</span></li>
+<li><span class="old"><span class="sr">Usual way: </span>Random drills from YouTube</span><span class="new">One progression, three phases, in order</span></li>
+<li><span class="old"><span class="sr">Usual way: </span>Intensity on top of poor positions</span><span class="new">Positions first, intensity layered on top</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section aria-labelledby="ppp-title">
+<div class="wrap">
+<span class="label">The method · The PPP Framework</span>
+<h2 id="ppp-title">You can't kip what you <span class="blue">can't hold.</span></h2>
+<ol class="steps">
+<li class="card"><span class="big" aria-hidden="true">P1</span><h3>Position</h3><p>Hollow and arch, held with tension, so your legs stop bending.</p></li>
+<li class="card"><span class="big" aria-hidden="true">P2</span><h3>Pattern</h3><p>Swing timing, so the kip links into the pull.</p></li>
+<li class="card"><span class="big" aria-hidden="true">P3</span><h3>Power</h3><p>A hip pop that holds up under fatigue, so you can link reps in a workout.</p></li>
+</ol>
+<p class="order">Position → Pattern → Power. <span class="muted">With strict pulling strength in every session.</span></p>
+</div>
+</section>
+<section class="alt" aria-labelledby="weeks-title">
+<div class="wrap narrow">
+<span class="label">How the 6 weeks work</span>
+<h2 id="weeks-title">Three phases. In order.</h2>
+<div class="rail" aria-hidden="true"><span class="p1"></span><span class="p1"></span><span class="p2"></span><span class="p2"></span><span class="p3"></span><span class="p3"></span></div>
+<div class="rail-lab" aria-hidden="true"><span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span><span>Wk 5</span><span>Wk 6</span></div>
+<ol class="phases">
+<li><span class="dot" aria-hidden="true">1</span><div class="card"><span class="wk">Weeks 1–2</span><h3>Position</h3><p>Hollow and arch held with tension, plus scapular control. Starts with your Day 1 scorecard.</p><p class="warn">This is where the real value is, and the bit you'll want to rush. Don't.</p></div></li>
+<li><span class="dot" aria-hidden="true">2</span><div class="card"><span class="wk">Weeks 3–4</span><h3>Pattern</h3><p>Swing timing, and linking the kip to the pull.</p></div></li>
+<li><span class="dot" aria-hidden="true">3</span><div class="card hl"><span class="wk">Weeks 5–6</span><h3>Power, then retest</h3><p>A hip pop that links reps under fatigue. Then in week 6, retest against your Day 1 score and see exactly what's changed.</p></div></li>
+</ol>
+<div class="week">
+<h3>Your week.</h3>
+<ul class="grid3">
+<li class="day"><small>Session A</small><b>Before class 1</b><span>10–15 min</span></li>
+<li class="day"><small>Session B</small><b>Before class 2</b><span>10–15 min</span></li>
+<li class="day"><small>Session C</small><b>Before class 3</b><span>10–15 min</span></li>
+</ul>
+<p class="same">Then train as normal. <span class="muted">Want more? There's an optional 10-minute bonus session.</span></p>
+</div>
+</div>
+</section>
+<section aria-labelledby="check-title">
+<div class="wrap narrow">
+<span class="label">30-second check</span>
+<h2 id="check-title">Where would you start?</h2>
+<p class="sub">Every session has scaling options: scaling, building, have it. Answer four quick ones and see where you'd start.</p>
+<form class="card check" id="bs-check" novalidate>
+<fieldset class="q" data-skill="Strict pull-ups">
+<legend>Strict pull-ups, no band?</legend>
+<div class="opts">
+<label><input type="radio" name="q1" value="0"><span>Not even with a band</span></label>
+<label><input type="radio" name="q1" value="1"><span>With a band, or 1–2</span></label>
+<label><input type="radio" name="q1" value="2"><span>3 or more</span></label>
+</div>
+</fieldset>
+<fieldset class="q" data-skill="Kipping pull-ups">
+<legend>Kipping pull-ups?</legend>
+<div class="opts">
+<label><input type="radio" name="q2" value="0"><span>None yet</span></label>
+<label><input type="radio" name="q2" value="1"><span>A few, then they fall apart</span></label>
+<label><input type="radio" name="q2" value="2"><span>Sets of 5+ that hold up</span></label>
+</div>
+</fieldset>
+<fieldset class="q" data-skill="Hollow hold">
+<legend>Hollow hold, 45 seconds?</legend>
+<div class="opts">
+<label><input type="radio" name="q3" value="0"><span>My back lifts or I give up early</span></label>
+<label><input type="radio" name="q3" value="1"><span>With my knees tucked</span></label>
+<label><input type="radio" name="q3" value="2"><span>Legs long, back flat</span></label>
+</div>
+</fieldset>
+<fieldset class="q" data-skill="Dead hang">
+<legend>Dead hang from the bar?</legend>
+<div class="opts">
+<label><input type="radio" name="q4" value="0"><span>Under 20 seconds</span></label>
+<label><input type="radio" name="q4" value="1"><span>20–40 seconds</span></label>
+<label><input type="radio" name="q4" value="2"><span>40 seconds or more</span></label>
+</div>
+</fieldset>
+<p class="progress" id="bs-progress" aria-live="polite">0 of 4 answered</p>
+<div class="result" id="bs-result" hidden tabindex="-1">
+<span class="label">Your starting point</span>
+<ul class="levels" id="bs-levels"></ul>
+<p class="verdict" id="bs-verdict"></p>
+<p class="why" id="bs-why"></p>
+<div class="cta">
+<a class="btn" href="#" data-buy><span data-lab>Get the programme — £97</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</div>
+</form>
+</div>
+</section>
+<section class="alt" id="join" aria-labelledby="get-title">
+<div class="wrap narrow">
+<div class="center">
+<span class="label">What's included</span>
+<h2 id="get-title">Everything for the 6 weeks.</h2>
+</div>
+<div class="card offer">
+<div class="item"><div><h3>6 weeks of programming in CoachRx</h3><p>3 short warm-up sessions a week, 10–15 minutes each, built on Position → Pattern → Power.</p></div></div>
+<div class="item"><div><h3>Clear scaling options</h3><p>Fits where you are now, whether you're still on a band or close to linking reps.</p></div></div>
+<div class="item"><div><h3>An optional 10-minute bonus session</h3><p>For when you want more.</p></div></div>
+<div class="item"><div><h3>A Day 1 scorecard and a week-6 retest</h3><p>Kipping pull-ups, strict pull-ups, pulling strength and core strength, so you can see exactly what improved.</p></div></div>
+<div class="item"><div><h3>Unlimited form videos on WhatsApp</h3><p>Send as many as you like. I reply once a week with feedback.</p></div></div>
+<div class="item"><div><h3>CoachRx check-ins with my feedback</h3><p>Log your sessions and I'll keep you on track.</p></div></div>
+<div class="item"><div><h3>8 weeks' access</h3><p>6 weeks of training with 2 spare, so Christmas or a week away doesn't knock you off.</p></div></div>
+<div class="price">
+<div>
+<p class="now">£97<small> one payment</small></p>
+<p class="per">Black Friday price, until Sunday 6 December. 1-2-1 coaching with me is £199 a month.</p>
+</div>
+<div class="cta">
+<a class="btn" href="#" data-buy><span data-lab>Get the programme — £97</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<p class="note if-open">The programme opens on Monday 30 November. Week 1 starts the Monday after your Day 1 scorecard.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="guar-title">
+<div class="wrap narrow">
+<span class="label">The guarantee</span>
+<h2 id="guar-title">Beat your Day 1 score in 6 weeks, <span class="blue">or I'll coach you 1-2-1 for free until you do.</span></h2>
+<p class="sub">Up to 6 more weeks of free 1-2-1 coaching. You do the sessions and log them; I'll do the rest.</p>
+<div class="card" style="margin-top:24px">
+<h3>To qualify</h3>
+<ul class="ticks">
+<li>Do your Day 1 scorecard (with video) before Week 1, and your retest (with video) at the end of the programme, in the week after your 18th session.</li>
+<li>Complete all 18 programme sessions: 3 a week for 6 weeks. The bonus sessions are optional and don't count.</li>
+<li>Log every session's results in CoachRx.</li>
+</ul>
+<p class="note" style="margin-top:12px">Your score is your total scorecard points. The free 1-2-1 coaching is the remedy; there's no cash refund.</p>
+</div>
+</div>
+</section>
+<section aria-labelledby="fit-title">
+<div class="wrap">
+<span class="label">Is this for you?</span>
+<h2 id="fit-title">Who it's for.</h2>
+<div class="fit">
+<div class="card hl">
+<h3>This is for you if</h3>
+<ul class="ticks">
+<li>You can do a banded pull-up and want to stop scaling in class</li>
+<li>You want your first unbanded kipping pull-up, or to link more reps</li>
+<li>You'll do a 10–15 minute warm-up before 3 of your classes a week</li>
+</ul>
+</div>
+<div class="card">
+<h3>This isn't for you if</h3>
+<ul class="ticks no">
+<li>You can't do a pull-up even with a band yet (message me and I'll point you in the right direction)</li>
+<li>You want a quick fix without the boring stuff</li>
+<li>You're looking for a full CrossFit programme (this sits alongside your classes)</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="alt" aria-labelledby="about-title">
+<div class="wrap about">
+<div class="photo">
+<div class="ph" role="img" aria-label="Photo of Josh Reilly">Photo of Josh</div>
+</div>
+<div>
+<span class="label">Your coach</span>
+<h2 id="about-title">Hi, I'm Josh <span aria-hidden="true">👋</span></h2>
+<div class="bio">
+<p>I used to dread classes with kipping in them. I was strong, but I couldn't hold the positions. Once I learnt the order, everything changed.</p>
+<p>I've coached for <b>10+ years</b> and worked with <b>250+ clients</b>. First Class degree in Sports, Exercise and Nutritional Sciences, postgrad diploma in Strength and Conditioning. The degree taught me to explain training; coaching taught me to understand people.</p>
+<p>Most gyms are good at intensity. I care about how you move first, then layer the intensity on top, so you can train hard for years without breaking down.</p>
+</div>
+<p class="signoff">Josh <span aria-hidden="true">🤙</span></p>
+</div>
+</div>
+</section>
+<section aria-labelledby="case-title">
+<div class="wrap">
+<span class="label">Case study</span>
+<h2 id="case-title">Charlotte's story.</h2>
+<article class="card case">
+<div class="photo">
+<div class="ph" role="img" aria-label="Photo of Charlotte Leathard">Photo of Charlotte</div>
+</div>
+<div class="body">
+<blockquote><p>"I nailed my first kipping pull-up in 1 day. I've since managed 10+."</p></blockquote>
+<cite>Charlotte Leathard</cite>
+<dl class="story">
+<div><dt>Before</dt><dd>Couldn't string two kip swings together, and was worried about hurting her neck.</dd></div>
+<div><dt>What she did</dt><dd>The PPP Framework: floor positions → box drills → box removed.</dd></div>
+<div class="after"><dt>After</dt><dd>15+ unbanded kipping pull-ups in 6 weeks.</dd></div>
+</dl>
+</div>
+</article>
+<p class="lead">It wasn't talent. It was the order. <span class="muted">Everyone's timeline is different, but the order is the same.</span></p>
+</div>
+</section>
+<section class="alt" aria-labelledby="faq-title">
+<div class="wrap narrow">
+<span class="label">FAQ</span>
+<h2 id="faq-title">Questions.</h2>
+<div class="faq">
+<div><button type="button" aria-expanded="false" aria-controls="f1" id="f1q">I can't kip at all. Is this for me?</button><div class="a" id="f1" role="region" aria-labelledby="f1q"><div><p>Yes. Every session has scaling options. The one thing you need is a banded pull-up.</p></div></div></div>
+<div><button type="button" aria-expanded="false" aria-controls="f2" id="f2q">How long are the sessions?</button><div class="a" id="f2" role="region" aria-labelledby="f2q"><div><p>10–15 minutes, before 3 of the classes you already go to. Then you train as normal. There's an optional 10-minute bonus session if you want more.</p></div></div></div>
+<div><button type="button" aria-expanded="false" aria-controls="f3" id="f3q">What kit do I need?</button><div class="a" id="f3" role="region" aria-labelledby="f3q"><div><p>Ideally a full gym. It works best if you train at a CrossFit box and do it before your classes.</p></div></div></div>
+<div><button type="button" aria-expanded="false" aria-controls="f4" id="f4q">When does it start?</button><div class="a" id="f4" role="region" aria-labelledby="f4q"><div><p>The programme opens in CoachRx on Monday 30 November. Do your Day 1 scorecard first, and Week 1 starts the Monday after.</p></div></div></div>
+<div><button type="button" aria-expanded="false" aria-controls="f5" id="f5q">What about Christmas?</button><div class="a" id="f5" role="region" aria-labelledby="f5q"><div><p>You have 8 weeks' access to complete 6 weeks of training. Miss a week and you carry on where you left off.</p></div></div></div>
+<div><button type="button" aria-expanded="false" aria-controls="f6" id="f6q">How do I get access?</button><div class="a" id="f6" role="region" aria-labelledby="f6q"><div><p>After you pay, you'll get an email with your CoachRx link and code. It takes 2 minutes.</p></div></div></div>
+<div><button type="button" aria-expanded="false" aria-controls="f7" id="f7q">What if it doesn't work for me?</button><div class="a" id="f7" role="region" aria-labelledby="f7q"><div><p>Beat your Day 1 score in 6 weeks, or I'll coach you 1-2-1 for free until you do, for up to 6 more weeks. Do all 18 sessions, log them in CoachRx, and film your baseline and your retest. If you do your part, I'll do mine.</p></div></div></div>
+<div><button type="button" aria-expanded="false" aria-controls="f8" id="f8q">My shoulders niggle.</button><div class="a" id="f8" role="region" aria-labelledby="f8q"><div><p>Good positions take stress off the shoulders. Real pain is different: get it checked, don't push through.</p></div></div></div>
+<div><button type="button" aria-expanded="false" aria-controls="f9" id="f9q">What happens after the 6 weeks?</button><div class="a" id="f9" role="region" aria-labelledby="f9q"><div><p>You keep your scorecard and your progress. If you want me coaching you directly, I take on a small number of online 1-2-1 clients. Completely optional.</p></div></div></div>
+</div>
+<div class="cta">
+<a class="btn" href="#" data-buy><span data-lab>Get the programme — £97</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</div>
+</section>
+<section class="final center" aria-labelledby="final-title">
+<div class="wrap">
+<h2 id="final-title">Ready to stop <span class="blue">scaling?</span></h2>
+<p class="sub">6 weeks. 10–15 minutes before 3 classes a week. £97 until Sunday 6 December.</p>
+<div class="cta">
+<a class="btn" href="#" data-buy data-watch><span data-lab>Get the programme — £97</span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<p class="note if-open">Black Friday closes Sunday 6 December at 11:59pm. Then the checkout comes down.</p>
+<p class="note if-closed">Black Friday has closed. Join the waitlist and you'll hear first when the January masterclass opens.</p>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<span>© <span id="bs-year">2026</span> Beyond Scaled</span>
+<nav aria-label="Legal"><a href="https://joshreilly.co.uk/privacy-policy">Privacy policy</a><a href="https://joshreilly.co.uk/terms">Terms</a></nav>
+</div>
+</footer>
+<div class="sticky hide" id="bs-sticky" aria-hidden="true">
+<p class="if-open"><b>£97</b>Until Sun 6 Dec</p>
+<a class="btn" href="#" data-buy tabindex="-1"><span data-lab>Get the programme</span></a>
+</div>
+</div>
+<script>(function(){
+var CONFIG = {
+closeAt:     '2026-12-06T23:59',
+checkoutUrl: 'https://link.fastpaydirect.com/payment-link/6b06f52921a48a3872d293c2',
+waitlistUrl: 'https://joshreilly.co.uk/upper-body-closed',
+pixelId:     '[PIXEL ID]',
+price:       97
+};
+var root=document.getElementById('bs'); if(!root) return;
+var isSet=function(v){ return v && v.indexOf('YOUR-')<0 && v.indexOf('[')<0; };
+function londonToUTC(str){
+var m=/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(str); if(!m) return null;
+var guess=Date.UTC(+m[1],+m[2]-1,+m[3],+m[4],+m[5],59), off=0;
+try{ var p=new Date(guess); off=new Date(p.toLocaleString('en-US',{timeZone:'Europe/London'}))-new Date(p.toLocaleString('en-US',{timeZone:'UTC'})); }catch(e){}
+return guess-off;
+}
+var closeUTC=londonToUTC(CONFIG.closeAt);
+var closed=(closeUTC!==null && Date.now()>closeUTC) || /[?&]preview=closed\b/.test(location.search);
+if(closed) root.classList.add('is-closed');
+var tracking=new URLSearchParams(location.search);
+function withTracking(url){
+try{ var u=new URL(url); tracking.forEach(function(v,k){ if(!u.searchParams.has(k)) u.searchParams.set(k,v); }); return u.toString(); }catch(e){ return url; }
+}
+var target=closed?CONFIG.waitlistUrl:CONFIG.checkoutUrl;
+root.querySelectorAll('[data-buy]').forEach(function(a){
+a.href=isSet(target)?withTracking(target):'#';
+if(closed){ var l=a.querySelector('[data-lab]'); if(l) l.textContent='Join the waitlist'; }
+a.addEventListener('click',function(e){
+if(!isSet(target)){ e.preventDefault(); alert('Preview: add the '+(closed?'waitlist':'checkout')+' link in CONFIG.'); return; }
+if(!closed && window.fbq) fbq('track','InitiateCheckout',{value:CONFIG.price,currency:'GBP',content_name:'Upper Body Gymnastics Programme: Black Friday'});
+});
+});
+if(/^\d+$/.test(CONFIG.pixelId) && !window.fbq){
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init',CONFIG.pixelId); fbq('track','PageView');
+}
+root.querySelectorAll('.video').forEach(function(v){
+var src=(v.getAttribute('data-embed')||'').trim();
+if(!src){ var p=v.querySelector('.play'); if(p) p.style.display='none'; v.removeAttribute('aria-label'); return; }
+v.setAttribute('role','button'); v.tabIndex=0;
+function play(){
+var el;
+if(/\.mp4(\?|$)/i.test(src)){ el=document.createElement('video'); el.src=src; el.controls=true; el.autoplay=true; el.playsInline=true; }
+else { el=document.createElement('iframe'); el.src=src+(src.indexOf('?')>-1?'&':'?')+'autoplay=1'; el.allow='autoplay; fullscreen; picture-in-picture'; el.allowFullscreen=true; el.title='How the programme works'; }
+v.innerHTML=''; v.appendChild(el); ['role','tabindex','aria-label'].forEach(function(a){v.removeAttribute(a);});
+v.removeEventListener('click',play); v.removeEventListener('keydown',key);
+}
+function key(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); } }
+v.addEventListener('click',play); v.addEventListener('keydown',key);
+});
+var probs=root.querySelectorAll('.problem button'), tally=document.getElementById('bs-tally');
+probs.forEach(function(b){
+b.addEventListener('click',function(){
+b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');
+var n=root.querySelectorAll('.problem [aria-pressed="true"]').length;
+tally.innerHTML = n===0 ? '' :
+n<3 ? '<b>'+n+' of 5.</b> Each one is a strength or position gap, and the programme trains each one.' :
+'<b>'+n+' of 5.</b> That\'s a strength and position gap, not a coordination problem. Good news: strength is the most trainable thing there is.';
+});
+});
+var tabs=root.querySelectorAll('[role=tab]');
+function pick(t){
+tabs.forEach(function(o){ var on=o===t; o.setAttribute('aria-selected',on); o.tabIndex=on?0:-1; document.getElementById(o.getAttribute('aria-controls')).hidden=!on; });
+}
+tabs.forEach(function(t,i){
+t.addEventListener('click',function(){ pick(t); });
+t.addEventListener('keydown',function(e){
+if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft') return;
+var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length]; pick(n); n.focus();
+});
+});
+var form=document.getElementById('bs-check');
+if(form){
+var qsets=form.querySelectorAll('.q'), res=document.getElementById('bs-result'), prog=document.getElementById('bs-progress');
+var names=['Scaling','Building','Have it'];
+form.addEventListener('submit',function(e){ e.preventDefault(); });
+form.addEventListener('change',function(){
+var vals=[]; qsets.forEach(function(q){ var c=q.querySelector('input:checked'); vals.push(c?+c.value:null); });
+var done=vals.filter(function(v){return v!==null;}).length;
+prog.textContent=done+' of 4 answered';
+if(done<4) return;
+prog.hidden=true;
+var first=res.hidden;
+document.getElementById('bs-levels').innerHTML=Array.prototype.map.call(qsets,function(q,i){
+return '<li>'+q.getAttribute('data-skill')+'<span class="lvl l'+vals[i]+'">'+names[vals[i]]+'</span></li>';
+}).join('');
+var sum=vals.reduce(function(a,b){return a+b;},0), haves=vals.filter(function(v){return v===2;}).length;
+var verdict, why;
+if(vals[0]===0){
+verdict='Start with a banded pull-up first.';
+why='This programme needs at least a banded pull-up. Message me and I\'ll point you at what to do first, so you\'re ready for the next one.';
+} else if(haves===4){
+verdict='Honest answer: you\'re already further on than most people this is built for.';
+why='You\'d still get stronger and link more reps under fatigue. But if you\'re chasing muscle-ups or advanced skills, this isn\'t the programme for that.';
+} else if(sum<=3){
+verdict='You\'re exactly who this was built for.';
+why='You\'d start on the scaling options for most drills. Weeks 1–2 (Position) is where you\'ll feel the biggest change, and the week-6 retest will show it.';
+} else {
+verdict='You\'ve got some of it. The six weeks fill the gaps.';
+why='Weeks 1–2 tighten your positions, Weeks 3–4 link the kip to the pull, and Week 5 builds the power to keep linking reps. You start each drill at your own level.';
+}
+document.getElementById('bs-verdict').textContent=verdict;
+document.getElementById('bs-why').textContent=why;
+res.hidden=false;
+if(first){ res.focus({preventScroll:true}); res.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'}); }
+});
+}
+var qs=root.querySelectorAll('.faq button');
+qs.forEach(function(q){
+q.addEventListener('click',function(){
+var open=q.getAttribute('aria-expanded')==='true';
+qs.forEach(function(o){o.setAttribute('aria-expanded','false');});
+q.setAttribute('aria-expanded',open?'false':'true');
+});
+});
+var bar=document.getElementById('bs-sticky'), sBtn=bar.querySelector('a');
+function setBar(hide){ bar.classList.toggle('hide',hide); sBtn.tabIndex=hide?-1:0; bar.setAttribute('aria-hidden',hide?'true':'false'); }
+if('IntersectionObserver' in window){
+var seen=new Set();
+var io=new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?seen.add(e.target):seen.delete(e.target); }); setBar(seen.size>0); });
+root.querySelectorAll('[data-watch]').forEach(function(el){io.observe(el);});
+} else { setBar(false); }
+var y=document.getElementById('bs-year'); if(y) y.textContent=new Date().getFullYear();
+})();
+</script>
