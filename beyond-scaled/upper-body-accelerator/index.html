@@ -318,6 +318,12 @@
 @media (prefers-reduced-motion:reduce){
   #bs *{transition:none!important}
 }
+
+/* Launch: hide media slots that are still placeholders (video with no link, photo with no image) */
+#bs .video:has(> .ph):not(:has(img)){display:none}
+#bs .photo:has(> .ph){display:none}
+#bs .about:has(> .photo > .ph){grid-template-columns:1fr!important;max-width:760px}
+#bs .case:has(> .photo > .ph){grid-template-columns:1fr!important}
 </style>
 
 <div id="bs">
@@ -698,7 +704,7 @@
     <div class="wrap">
       <span>© <span id="bs-year">2026</span> Beyond Scaled</span>
       <!-- [CHECK] Link your privacy policy and terms (beyond-scaled/legal/ on the workshop branch has both). -->
-      <nav aria-label="Legal"><a href="https://YOUR-PRIVACY-URL">Privacy policy</a><a href="https://YOUR-TERMS-URL">Terms</a></nav>
+      <nav aria-label="Legal"><a href="https://joshreilly.co.uk/privacy-policy">Privacy policy</a><a href="https://joshreilly.co.uk/terms">Terms</a></nav>
     </div>
   </footer>
 
@@ -725,7 +731,7 @@
   var CONFIG = {
     closeAt:     '2026-12-06T23:59',
     checkoutUrl: 'https://link.fastpaydirect.com/payment-link/6b06f52921a48a3872d293c2',
-    waitlistUrl: 'https://YOUR-WAITLIST-URL',
+    waitlistUrl: 'https://joshreilly.co.uk/upper-body-closed',
     pixelId:     '[PIXEL ID]',
     price:       97
   };
