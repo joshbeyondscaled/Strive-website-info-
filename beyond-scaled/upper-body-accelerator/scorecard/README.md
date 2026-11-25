@@ -23,6 +23,8 @@ Built from `beyond-scaled/scorecard-template/` (edit `pages.py` / `template.html
 - `utm_*`, `fbclid` and `gclid` are passed on to the form.
 
 ## GHL set-up
+**Done (25 Nov 2026):** one form for Day 1 and week 6, `https://api.leadconnectorhq.com/widget/form/Xq4W5XV5wcKVezSc9pYe` ("Form 32" in GHL), already in `CONFIG`. It also has an optional WhatsApp number field (`phone`). Videos save to `contact.ubg_test_videos` (up to 6 files). The steps below are for reference.
+
 1. **Sites → Forms → new form**, e.g. `UBG Scorecard`. Add these fields, and set each one's **Query key** to match:
 
    | Field | Query key |
@@ -42,7 +44,7 @@ Built from `beyond-scaled/scorecard-template/` (edit `pages.py` / `template.html
 4. Paste `ghl-paste.html` into a Custom Code element (full-width section, no padding, page background `#05070D`).
 
 ## Before launch
-- [ ] Form links in `CONFIG.baselineFormUrl` / `CONFIG.retestFormUrl`
+- [x] Form links in `CONFIG.baselineFormUrl` / `CONFIG.retestFormUrl`
 - [ ] Check the GHL File Upload size limit suits phone videos (the page points big files to WhatsApp)
 - [ ] `[CHECK]` the guarantee line under the form
 - [ ] Privacy policy and terms links in the footer
