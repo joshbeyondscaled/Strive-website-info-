@@ -26,6 +26,7 @@ labelled **Upload videos** (allow multiple, video).
 - [ ] `[CHECK]` the tests, levels and order match the Day 1 video
 - [ ] `[CHECK]` the gap read-out wording
 - [ ] Form links in `CONFIG.baselineFormUrl` / `CONFIG.retestFormUrl`
-- [ ] `CONFIG.next.url` = accelerator sales page, and check the offer wording/price
+- [x] `CONFIG.next.url` = accelerator sales page (CoachRx)
+- [ ] Check the offer wording and price
 - [ ] Link the scorecard from the Day 1 and Thursday emails/posts
 - [ ] Privacy policy and terms links in the footer
