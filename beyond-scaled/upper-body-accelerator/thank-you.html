@@ -109,7 +109,7 @@
           <span class="num" aria-hidden="true">1</span>
           <div>
             <h3>Get your programme on CoachRx</h3>
-            <p>Use this code at checkout. It'll show £0. Then create your account.</p>
+            <p id="bs-code-note">Use this code at checkout. It'll show £0. Then create your account.</p>
             <p class="code" id="bs-code-wrap"><span id="bs-code">[CODE]</span> <button type="button" class="btn btn-ghost" id="bs-copy">Copy code</button></p>
             <a class="btn btn-full" id="bs-coachrx" href="#">Go to CoachRx
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -162,7 +162,9 @@
 (function(){
   /* ============================ CONFIG ============================
      coachrxUrl   Your CoachRx storefront link for the programme.
-     coachrxCode  The 100% discount code (set a use limit and a 13 Dec expiry in CoachRx if you can).
+     coachrxCode  The 100% discount code. CoachRx can't limit or expire a code, so change it after
+                  6 Dec and check redemptions against GHL buyers. Using a free programme link instead?
+                  Leave this as '[CODE]' and the code box hides itself.
      imInUrl      The GHL trigger link "I'm in" (adds ubg-coachrx-joined).
                   Leave as-is and step 2 says "reply to your confirmation email" instead.
      whatsapp     Your WhatsApp number, digits only with country code.
@@ -187,7 +189,8 @@
   if(name && name.length<30){ var h=$('bs-hi'); h.firstChild.textContent="You're in, "+name+". "; }
 
   $('bs-coachrx').href=isSet(CONFIG.coachrxUrl)?CONFIG.coachrxUrl:'#';
-  $('bs-code').textContent=CONFIG.coachrxCode;
+  if(isSet(CONFIG.coachrxCode)) $('bs-code').textContent=CONFIG.coachrxCode;
+  else { $('bs-code-wrap').hidden=true; $('bs-code-note').textContent='Tap below to open your programme, then create your account.'; }
   $('bs-copy').addEventListener('click',function(){
     var b=this;
     try{ navigator.clipboard.writeText(CONFIG.coachrxCode).then(function(){ b.textContent='Copied'; }); }catch(e){}
