@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>You're in | 6-Week Upper Body Gymnastics Accelerator | Beyond Scaled</title>
+<title>You're in | Upper Body Gymnastics Programme | Beyond Scaled</title>
 </head>
 <body style="margin:0">
 
@@ -14,7 +14,7 @@
      (Full-width section, no padding, page background #05070D.)
 
      HOW TO EDIT
-       • Start date, CoachRx link, booking link, pixel: the CONFIG block in the <script> at the bottom
+       • CoachRx link, CoachRx code, "I'm in" trigger link, pixel: the CONFIG block in the <script> at the bottom
        • Copy to confirm: search  [CHECK]
      ===================================================================== -->
 
@@ -82,6 +82,11 @@
 #bs footer nav{display:flex;flex-wrap:wrap;gap:18px}
 @media (min-width:900px){ #bs{font-size:18px} #bs main{padding:56px 0 104px} #bs .wrap{padding:0 40px} }
 @media (prefers-reduced-motion:reduce){ #bs *{transition:none!important} }
+#bs .code{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 14px}
+#bs .code #bs-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.25rem;font-weight:700;letter-spacing:.06em;padding:8px 14px;border:1px dashed var(--blue-text);border-radius:10px}
+#bs .next{margin-top:18px}
+#bs .next ul{margin:10px 0 12px;padding-left:1.2em;color:var(--muted)}
+#bs .next li{margin:6px 0}
 </style>
 
 <div id="bs">
@@ -95,53 +100,60 @@
 
   <main>
     <div class="wrap">
-      <span class="label">6-Week Upper Body Gymnastics Accelerator</span>
+      <span class="label">Upper Body Gymnastics Programme</span>
       <h1 id="bs-hi">You're in. <span aria-hidden="true">🤙</span></h1>
-      <p class="sub">Three things before Monday <span data-date="start">[DATE]</span>.</p>
+      <p class="sub">Here's what to do now. It takes 2 minutes.</p>
 
       <ol class="steps">
         <li class="card hl step">
           <span class="num" aria-hidden="true">1</span>
           <div>
-            <h3>Download CoachRx and log in</h3>
-            <!-- [CHECK] Which email they should use to log in -->
-            <p>Your programme lives in the CoachRx app. Log in with the email you just paid with.</p>
-            <a class="btn btn-full" id="bs-coachrx" href="[COACHRX LINK]">Get the CoachRx app
+            <h3>Get your programme on CoachRx</h3>
+            <p>Use this code at checkout. It'll show £0. Then create your account.</p>
+            <p class="code" id="bs-code-wrap"><span id="bs-code">[CODE]</span> <button type="button" class="btn btn-ghost" id="bs-copy">Copy code</button></p>
+            <a class="btn btn-full" id="bs-coachrx" href="#">Go to CoachRx
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </li>
         <li class="card step">
           <span class="num" aria-hidden="true">2</span>
           <div>
-            <h3>Book your onboarding</h3>
-            <p>A quick chat with me so you start at the right level for every movement.</p>
-            <a class="btn btn-full" id="bs-book" href="[BOOKING LINK]">Book my onboarding
+            <h3>Tell me you're in</h3>
+            <p>Once your CoachRx account is set up, tap this so I know you're ready.</p>
+            <a class="btn btn-full" id="bs-imin" href="#">I'm in
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <p class="fallback" id="bs-book-alt" hidden>I'll message you before Monday to get you set up.</p>
+            <p class="fallback" id="bs-imin-alt" hidden>Reply to your confirmation email once you're in.</p>
           </div>
         </li>
         <li class="card step">
           <span class="num" aria-hidden="true">3</span>
           <div>
-            <h3>Week 1 starts Monday with your baseline test</h3>
-            <p>Write your numbers down. They're what you'll retest against in Week 6. Put it in the diary now:</p>
-            <div class="cal">
-              <a class="btn btn-ghost" id="bs-gcal" href="#" target="_blank" rel="noopener">Google Calendar</a>
-              <button type="button" class="btn btn-ghost" id="bs-ics">Apple / Outlook</button>
-            </div>
+            <h3>Save my number</h3>
+            <p><b id="bs-wa-num">+44 7793 458864</b>. Send your form videos here on WhatsApp. I reply to them once a week.</p>
+            <a class="btn btn-ghost" id="bs-wa" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
           </div>
         </li>
       </ol>
 
-      <p class="signoff">Peace out,<br>Josh</p>
+      <div class="card next">
+        <h3>What happens next</h3>
+        <ul>
+          <li>In the next day or so, you'll get your Day 1 scorecard. That's the score you're going to beat, so do it properly and film it.</li>
+          <li>Week 1 starts on the Monday after you've done your scorecard.</li>
+          <li>You've got 8 weeks' access for 6 weeks of training, so Christmas is covered.</li>
+        </ul>
+        <p>Any problems getting in, just reply to your confirmation email.</p>
+      </div>
+
+      <p class="signoff">Slow is smooth, smooth is fast.<br>Josh</p>
     </div>
   </main>
 
   <footer>
     <div class="wrap">
       <span>© <span id="bs-year">2026</span> Beyond Scaled</span>
-      <!-- [CHECK] Link your privacy policy, terms and refund policy. -->
-      <nav aria-label="Legal"><a href="https://YOUR-PRIVACY-URL">Privacy policy</a><a href="https://YOUR-TERMS-URL">Terms</a><a href="https://YOUR-REFUND-URL">Refund policy</a></nav>
+      <!-- [CHECK] Link your privacy policy and terms. -->
+      <nav aria-label="Legal"><a href="https://YOUR-PRIVACY-URL">Privacy policy</a><a href="https://YOUR-TERMS-URL">Terms</a></nav>
     </div>
   </footer>
 </div>
@@ -149,31 +161,40 @@
 <script>
 (function(){
   /* ============================ CONFIG ============================
-     startDate   The Monday it starts, YYYY-MM-DD (same as the sales page).   [CHECK]
-     coachrxUrl  CoachRx download / invite link.
-     bookingUrl  Onboarding booking link. Leave as-is and step 2 says
-                 "I'll message you before Monday" instead.
-     pixelId     Meta Pixel ID. Fires Purchase (£97, GBP) once per visit.
-                 If your GHL order form already sends Purchase, leave this as-is
-                 so it isn't counted twice.
+     coachrxUrl   Your CoachRx storefront link for the programme.
+     coachrxCode  The 100% discount code (set a use limit and a 13 Dec expiry in CoachRx if you can).
+     imInUrl      The GHL trigger link "I'm in" (adds ubg-coachrx-joined).
+                  Leave as-is and step 2 says "reply to your confirmation email" instead.
+     whatsapp     Your WhatsApp number, digits only with country code.
+     pixelId      Meta Pixel ID. Fires Purchase (£97, GBP) once per visit.
+                  If GHL's site-wide tracking already fires Purchase on this page,
+                  leave this as-is so it isn't counted twice.
      ================================================================ */
   var CONFIG = {
-    startDate:  '2026-11-23',
-    coachrxUrl: '[COACHRX LINK]',
-    bookingUrl: '[BOOKING LINK]',
-    pixelId:    '[PIXEL ID]',
-    price:      97
+    coachrxUrl:  '[COACHRX LINK]',
+    coachrxCode: '[CODE]',
+    imInUrl:     '[I\'M IN TRIGGER LINK]',
+    whatsapp:    '447793458864',
+    pixelId:     '[PIXEL ID]',
+    price:       97
   };
 
   var isSet=function(v){ return v && v.indexOf('YOUR-')<0 && v.indexOf('[')<0; };
+  var $=function(id){ return document.getElementById(id); };
 
   // Greet by first name if the checkout passes ?name= or ?first_name=
   var q=new URLSearchParams(location.search), name=(q.get('first_name')||q.get('name')||'').trim().split(' ')[0];
-  if(name && name.length<30){ var h=document.getElementById('bs-hi'); h.firstChild.textContent="You're in, "+name+". "; }
+  if(name && name.length<30){ var h=$('bs-hi'); h.firstChild.textContent="You're in, "+name+". "; }
 
-  document.getElementById('bs-coachrx').href=isSet(CONFIG.coachrxUrl)?CONFIG.coachrxUrl:'#';
-  if(!isSet(CONFIG.bookingUrl)){ document.getElementById('bs-book').hidden=true; document.getElementById('bs-book-alt').hidden=false; }
-  else document.getElementById('bs-book').href=CONFIG.bookingUrl;
+  $('bs-coachrx').href=isSet(CONFIG.coachrxUrl)?CONFIG.coachrxUrl:'#';
+  $('bs-code').textContent=CONFIG.coachrxCode;
+  $('bs-copy').addEventListener('click',function(){
+    var b=this;
+    try{ navigator.clipboard.writeText(CONFIG.coachrxCode).then(function(){ b.textContent='Copied'; }); }catch(e){}
+  });
+  if(!isSet(CONFIG.imInUrl)){ $('bs-imin').hidden=true; $('bs-imin-alt').hidden=false; }
+  else $('bs-imin').href=CONFIG.imInUrl;
+  $('bs-wa').href='https://wa.me/'+CONFIG.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent("Hi Josh, I've just joined the Upper Body Gymnastics Programme.");
 
   // Meta Pixel — Purchase once per browser session (refreshes don't double count)
   if(/^\d+$/.test(CONFIG.pixelId)){
@@ -181,34 +202,15 @@
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
       fbq('init',CONFIG.pixelId); fbq('track','PageView');
     }
-    var key='bs-6wk-purchase-'+CONFIG.startDate, sent=false;
+    var key='bs-ubg-bf26-purchase', sent=false;
     try{ sent=sessionStorage.getItem(key)==='1'; }catch(e){}
     if(!sent){
-      fbq('track','Purchase',{value:CONFIG.price,currency:'GBP',content_name:'6-Week Upper Body Gymnastics Accelerator'});
+      fbq('track','Purchase',{value:CONFIG.price,currency:'GBP',content_name:'Upper Body Gymnastics Programme: Black Friday'});
       try{ sessionStorage.setItem(key,'1'); }catch(e){}
     }
   }
 
-  var y=document.getElementById('bs-year'); if(y) y.textContent=new Date().getFullYear();
-
-  // Dates + "add to calendar" (all-day event on the Monday)
-  if(!/^\d{4}-\d{2}-\d{2}$/.test(CONFIG.startDate)) return;
-  var start=new Date(CONFIG.startDate+'T12:00:00Z'), next=new Date(start.getTime()+864e5);
-  document.querySelectorAll('#bs [data-date="start"]').forEach(function(el){ el.textContent=start.toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'UTC'}); });
-  var d=function(x){ return x.toISOString().slice(0,10).replace(/-/g,''); };
-  var title='Week 1, Day 1: baseline test (6-Week Accelerator)';
-  var details='Week 1 starts today. Do your baseline test in CoachRx and write your numbers down: you retest against them in Week 6.';
-  document.getElementById('bs-gcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)
-    +'&dates='+d(start)+'/'+d(next)+'&details='+encodeURIComponent(details);
-  document.getElementById('bs-ics').addEventListener('click',function(){
-    var esc=function(s){ return s.replace(/[\\;,]/g,'\\$&'); };
-    var stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,'');
-    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Beyond Scaled//6wk//EN','BEGIN:VEVENT',
-      'UID:6wk-'+CONFIG.startDate+'@beyondscaled','DTSTAMP:'+stamp,'DTSTART;VALUE=DATE:'+d(start),'DTEND;VALUE=DATE:'+d(next),
-      'SUMMARY:'+esc(title),'DESCRIPTION:'+esc(details),'END:VEVENT','END:VCALENDAR'].join('\r\n');
-    var a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
-    a.download='6-week-accelerator-week-1.ics'; document.body.appendChild(a); a.click(); a.remove();
-  });
+  var y=$('bs-year'); if(y) y.textContent=new Date().getFullYear();
 })();
 </script>
 
