@@ -23,7 +23,7 @@ Same as the accelerator scorecard (see `../../upper-body-accelerator/scorecard/R
 labelled **Upload videos** (allow multiple, video).
 
 ## Before launch
-- [ ] `[CHECK]` the tests, levels and order match the Day 1 video
+- [x] Tests confirmed (kip swing kept as a bonus test)
 - [ ] `[CHECK]` the gap read-out wording
 - [ ] Form links in `CONFIG.baselineFormUrl` / `CONFIG.retestFormUrl`
 - [x] `CONFIG.next.url` = accelerator sales page (CoachRx)
