@@ -1,7 +1,7 @@
 # UBG Pull-Up Scorecard
 
 The Day 1 test and week 6 retest page for the 6-Week Upper Body Gymnastics Accelerator.
-Built on `beyond-scaled/BRAND-KIT.md` (same tokens, card and button styles as the other Beyond Scaled pages).
+Built from `beyond-scaled/scorecard-template/` (edit `pages.py` / `template.html`, then run `python3 build.py`) on `beyond-scaled/BRAND-KIT.md` (same tokens, card and button styles as the other Beyond Scaled pages).
 
 | File | What it is |
 |---|---|
@@ -10,14 +10,16 @@ Built on `beyond-scaled/BRAND-KIT.md` (same tokens, card and button styles as th
 
 ## What it does
 - Five tests (kipping ×3, strict ×3, dead hang, hollow hold, pike leg lifts), each scored 0–4. Total out of 36.
-- **Day 1 test / Week 6 retest** switch. The retest shows the Day 1 level on each test, a dashed Day 1 shape on the radar
-  chart and a "Beat Day 1 by X points" verdict. Picks are remembered on the person's phone.
+- **Day 1 test / Week 6 retest** switch. In the retest, each test has an orange "Day 1 level" row under the blue
+  week 6 levels. The radar chart shows Day 1 in orange (dashed) under week 6 in blue, plus a "Beat Day 1 by X points" verdict.
+  Day 1 levels fill in by themselves if they did Day 1 on the same phone. Someone who only knows their Day 1 total
+  can type it instead: the score comparison works, but the chart needs the levels to draw the Day 1 shape.
 - **Send it to Josh**, with or without videos:
   1. **Send my results** opens the GHL form on the page, pre-filled with name, email and scores.
      They add videos with the form's File Upload field (straight from the camera roll, more than one allowed) or just press Submit.
   2. **Send on WhatsApp instead** opens WhatsApp with their results typed out.
   3. **Copy my results** for anywhere else.
-- Link pre-fill: `?name=Sam&email=sam@x.com&mode=retest&baseline=14` (handy in the week 6 email).
+- Link pre-fill: `?name=Sam&email=sam@x.com&mode=retest&d1=2,1,3,2,1` (Day 1 levels in test order) or `&baseline=14` (just the total).
 - `utm_*`, `fbclid` and `gclid` are passed on to the form.
 
 ## GHL set-up

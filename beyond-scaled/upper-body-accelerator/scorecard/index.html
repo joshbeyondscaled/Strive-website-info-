@@ -14,9 +14,12 @@
      into a GoHighLevel Custom Code / Custom HTML block.
      (Full-width section, no padding, page background #05070D.)
 
+     Built from beyond-scaled/scorecard-template/ (run build.py there after editing it).
+     Small edits straight in this file are fine too.
+
      HOW TO EDIT
-       • GHL forms, WhatsApp number, tests: the CONFIG block in the <script> at the bottom
-       • Colours / font: the 7 variables in the BRAND block below
+       • GHL form, WhatsApp number, tests, wording: the CONFIG block in the <script> at the bottom
+       • Colours / font: the variables in the BRAND block below
        • Placeholders: everything in [SQUARE BRACKETS]
        • Copy to confirm: search  [CHECK]
      ===================================================================== -->
@@ -29,7 +32,8 @@
 /* ======================= BRAND ======================= */
 #bs{
   --blue:#1F5BFF;        /* buttons + ticks (white text on it = 5.3:1) */
-  --blue-text:#6EA8FF;   /* blue text on dark (6.8:1+) */
+  --blue-text:#6EA8FF;   /* blue text on dark (6.8:1+); also "this test" on the chart */
+  --prev:#FFB35C;        /* the earlier test on the chart and score rows */
   --navy:#0B1D48;        /* top of page gradient */
   --black:#05070D;       /* page background */
   --card:#0C1324;        /* cards + alternate sections */
@@ -104,7 +108,8 @@
 #bs .weight{flex:none;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 #bs .weight b{color:var(--blue-text)}
 #bs .how{margin-top:6px;font-size:.95rem;color:var(--muted)}
-#bs .levels{display:grid;gap:8px;margin-top:16px}
+#bs .rowlab{margin-top:16px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-text)}
+#bs .levels{display:grid;gap:8px;margin-top:8px}
 @media (min-width:700px){#bs .levels{grid-template-columns:repeat(5,minmax(0,1fr))}}
 #bs .lvl{all:unset;box-sizing:border-box;display:flex;gap:12px;align-items:center;min-height:56px;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:12px;font-family:var(--font);font-size:.92rem;font-weight:500;line-height:1.3;color:#fff;cursor:pointer;transition:border-color .15s ease}
 @media (min-width:700px){#bs .lvl{flex-direction:column;align-items:flex-start;gap:6px;font-size:.84rem}}
@@ -112,8 +117,10 @@
 #bs .lvl:hover{border-color:rgba(110,168,255,.5)}
 #bs .lvl[aria-checked="true"]{border-color:var(--blue);background:#0F1C3D}
 #bs .lvl[aria-checked="true"] .n{background:var(--blue);border-color:var(--blue);color:#fff}
-#bs .was{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;background:rgba(255,255,255,.08);font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-@media (min-width:700px){#bs .was{margin-left:0}}
+/* Earlier-test picker (retest only): small chips in the "previous" colour */
+#bs .prev{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px;font-size:.82rem;font-weight:600;color:var(--prev)}
+#bs .prev button{all:unset;box-sizing:border-box;width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,179,92,.45);display:grid;place-items:center;font-family:var(--font);font-weight:800;font-size:.9rem;color:var(--prev);cursor:pointer}
+#bs .prev button[aria-checked="true"]{background:var(--prev);border-color:var(--prev);color:#1A1205}
 #bs .warn{margin-top:14px;padding:14px 16px;border:1px solid rgba(255,190,120,.35);border-radius:12px;background:rgba(255,170,80,.08);font-size:.92rem;color:#FFD3A8}
 
 /* Result card */
@@ -121,18 +128,24 @@
 @media (min-width:640px){#bs .result{grid-template-columns:1fr 1fr}}
 #bs .big{font-size:clamp(4rem,18vw,5.5rem);font-weight:800;letter-spacing:-.04em;line-height:.95;font-variant-numeric:tabular-nums}
 #bs .big small{font-size:.36em;color:var(--muted);font-weight:700;letter-spacing:0}
+#bs .prevtotal{margin-top:8px;font-size:.95rem;font-weight:700;color:var(--prev)}
 #bs .verdict{display:inline-block;margin-top:12px;padding:6px 12px;border-radius:999px;background:var(--blue);color:#fff;font-size:.85rem;font-weight:700}
 #bs .verdict.no{background:rgba(255,255,255,.1);color:#fff}
 #bs .rows{display:grid;margin-top:16px;font-size:.9rem;font-variant-numeric:tabular-nums}
 #bs .rows div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--line)}
 #bs .rows span:first-child{color:var(--muted)}
 #bs .rows b{font-weight:700}
-#bs .rows i{font-style:normal;color:var(--muted);font-weight:500}
+#bs .rows i{font-style:normal;color:var(--prev);font-weight:600}
 #bs svg.radar{width:100%;max-width:340px;height:auto;margin:0 auto;overflow:visible}
 #bs .legend{display:flex;gap:16px;justify-content:center;margin-top:6px;font-size:.8rem;color:var(--muted)}
-#bs .legend span::before{content:"";display:inline-block;width:14px;height:3px;margin-right:6px;vertical-align:middle;background:var(--blue)}
-#bs .legend span.g::before{background:var(--muted)}
+#bs .legend span::before{content:"";display:inline-block;width:14px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle;background:var(--blue-text)}
+#bs .legend span.g::before{background:var(--prev)}
 #bs .stamp{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+#bs .gap{grid-column:1/-1;padding:16px 18px;border-radius:12px;background:#0F1C3D;border:1px solid rgba(110,168,255,.3)}
+#bs .gap b{display:block;margin-bottom:4px}
+#bs .gap p{font-size:.95rem;color:var(--muted)}
+#bs .next{margin-top:20px}
+#bs .next .btn{width:100%;margin-top:16px}
 
 /* Send */
 #bs .send-steps{display:grid;gap:12px;margin-top:20px}
@@ -175,11 +188,11 @@
   <section class="hero">
     <div class="wrap">
       <span class="label">Upper Body Gymnastics Accelerator</span>
-      <h1 id="bs-title">Your Day 1 <span class="blue">scorecard</span></h1>
-      <p class="sub" id="bs-lede">Test all five, tap the level you hit on each, then send your score to Josh. This is the number you're going to beat in week 6.</p>
+      <h1 id="bs-title">Your scorecard</h1>
+      <p class="sub" id="bs-lede"></p>
       <div class="modes" role="group" aria-label="Which test is this?">
-        <button type="button" id="bs-m-baseline" aria-pressed="true">Day 1 test</button>
-        <button type="button" id="bs-m-retest" aria-pressed="false">Week 6 retest</button>
+        <button type="button" id="bs-m-baseline" aria-pressed="true"></button>
+        <button type="button" id="bs-m-retest" aria-pressed="false"></button>
       </div>
     </div>
   </section>
@@ -190,7 +203,6 @@
       <div class="who">
         <label class="f" for="bs-name">First name<input type="text" id="bs-name" autocomplete="given-name" placeholder="e.g. Sam"></label>
         <label class="f" for="bs-email">Email (the one you bought with)<input type="email" id="bs-email" autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
-        <label class="f" for="bs-baseline" id="bs-baseline-wrap" hidden>Your Day 1 total<input type="number" id="bs-baseline" min="0" max="36" inputmode="numeric" placeholder="0–36"></label>
       </div>
     </div>
   </section>
@@ -205,12 +217,14 @@
     </div>
   </section>
 
-  <!-- ============ 4. THE FIVE TESTS ============ -->
+  <!-- ============ 4. THE TESTS ============ -->
   <section aria-labelledby="bs-tests-h">
     <div class="wrap">
-      <span class="label">The five tests</span>
+      <span class="label" id="bs-tests-label">The tests</span>
       <h2 id="bs-tests-h">Tap the level you hit</h2>
+      <p class="sub" id="bs-prev-help" hidden></p>
       <div id="bs-tests" style="margin-top:24px"></div>
+      <label class="f" for="bs-baseline" id="bs-baseline-wrap" style="margin-top:8px" hidden><span id="bs-baseline-lab"></span><input type="number" id="bs-baseline" min="0" inputmode="numeric"></label>
     </div>
   </section>
 
@@ -219,8 +233,9 @@
     <div class="wrap">
       <div class="card hl result" id="bs-card" aria-live="polite">
         <div>
-          <span class="label" id="bs-card-label">Day 1 score</span>
-          <div class="big"><span id="bs-total">0</span><small> / 36</small></div>
+          <span class="label" id="bs-card-label"></span>
+          <div class="big"><span id="bs-total">0</span><small id="bs-max"></small></div>
+          <div class="prevtotal" id="bs-prevtotal" hidden></div>
           <span class="verdict" id="bs-verdict" hidden></span>
           <div class="rows" id="bs-rows"></div>
         </div>
@@ -228,9 +243,17 @@
           <svg class="radar" id="bs-radar" viewBox="-175 -140 350 285" role="img" aria-label="Radar chart of your levels"></svg>
           <div class="legend" id="bs-legend"></div>
         </div>
+        <div class="gap" id="bs-gap" hidden></div>
         <div class="stamp"><span id="bs-stamp-name">Your name</span><span id="bs-stamp-date"></span></div>
       </div>
-      <p class="note" style="margin-top:12px">Screenshot this card. It's your proof for the retest.</p>
+      <p class="note" style="margin-top:12px" id="bs-shot-note"></p>
+      <!-- Next-step offer: shows once the retest is complete. Set CONFIG.next.url, or leave it empty to hide this. -->
+      <div class="card next" id="bs-next" hidden>
+        <span class="label" id="bs-next-label"></span>
+        <h3 id="bs-next-h"></h3>
+        <p class="note" id="bs-next-p" style="margin-top:6px"></p>
+        <a class="btn" id="bs-next-btn" target="_blank" rel="noopener"></a>
+      </div>
     </div>
   </section>
 
@@ -241,7 +264,7 @@
       <h2 id="bs-send-h">Send it to <span class="blue">Josh</span></h2>
       <ul class="send-steps">
         <li><span><b>Send your results.</b> Tap the button and Josh's form opens below with your scores already filled in.</span></li>
-        <li><span><b>Add your videos if you have them.</b> On the form, tap <i>Upload videos</i> and pick your kipping and strict pull-up clips straight from your camera roll. You can pick more than one. No link needed.</span></li>
+        <li><span><b>Add your videos if you have them.</b> On the form, tap <i>Upload videos</i> and pick your clips straight from your camera roll. You can pick more than one. No link needed.</span></li>
         <li><span><b>No videos? Just press Submit.</b> Your scores still go through.</span></li>
       </ul>
 
@@ -251,25 +274,24 @@
         <a class="btn ghost" id="bs-wa" target="_blank" rel="noopener" aria-disabled="true">Send on WhatsApp instead</a>
       </div>
       <button type="button" class="btn ghost" id="bs-copy" style="width:100%;margin-top:10px">Copy my results</button>
-      <p class="hint" id="bs-hint">Pick a level for all five tests to send your results.</p>
+      <p class="hint" id="bs-hint"></p>
 
       <!-- ============ GHL FORM EMBED ============
            [GHL FORM] The form loads here when someone taps "Send my results".
-           Nothing to paste here: put each form's link in CONFIG.baselineFormUrl / CONFIG.retestFormUrl
+           Nothing to paste here: put the form's link in CONFIG.baselineFormUrl / CONFIG.retestFormUrl
            at the bottom. Until then this shows a placeholder and WhatsApp still works.
-           The form needs: First name, Email, the score fields in CONFIG.keys (each with a matching
-           Query key) and a File Upload field (allow multiple files, video) labelled "Upload videos".
+           Form fields and query keys: see README.md next to this file.
            ========================================= -->
       <div class="card formbox" id="bs-formbox" hidden>
         <div class="ph" id="bs-form-ph">
           [GHL FORM EMBED]
           <p>The form isn't connected yet. Use <b>Send on WhatsApp instead</b> for now.</p>
         </div>
-        <iframe id="bs-iframe" title="Send your results to Josh" hidden></iframe>
+        <iframe title="Send your results to Josh" hidden></iframe>
         <a class="newtab" id="bs-newtab" target="_blank" rel="noopener" hidden>Form not loading? Open it in a new tab</a>
       </div>
 
-      <p class="wa">Videos too big to upload? Send them to Josh on WhatsApp: <b id="bs-wa-num">+44 7793 458864</b>. Keep your pull-up videos, you need them for the guarantee. <!-- [CHECK] guarantee wording --></p>
+      <p class="wa">Videos too big to upload? Send them to Josh on WhatsApp: <b>+44 7793 458864</b>. Keep your pull-up videos, you need them for the guarantee. <!-- [CHECK] guarantee wording --></p>
     </div>
   </section>
   </main>
@@ -287,65 +309,88 @@
 <script>
 (function(){
   /* ============================ CONFIG ============================
-     baselineFormUrl  Public link to the GHL "UBG Day 1" form, e.g.
+     baselineFormUrl  Public link to the GHL form for the Day 1 test, e.g.
                       https://api.leadconnectorhq.com/widget/form/XXXXXXXX
-                      (Sites → Forms → your form → Integrate → copy the link).     [GHL FORM]
-     retestFormUrl    Same, for the "UBG Week 6 retest" form. Can be the same form.  [GHL FORM]
+                      (Sites → Forms → your form → Integrate → copy the link).      [GHL FORM]
+     retestFormUrl    Same, for the week 6 retest. Can be the same form.              [GHL FORM]
      keys             Each value must match the field's Query key in the GHL form builder,
                       so the form opens with the scores already filled in.
      whatsapp         Josh's number for wa.me links: international format, no + or spaces.
      Ad tracking (utm_*, fbclid, gclid) on this page's URL is passed on to the form.
-     Links can pre-fill the page: ?name=Sam&email=sam@x.com&mode=retest&baseline=14
+     Links can pre-fill the page: ?name=Sam&email=sam@x.com&mode=retest&d1=2,1,3,2,1
+     (d1 = Day 1 levels in test order; or &baseline=15 for just the Day 1 total)
      ================================================================ */
   var CONFIG = {
     baselineFormUrl: '',
     retestFormUrl:   '',
     keys: { name:'first_name', email:'email', baseline:'ubg_baseline_score', retest:'ubg_retest_score', beat:'ubg_beat_score', detail:'ubg_scorecard_detail' },
     whatsapp: '447793458864',
+    storageKey: 'ubg',
+    text: {
+      baselineMode:'Day 1 test', retestMode:'Week 6 retest', baselineShort:'Day 1', retestShort:'Week 6',
+      baselineTitle:'Your Day 1 <span class="blue">scorecard</span>', retestTitle:'Your week 6 <span class="blue">retest</span>',
+      baselineLede:"Test all five, tap the level you hit on each, then send your score to Josh. This is the number you're going to beat in week 6.",
+      retestLede:"Same five tests, same order, same rules as Day 1. Tap what you hit today, and see it on the chart against your Day 1.",
+      prevHelp:'Tap your week 6 level in blue. Your Day 1 level is in orange underneath: it fills in by itself if you did Day 1 on this phone.',
+      baselineTotalLabel:"Don't know your Day 1 levels? Type your Day 1 total instead",
+      testsLabel:'The five tests',
+      screenshot:"Screenshot this card and upload it to CoachRx too."
+    },
     protocol: [
       'Do it fresh: before a class or on a rest day, after a short warm-up.',
       'Go in this order: kipping pull-ups, strict pull-ups, dead hang, hollow hold, pike leg lifts. Rest about 3 minutes between tests.',
       'Film your kipping and strict pull-up tests from the side, whole body in shot.',
       "Pick the highest level you completed with good form. Between two levels? Pick the lower one.",
       'Log every result in CoachRx as well.'
-    ]
+    ],
+    gap: null,
+    next: null
   };
   var TESTS = [
     { id:'kip', name:'Kipping pull-ups', short:'Kipping', weight:3, how:'Max unbroken reps, chin over the bar. Use the lightest band you need.',
       levels:['No banded kips','Banded only','1 unbanded','2–3 unbanded','4+ unbanded'] },
     { id:'strict', name:'Strict pull-ups', short:'Strict', weight:3, how:'Max reps, from a dead hang to chin over the bar. No kip.',
-      levels:['No banded pull-up','Banded only','1','3','5–6+'] },
+      levels:['No banded pull-up','Banded only','1','3','5–6+'],
+      warnAt0:"You need to manage a banded pull-up to start this programme. Message Josh on WhatsApp and he'll point you to the right starting point." },
     { id:'hang', name:'Dead hang', short:'Dead hang', weight:1, how:'Hang from the bar, arms straight, for as long as you can.',
       levels:['Under 10 s','10 s','20 s','30 s','40 s+'] },
-    { id:'hollow', name:'Hollow hold (45 s)', short:'Hollow', weight:1, how:'Shoulders off the floor, lower back flat, bum tucked. One-knee version: knee past belly button, heel to bum, other leg straight 3–6 inches off the floor. Break position? Drop a level.',
+    { id:'hollow', name:'Hollow hold (45 s)', row:'Hollow hold', short:'Hollow', weight:1, how:'Shoulders off the floor, lower back flat, bum tucked. One-knee version: knee past belly button, heel to bum, other leg straight 3–6 inches off the floor. Break position? Drop a level.',
       levels:['Fails all levels','Both knees to chest','One knee to chest','Long hollow','Long hollow, arms by ears'] },
-    { id:'pike', name:'Core: pike leg lifts', short:'Pike lifts', weight:1, how:'Hit the hardest level you can finish with good form.',
+    { id:'pike', name:'Core: pike leg lifts', row:'Pike leg lifts', short:'Pike lifts', weight:1, how:'Hit the hardest level you can finish with good form.',
       levels:['Fails all levels','20 alternating V-ups, feet off floor','10/side single-leg, hands on dumbbell heads','10/side single-leg, hands by knees','10 double-leg, feet 6+ in off floor, hands by knees'] }
   ];
   /* ================================================================ */
 
-  var MAX = TESTS.reduce(function(s,t){return s+4*t.weight},0);
+  var T=CONFIG.text, MAX=TESTS.reduce(function(s,t){return s+4*t.weight},0);
   function $(id){return document.getElementById('bs-'+id)}
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-  var store={get:function(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+  function isLvl(v){return typeof v==='number'&&v>=0&&v<=4}
+  var NS=CONFIG.storageKey;
+  var store={get:function(k){try{return JSON.parse(localStorage.getItem(NS+'-'+k))}catch(e){return null}},set:function(k,v){try{localStorage.setItem(NS+'-'+k,JSON.stringify(v))}catch(e){}}};
   var qs=new URLSearchParams(location.search);
 
   var state={
-    mode: qs.get('mode')==='retest' ? 'retest' : (store.get('ubg-mode')||'baseline'),
-    picks:{ baseline:store.get('ubg-baseline')||{}, retest:store.get('ubg-retest')||{} }
+    mode: qs.get('mode')==='retest' ? 'retest' : (store.get('mode')||'baseline'),
+    picks:{ baseline:store.get('baseline')||{}, retest:store.get('retest')||{} }
   };
-  $('name').value = qs.get('name') || store.get('ubg-name') || '';
-  $('email').value = qs.get('email') || store.get('ubg-email') || '';
-  var qsBase = qs.get('baseline');
+  // ?d1=2,1,3,2,1 pre-fills the earlier levels (one per test, in order)
+  if(qs.get('d1')) qs.get('d1').split(',').forEach(function(v,i){var n=parseInt(v,10);if(TESTS[i]&&n>=0&&n<=4) state.picks.baseline[TESTS[i].id]=n;});
+  $('name').value = qs.get('name') || store.get('name') || '';
+  $('email').value = qs.get('email') || store.get('email') || '';
+  if(qs.get('baseline')) $('baseline').value=qs.get('baseline');
   $('year').textContent = new Date().getFullYear();
   $('protocol').innerHTML = CONFIG.protocol.map(function(p){return '<li><span>'+esc(p)+'</span></li>'}).join('');
+  $('m-baseline').textContent=T.baselineMode; $('m-retest').textContent=T.retestMode;
+  $('max').textContent=' / '+MAX; $('baseline').max=MAX; $('baseline').placeholder='0–'+MAX;
+  $('baseline-lab').textContent=T.baselineTotalLabel; $('shot-note').textContent=T.screenshot;
+  $('tests-label').textContent=T.testsLabel;
 
   function score(p){return TESTS.reduce(function(s,t){return s+(p[t.id]||0)*t.weight},0)}
-  function complete(p){return TESTS.every(function(t){return typeof p[t.id]==='number'})}
+  function complete(p){return TESTS.every(function(t){return isLvl(p[t.id])})}
   function baselineTotal(){
+    if(complete(state.picks.baseline)) return score(state.picks.baseline);
     var v=parseInt($('baseline').value,10);
-    if(!isNaN(v)) return v;
-    return complete(state.picks.baseline) ? score(state.picks.baseline) : null;
+    return isNaN(v)?null:v;
   }
   function validEmail(){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('email').value.trim())}
 
@@ -354,18 +399,21 @@
     $('tests').innerHTML = TESTS.map(function(t){
       return '<article class="test"><div class="test-head"><h3>'+esc(t.name)+'</h3><span class="weight">Counts <b>×'+t.weight+'</b></span></div>'+
         '<p class="how">'+esc(t.how)+'</p>'+
+        (retest?'<p class="rowlab">'+esc(T.retestShort)+'</p>':'')+
         '<div class="levels" role="radiogroup" aria-label="'+esc(t.name)+' level">'+
         t.levels.map(function(l,i){
           return '<button type="button" class="lvl" role="radio" data-t="'+t.id+'" data-l="'+i+'" aria-checked="'+(picks[t.id]===i)+'">'+
-            '<span class="n">'+i+'</span><span>'+esc(l)+(retest&&base[t.id]===i?'<span class="was">Day 1</span>':'')+'</span></button>';
+            '<span class="n">'+i+'</span><span>'+esc(l)+'</span></button>';
         }).join('')+'</div>'+
-        (t.id==='strict'&&picks.strict===0?'<p class="warn">You need to manage a banded pull-up to start this programme. Message Josh on WhatsApp and he\'ll point you to the right starting point.</p>':'')+
+        (retest?'<div class="prev" role="radiogroup" aria-label="'+esc(t.name)+': '+esc(T.baselineShort)+' level"><span>'+esc(T.baselineShort)+' level</span>'+
+          [0,1,2,3,4].map(function(i){return '<button type="button" role="radio" data-p="'+t.id+'" data-l="'+i+'" aria-checked="'+(base[t.id]===i)+'">'+i+'</button>'}).join('')+'</div>':'')+
+        (t.warnAt0&&picks[t.id]===0?'<p class="warn">'+esc(t.warnAt0)+'</p>':'')+
         '</article>';
     }).join('');
   }
 
   function radar(p,ghost){
-    var R=100,n=TESTS.length;
+    var R=100,n=TESTS.length,blue='#6EA8FF',prev='#FFB35C';
     function pt(i,v){var a=-Math.PI/2+i*2*Math.PI/n;return [(Math.cos(a)*R*v/4).toFixed(1),(Math.sin(a)*R*v/4).toFixed(1)]}
     function poly(pick){return TESTS.map(function(t,i){return pt(i,pick[t.id]||0).join(',')}).join(' ')}
     var s='';
@@ -373,9 +421,13 @@
     TESTS.forEach(function(t,i){var e=pt(i,4),l=pt(i,5.1),x=+l[0];
       s+='<line x1="0" y1="0" x2="'+e[0]+'" y2="'+e[1]+'" stroke="rgba(160,180,220,.18)"/>';
       s+='<text x="'+l[0]+'" y="'+(+l[1]+4)+'" text-anchor="'+(Math.abs(x)<5?'middle':x>0?'start':'end')+'" font-size="12" font-weight="600" fill="#A3B0C8" font-family="Inter,sans-serif">'+esc(t.short)+'</text>';});
-    if(ghost) s+='<polygon points="'+poly(ghost)+'" fill="none" stroke="#A3B0C8" stroke-width="2" stroke-dasharray="5 4"/>';
-    s+='<polygon points="'+poly(p)+'" fill="#1F5BFF" fill-opacity=".28" stroke="#6EA8FF" stroke-width="2.5" stroke-linejoin="round"/>';
-    TESTS.forEach(function(t,i){if(typeof p[t.id]==='number'){var c=pt(i,p[t.id]);s+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="4" fill="#6EA8FF"/>';}});
+    // Earlier test first (underneath), in its own colour
+    if(ghost){
+      s+='<polygon points="'+poly(ghost)+'" fill="'+prev+'" fill-opacity=".16" stroke="'+prev+'" stroke-width="2.5" stroke-dasharray="6 4" stroke-linejoin="round"/>';
+      TESTS.forEach(function(t,i){if(isLvl(ghost[t.id])){var c=pt(i,ghost[t.id]);s+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="3.5" fill="'+prev+'"/>';}});
+    }
+    s+='<polygon points="'+poly(p)+'" fill="#1F5BFF" fill-opacity=".3" stroke="'+blue+'" stroke-width="2.5" stroke-linejoin="round"/>';
+    TESTS.forEach(function(t,i){if(isLvl(p[t.id])){var c=pt(i,p[t.id]);s+='<circle cx="'+c[0]+'" cy="'+c[1]+'" r="4" fill="'+blue+'"/>';}});
     return s;
   }
 
@@ -384,43 +436,52 @@
     if(!url) return '';
     var p=state.picks[state.mode], total=score(p), base=baselineTotal(), k=CONFIG.keys, q=new URLSearchParams();
     q.set(k.name,$('name').value.trim()); q.set(k.email,$('email').value.trim());
-    q.set(k.detail,TESTS.map(function(t){return t.name+': L'+p[t.id]}).join('; '));
+    q.set(k.detail,resultsText());
     if(retest){q.set(k.baseline,base);q.set(k.retest,total);q.set(k.beat,total>base?'Yes':'No');} else q.set(k.baseline,total);
     qs.forEach(function(v,key){if(/^utm_|^fbclid$|^gclid$/.test(key)) q.set(key,v)});
     return url+(url.indexOf('?')>-1?'&':'?')+q.toString();
   }
 
   function resultsText(){
-    var p=state.picks[state.mode], retest=state.mode==='retest', base=baselineTotal();
-    return (retest?'Week 6 retest':'Day 1 test')+': '+score(p)+'/'+MAX+(retest&&base!==null?' (Day 1: '+base+')':'')+'\n'+
-      TESTS.map(function(t){var l=p[t.id];return t.name+': level '+(typeof l==='number'?l+' ('+t.levels[l]+')':'not done')}).join('\n');
+    var p=state.picks[state.mode], b=state.picks.baseline, retest=state.mode==='retest', base=baselineTotal();
+    return (retest?T.retestMode:T.baselineMode)+': '+score(p)+'/'+MAX+(retest&&base!==null?' ('+T.baselineShort+': '+base+')':'')+'\n'+
+      TESTS.map(function(t){var l=p[t.id];return t.name+': level '+(isLvl(l)?l+' ('+t.levels[l]+')':'not done')+(retest&&isLvl(b[t.id])?', was '+b[t.id]:'')}).join('\n');
   }
 
   function render(){
-    var retest=state.mode==='retest', p=state.picks[state.mode], total=score(p), done=complete(p);
+    var retest=state.mode==='retest', p=state.picks[state.mode], total=score(p), done=complete(p), bp=state.picks.baseline, bDone=complete(bp);
     $('m-baseline').setAttribute('aria-pressed',!retest); $('m-retest').setAttribute('aria-pressed',retest);
-    $('title').innerHTML = retest ? 'Your week 6 <span class="blue">retest</span>' : 'Your Day 1 <span class="blue">scorecard</span>';
-    $('lede').textContent = retest ? "Same five tests, same order, same rules as Day 1. Tap the level you hit on each and see if you've beaten your Day 1 score."
-                                   : "Test all five, tap the level you hit on each, then send your score to Josh. This is the number you're going to beat in week 6.";
-    $('baseline-wrap').hidden=!retest;
-    if(retest && !$('baseline').value){var b=qsBase!==null?qsBase:(complete(state.picks.baseline)?score(state.picks.baseline):'');$('baseline').value=b;}
-    $('card-label').textContent = retest ? 'Week 6 score' : 'Day 1 score';
+    $('title').innerHTML = retest ? T.retestTitle : T.baselineTitle;
+    $('lede').textContent = retest ? T.retestLede : T.baselineLede;
+    $('prev-help').hidden=!retest; $('prev-help').textContent=T.prevHelp;
+    $('baseline-wrap').hidden=!retest||bDone;
+    $('card-label').textContent = (retest?T.retestShort:T.baselineShort)+' score';
     $('total').textContent = total;
 
-    var base=baselineTotal(), v=$('verdict');
+    var base=baselineTotal(), v=$('verdict'), pt=$('prevtotal');
+    pt.hidden=!(retest&&base!==null); pt.textContent=T.baselineShort+': '+base+' / '+MAX;
     if(retest&&done&&base!==null){var d=total-base;v.hidden=false;v.className='verdict'+(d>0?'':' no');
-      v.textContent = d>0?'Beat Day 1 by '+d+' point'+(d===1?'':'s'):d===0?'Level with Day 1':(-d)+' below Day 1';}
+      v.textContent = d>0?'Beat '+T.baselineShort+' by '+d+' point'+(d===1?'':'s'):d===0?'Level with '+T.baselineShort:(-d)+' below '+T.baselineShort;}
     else v.hidden=true;
 
-    var bp=state.picks.baseline;
     $('rows').innerHTML = TESTS.map(function(t){var l=p[t.id];
-      var prev=retest&&typeof bp[t.id]==='number'?' <i>(was '+bp[t.id]*t.weight+')</i>':'';
-      return '<div><span>'+esc(t.name.replace(/ \(.*\)/,'').replace(/^Core: p/,'P'))+'</span><span><b>'+(typeof l==='number'?l*t.weight:'–')+'</b> / '+4*t.weight+prev+'</span></div>';}).join('');
-    var ghost=retest&&complete(bp)?bp:null;
+      var prev=retest&&isLvl(bp[t.id])?' <i>(was '+bp[t.id]*t.weight+')</i>':'';
+      return '<div><span>'+esc(t.row||t.name)+'</span><span><b>'+(isLvl(l)?l*t.weight:'–')+'</b> / '+4*t.weight+prev+'</span></div>';}).join('');
+    var ghost=retest&&bDone?bp:null;
     $('radar').innerHTML=radar(p,ghost);
-    $('legend').innerHTML = ghost?'<span>Week 6</span><span class="g">Day 1</span>':'';
+    $('legend').innerHTML = ghost?'<span>'+esc(T.retestShort)+'</span><span class="g">'+esc(T.baselineShort)+'</span>':'';
     $('stamp-name').textContent = $('name').value.trim()||'Your name';
     $('stamp-date').textContent = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+
+    // Where's the gap? (optional, per page)
+    var g=$('gap'), gap=done&&CONFIG.gap?CONFIG.gap(p):null;
+    g.hidden=!gap; if(gap) g.innerHTML='<b>'+esc(gap.title)+'</b><p>'+esc(gap.text)+'</p>';
+    // Next-step offer after the retest (optional, per page)
+    var nx=$('next'), showNext=!!(CONFIG.next&&CONFIG.next.url&&retest&&done);
+    nx.hidden=!showNext;
+    if(showNext){$('next-label').textContent=CONFIG.next.label;$('next-h').textContent=CONFIG.next.title;$('next-p').textContent=CONFIG.next.text;
+      var nb=$('next-btn'), nq=new URLSearchParams(); qs.forEach(function(val,key){if(/^utm_|^fbclid$|^gclid$/.test(key)) nq.set(key,val)});
+      nb.textContent=CONFIG.next.button; nb.href=CONFIG.next.url+(nq.toString()?(CONFIG.next.url.indexOf('?')>-1?'&':'?')+nq.toString():'');}
 
     var ready=done&&validEmail()&&(!retest||base!==null);
     $('open').setAttribute('aria-disabled',String(!ready));
@@ -432,9 +493,9 @@
     } else { wa.removeAttribute('href'); wa.setAttribute('aria-disabled','true'); }
     var h=$('hint'), url=(retest?CONFIG.retestFormUrl:CONFIG.baselineFormUrl);
     h.className='hint'+(ready?' ok':'');
-    h.textContent = !done ? 'Pick a level for all five tests to send your results.'
+    h.textContent = !done ? 'Pick a level for every test to send your results.'
       : !validEmail() ? 'Add your email so Josh can match your results to you.'
-      : retest&&base===null ? 'Add your Day 1 total so we can compare.'
+      : retest&&base===null ? 'Add your '+T.baselineShort+' levels (or total) so we can compare.'
       : !url ? "The form isn't live yet. Use Send on WhatsApp instead."
       : 'Ready. Tap Send my results, add videos if you have them, then press Submit.';
     if(!$('formbox').hidden) $('open').firstChild.nodeValue='Update the form with my scores ';
@@ -442,7 +503,7 @@
 
   var embedLoaded=false;
   function openForm(){
-    var box=$('formbox'), url=formUrl(), fr=document.querySelector('#bs-formbox iframe'), nt=$('newtab');
+    var box=$('formbox'), url=formUrl(), fr=box.querySelector('iframe'), nt=$('newtab');
     box.hidden=false;
     if(url){
       $('form-ph').hidden=true; fr.hidden=false; nt.hidden=false;
@@ -455,18 +516,25 @@
     box.scrollIntoView({behavior:'smooth',block:'start'});
   }
 
-  $('tests').addEventListener('click',function(e){var b=e.target.closest('.lvl');if(!b)return;
-    state.picks[state.mode][b.dataset.t]=+b.dataset.l; store.set('ubg-'+state.mode,state.picks[state.mode]);
-    var y=b.getBoundingClientRect().top; renderTests(); render();
-    var nb=document.querySelector('#bs .lvl[data-t="'+b.dataset.t+'"][data-l="'+b.dataset.l+'"]');
+  function keepPlace(btn,sel){
+    var y=btn.getBoundingClientRect().top; renderTests(); render();
+    var nb=document.querySelector(sel);
     if(nb){window.scrollBy(0,nb.getBoundingClientRect().top-y);nb.focus({preventScroll:true});}
+  }
+  $('tests').addEventListener('click',function(e){
+    var b=e.target.closest('.lvl');
+    if(b){state.picks[state.mode][b.dataset.t]=+b.dataset.l; store.set(state.mode,state.picks[state.mode]);
+      return keepPlace(b,'#bs .lvl[data-t="'+b.dataset.t+'"][data-l="'+b.dataset.l+'"]');}
+    var c=e.target.closest('[data-p]');
+    if(c){state.picks.baseline[c.dataset.p]=+c.dataset.l; store.set('baseline',state.picks.baseline);
+      keepPlace(c,'#bs [data-p="'+c.dataset.p+'"][data-l="'+c.dataset.l+'"]');}
   });
   ['m-baseline','m-retest'].forEach(function(id){$(id).addEventListener('click',function(){
-    state.mode=id==='m-retest'?'retest':'baseline'; store.set('ubg-mode',state.mode);
+    state.mode=id==='m-retest'?'retest':'baseline'; store.set('mode',state.mode);
     $('formbox').hidden=true; $('open').firstChild.nodeValue='Send my results ';
     renderTests(); render();});});
   ['name','email','baseline'].forEach(function(id){$(id).addEventListener('input',function(){
-    store.set('ubg-name',$('name').value); store.set('ubg-email',$('email').value); render();});});
+    store.set('name',$('name').value); store.set('email',$('email').value); render();});});
   $('open').addEventListener('click',function(){if(this.getAttribute('aria-disabled')!=='true') openForm();});
   $('copy').addEventListener('click',function(){
     var txt=resultsText(), b=this;
