@@ -4,7 +4,7 @@
      (Full-width section, no padding, page background #05070D.)
 
      HOW TO EDIT
-       • CoachRx link, CoachRx code, "I'm in" trigger link, pixel: the CONFIG block in the <script> at the bottom
+       • "I'm in" trigger link, pixel: the CONFIG block in the <script> at the bottom
        • Copy to confirm: search  [CHECK]
      ===================================================================== -->
 
@@ -73,7 +73,7 @@
 @media (min-width:900px){ #bs{font-size:18px} #bs main{padding:56px 0 104px} #bs .wrap{padding:0 40px} }
 @media (prefers-reduced-motion:reduce){ #bs *{transition:none!important} }
 #bs .code{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0 14px}
-#bs .code #bs-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.25rem;font-weight:700;letter-spacing:.06em;padding:8px 14px;border:1px dashed var(--blue-text);border-radius:10px}
+#bs .code-unused{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.25rem;font-weight:700;letter-spacing:.06em;padding:8px 14px;border:1px dashed var(--blue-text);border-radius:10px}
 #bs .next{margin-top:18px}
 #bs .next ul{margin:10px 0 12px;padding-left:1.2em;color:var(--muted)}
 #bs .next li{margin:6px 0}
@@ -92,27 +92,23 @@
     <div class="wrap">
       <span class="label">Upper Body Gymnastics Programme</span>
       <h1 id="bs-hi">You're in. <span aria-hidden="true">🤙</span></h1>
-      <p class="sub">Here's what to do now. It takes 2 minutes.</p>
-
+      <p class="sub">One thing to do before your programme opens: your Day 1 test. It takes about 30 minutes at the gym.</p>
       <ol class="steps">
         <li class="card hl step">
           <span class="num" aria-hidden="true">1</span>
           <div>
-            <h3>Get your programme on CoachRx</h3>
-            <p id="bs-code-note">Use this code at checkout. It'll show £0. Then create your account.</p>
-            <p class="code" id="bs-code-wrap"><span id="bs-code">[CODE]</span> <button type="button" class="btn btn-ghost" id="bs-copy">Copy code</button></p>
-            <a class="btn btn-full" id="bs-coachrx" href="#">Go to CoachRx
+            <h3>Do your Day 1 test</h3>
+            <p>Five tests: kipping pull-ups, strict pull-ups, dead hang, hollow hold and pike leg lifts. Score yourself on the scorecard and send it to me. That's what unlocks your programme in CoachRx, and it's the score you're going to beat in week 6.</p>
+            <a class="btn btn-full" id="bs-score" href="https://joshreilly.co.uk/upper-body-welcome?scorecard=1">Open my Day 1 scorecard
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="fallback">Not at the gym today? Bookmark this page and do it at your next session. Film your pull-up tests from the side: you'll need them for the guarantee.</p>
           </div>
         </li>
         <li class="card step">
           <span class="num" aria-hidden="true">2</span>
           <div>
-            <h3>Tell me you're in</h3>
-            <p>Once your CoachRx account is set up, tap this so I know you're ready.</p>
-            <a class="btn btn-full" id="bs-imin" href="#">I'm in
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <p class="fallback" id="bs-imin-alt" hidden>Reply to your confirmation email once you're in.</p>
+            <h3>Get your CoachRx invite</h3>
+            <p>Once your scorecard's in, I'll check it and send your CoachRx invite within 24 hours. Open the email from CoachRx, set your password and download the app. If you can't see it, check your spam folder.</p>
           </div>
         </li>
         <li class="card step">
@@ -128,11 +124,10 @@
       <div class="card next">
         <h3>What happens next</h3>
         <ul>
-          <li>In the next day or so, you'll get your Day 1 scorecard. That's the score you're going to beat, so do it properly and film it.</li>
-          <li>Week 1 starts on the Monday after you've done your scorecard.</li>
+          <li>The programme opens in CoachRx on Monday 30 November. Week 1 starts on the Monday after your Day 1 test.</li>
           <li>You've got 8 weeks' access for 6 weeks of training, so Christmas is covered.</li>
         </ul>
-        <p>Any problems getting in, just reply to your confirmation email.</p>
+        <p>Any problems, message me on WhatsApp.</p>
       </div>
 
       <p class="signoff">Slow is smooth, smooth is fast.<br>Josh</p>
@@ -143,7 +138,7 @@
     <div class="wrap">
       <span>© <span id="bs-year">2026</span> Beyond Scaled</span>
       <!-- [CHECK] Link your privacy policy and terms. -->
-      <nav aria-label="Legal"><a href="https://YOUR-PRIVACY-URL">Privacy policy</a><a href="https://YOUR-TERMS-URL">Terms</a></nav>
+      <nav aria-label="Legal"><a href="https://joshreilly.co.uk/privacy-policy">Privacy policy</a><a href="https://joshreilly.co.uk/terms">Terms</a></nav>
     </div>
   </footer>
 </div>
@@ -151,10 +146,8 @@
 <script>
 (function(){
   /* ============================ CONFIG ============================
-     coachrxUrl   Your CoachRx storefront link for the programme.
-     coachrxCode  The 100% discount code. CoachRx can't limit or expire a code, so change it after
-                  6 Dec and check redemptions against GHL buyers. Using a free programme link instead?
-                  Leave this as '[CODE]' and the code box hides itself.
+     Buyers don't get a CoachRx link: Josh adds each buyer in CoachRx (Add client, then
+     Assign program) from the GHL purchase notification.
      imInUrl      The GHL trigger link "I'm in" (adds ubg-coachrx-joined).
                   Leave as-is and step 2 says "reply to your confirmation email" instead.
      whatsapp     Your WhatsApp number, digits only with country code.
@@ -163,11 +156,9 @@
                   leave this as-is so it isn't counted twice.
      ================================================================ */
   var CONFIG = {
-    coachrxUrl:  '[COACHRX LINK]',
-    coachrxCode: '[CODE]',
     imInUrl:     '[I\'M IN TRIGGER LINK]',
     whatsapp:    '447793458864',
-    pixelId:     '[PIXEL ID]',
+    pixelId:     '2013906709201772',
     price:       97
   };
 
@@ -178,15 +169,10 @@
   var q=new URLSearchParams(location.search), name=(q.get('first_name')||q.get('name')||'').trim().split(' ')[0];
   if(name && name.length<30){ var h=$('bs-hi'); h.firstChild.textContent="You're in, "+name+". "; }
 
-  $('bs-coachrx').href=isSet(CONFIG.coachrxUrl)?CONFIG.coachrxUrl:'#';
-  if(isSet(CONFIG.coachrxCode)) $('bs-code').textContent=CONFIG.coachrxCode;
-  else { $('bs-code-wrap').hidden=true; $('bs-code-note').textContent='Tap below to open your programme, then create your account.'; }
-  $('bs-copy').addEventListener('click',function(){
-    var b=this;
-    try{ navigator.clipboard.writeText(CONFIG.coachrxCode).then(function(){ b.textContent='Copied'; }); }catch(e){}
-  });
-  if(!isSet(CONFIG.imInUrl)){ $('bs-imin').hidden=true; $('bs-imin-alt').hidden=false; }
-  else $('bs-imin').href=CONFIG.imInUrl;
+  // Pass name/email on so the scorecard is pre-filled
+  var em=(q.get('email')||'').trim(), sp=new URLSearchParams();
+  if(name) sp.set('name',name); if(em && em.length<120) sp.set('email',em);
+  if(sp.toString()) $('bs-score').href+= '&'+sp.toString();
   $('bs-wa').href='https://wa.me/'+CONFIG.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent("Hi Josh, I've just joined the Upper Body Gymnastics Programme.");
 
   // Meta Pixel — Purchase once per browser session (refreshes don't double count)
