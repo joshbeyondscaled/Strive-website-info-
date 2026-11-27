@@ -109,7 +109,7 @@
           <div>
             <h3>Do your Day 1 test</h3>
             <p>Five tests: kipping pull-ups, strict pull-ups, dead hang, hollow hold and pike leg lifts. Score yourself on the scorecard and send it to me. That's what unlocks your programme in CoachRx, and it's the score you're going to beat in week 6.</p>
-            <a class="btn btn-full" id="bs-score" href="https://joshreilly.co.uk/upper-body-scorecard">Open my Day 1 scorecard
+            <a class="btn btn-full" id="bs-score" href="https://joshreilly.co.uk/upper-body-welcome?scorecard=1">Open my Day 1 scorecard
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <p class="fallback">Not at the gym today? Bookmark this page and do it at your next session. Film your pull-up tests from the side: you'll need them for the guarantee.</p>
           </div>
@@ -182,7 +182,7 @@
   // Pass name/email on so the scorecard is pre-filled
   var em=(q.get('email')||'').trim(), sp=new URLSearchParams();
   if(name) sp.set('name',name); if(em && em.length<120) sp.set('email',em);
-  if(sp.toString()) $('bs-score').href+= '?'+sp.toString();
+  if(sp.toString()) $('bs-score').href+= '&'+sp.toString();
   $('bs-wa').href='https://wa.me/'+CONFIG.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent("Hi Josh, I've just joined the Upper Body Gymnastics Programme.");
 
   // Meta Pixel — Purchase once per browser session (refreshes don't double count)
