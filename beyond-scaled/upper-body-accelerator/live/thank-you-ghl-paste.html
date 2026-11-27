@@ -14,23 +14,23 @@
 <div class="wrap">
 <span class="label">Upper Body Gymnastics Programme</span>
 <h1 id="bs-hi">You're in. <span aria-hidden="true">🤙</span></h1>
-<p class="sub">Here's what to do now. It takes 2 minutes.</p>
+<p class="sub">One thing to do before your programme opens: your Day 1 test. It takes about 30 minutes at the gym.</p>
 <ol class="steps">
 <li class="card hl step">
 <span class="num" aria-hidden="true">1</span>
 <div>
-<h3>Watch for your CoachRx invite</h3>
-<p>I'll add you to CoachRx myself within 24 hours. You'll get an email from CoachRx: open it, set your password and download the app. If you can't see it, check your spam folder.</p>
+<h3>Do your Day 1 test</h3>
+<p>Five tests: kipping pull-ups, strict pull-ups, dead hang, hollow hold and pike leg lifts. Score yourself on the scorecard and send it to me. That's what unlocks your programme in CoachRx, and it's the score you're going to beat in week 6.</p>
+<a class="btn btn-full" id="bs-score" href="https://joshreilly.co.uk/upper-body-scorecard">Open my Day 1 scorecard
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<p class="fallback">Not at the gym today? Bookmark this page and do it at your next session. Film your pull-up tests from the side: you'll need them for the guarantee.</p>
 </div>
 </li>
 <li class="card step">
 <span class="num" aria-hidden="true">2</span>
 <div>
-<h3>Tell me you're in</h3>
-<p>Once you've accepted the invite and can see your programme, tap this so I know you're ready.</p>
-<a class="btn btn-full" id="bs-imin" href="#">I'm in
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-<p class="fallback" id="bs-imin-alt" hidden>Reply to your confirmation email once you're in.</p>
+<h3>Get your CoachRx invite</h3>
+<p>Once your scorecard's in, I'll check it and send your CoachRx invite within 24 hours. Open the email from CoachRx, set your password and download the app. If you can't see it, check your spam folder.</p>
 </div>
 </li>
 <li class="card step">
@@ -45,11 +45,10 @@
 <div class="card next">
 <h3>What happens next</h3>
 <ul>
-<li>In the next day or so, you'll get your Day 1 scorecard. That's the score you're going to beat, so do it properly and film it.</li>
-<li>The programme opens in CoachRx on Monday 30 November. Week 1 starts on the Monday after you've done your scorecard.</li>
+<li>The programme opens in CoachRx on Monday 30 November. Week 1 starts on the Monday after your Day 1 test.</li>
 <li>You've got 8 weeks' access for 6 weeks of training, so Christmas is covered.</li>
 </ul>
-<p>Any problems getting in, just reply to your confirmation email.</p>
+<p>Any problems, message me on WhatsApp.</p>
 </div>
 <p class="signoff">Slow is smooth, smooth is fast.<br>Josh</p>
 </div>
@@ -72,8 +71,9 @@ var isSet=function(v){ return v && v.indexOf('YOUR-')<0 && v.indexOf('[')<0; };
 var $=function(id){ return document.getElementById(id); };
 var q=new URLSearchParams(location.search), name=(q.get('first_name')||q.get('name')||'').trim().split(' ')[0];
 if(name && name.length<30){ var h=$('bs-hi'); h.firstChild.textContent="You're in, "+name+". "; }
-if(!isSet(CONFIG.imInUrl)){ $('bs-imin').hidden=true; $('bs-imin-alt').hidden=false; }
-else $('bs-imin').href=CONFIG.imInUrl;
+var em=(q.get('email')||'').trim(), sp=new URLSearchParams();
+if(name) sp.set('name',name); if(em && em.length<120) sp.set('email',em);
+if(sp.toString()) $('bs-score').href+= '?'+sp.toString();
 $('bs-wa').href='https://wa.me/'+CONFIG.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent("Hi Josh, I've just joined the Upper Body Gymnastics Programme.");
 if(/^\d+$/.test(CONFIG.pixelId)){
 if(!window.fbq){
