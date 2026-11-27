@@ -324,13 +324,29 @@
 #bs .photo:has(> .ph){display:none}
 #bs .about:has(> .photo > .ph){grid-template-columns:1fr!important;max-width:760px}
 #bs .case:has(> .photo > .ph){grid-template-columns:1fr!important}
+
+/* Guarantee right under the buy buttons */
+#bs .promise{display:flex;gap:12px;align-items:flex-start;text-align:left;max-width:560px;padding:14px 16px;border:1px solid rgba(110,168,255,.35);border-radius:12px;background:rgba(31,91,255,.10);font-size:.9rem;line-height:1.45}
+#bs .promise svg{flex:none;width:26px;height:26px;color:var(--blue-text);margin-top:1px}
+#bs .promise b{display:block;color:#fff;font-weight:700}
+#bs .promise span{display:block;color:var(--muted);margin-top:4px}
+#bs .promise a{color:var(--blue-text);text-decoration:underline;text-underline-offset:2px}
+#bs .center .promise{margin-left:auto;margin-right:auto}
+#bs .center .cta{align-items:center}
+/* Live countdown */
+#bs .count{font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+#bs .count b{color:#fff;font-weight:800}
+#bs .doors .clock b{color:#fff}
+#bs .value{font-size:.95rem;color:var(--muted);max-width:560px}
+#bs .value s{opacity:.8}
+#bs .value b{color:#fff}
 </style>
 
 <div id="bs">
 
   <!-- ===== DOORS BAR — the deadline is real: Black Friday closes Sun 6 Dec 23:59 UK time. No countdown on purpose. ===== -->
   <p class="doors">
-    <span class="if-open">Black Friday: £97 · Closes Sunday 6 December, 11:59pm</span>
+    <span class="if-open">Black Friday: £97 · Ends in <span class="clock" data-clock><b data-d>-</b>d <b data-h>--</b>h <b data-m>--</b>m <b data-s>--</b>s</span></span>
     <span class="if-closed">Black Friday has closed. The Kipping Pull-Up Masterclass opens in January.</span>
   </p>
 
@@ -367,7 +383,9 @@
       <div class="cta">
         <a class="btn" href="#" data-buy data-watch><span data-lab>Get the programme — £97</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <p class="note if-open">One payment. Black Friday closes Sunday 6 December, 11:59pm.</p>
+        <div class="promise if-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><div><b>Zero risk: beat your Day 1 score in 6 weeks, or I coach you 1-2-1 for free until you do.</b><span>That's up to 6 weeks of 1-2-1 (normally £199 a month) on me. <a href="#guarantee">How the guarantee works</a></span></div></div>
+        <p class="count if-open" aria-live="off"><span class="count-lab">Black Friday price ends in</span> <span class="clock" data-clock><b data-d>-</b>d <b data-h>--</b>h <b data-m>--</b>m <b data-s>--</b>s</span></p>
+        <p class="note if-open">One payment, Apple Pay or card. Closes Sunday 6 December, 11:59pm. Then the offer comes down.</p>
         <p class="note if-closed">Black Friday has closed. Join the waitlist and you'll hear first when the January masterclass opens.</p>
       </div>
 
@@ -549,12 +567,13 @@
         <div class="price">
           <div>
             <p class="now">£97<small> one payment</small></p>
-            <p class="per">Black Friday price, until Sunday 6 December. 1-2-1 coaching with me is £199 a month.</p>
+            <p class="per">Black Friday price, until Sunday 6 December. 1-2-1 coaching with me is £199 a month. This gets you my programming, weekly video feedback and the guarantee for less than half of one month.</p>
           </div>
           <div class="cta">
             <a class="btn" href="#" data-buy><span data-lab>Get the programme — £97</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <p class="note if-open">The programme opens on Monday 30 November. Week 1 starts the Monday after your Day 1 scorecard.</p>
+            <div class="promise if-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><div><b>Zero risk: beat your Day 1 score in 6 weeks, or I coach you 1-2-1 for free until you do.</b><span>That's up to 6 weeks of 1-2-1 (normally £199 a month) on me. <a href="#guarantee">How the guarantee works</a></span></div></div>
           </div>
         </div>
       </div>
@@ -563,7 +582,7 @@
 
   <!-- ============ 8b. GUARANTEE ============ -->
   <!-- [CHECK] Retest window: any time up to the end of week 8 (the launch pack proposal). -->
-  <section aria-labelledby="guar-title">
+  <section id="guarantee" aria-labelledby="guar-title">
     <div class="wrap narrow">
       <span class="label">The guarantee</span>
       <h2 id="guar-title">Beat your Day 1 score in 6 weeks, <span class="blue">or I'll coach you 1-2-1 for free until you do.</span></h2>
@@ -672,7 +691,7 @@
         <div><button type="button" aria-expanded="false" aria-controls="f3" id="f3q">What kit do I need?</button><div class="a" id="f3" role="region" aria-labelledby="f3q"><div><p>Ideally a full gym. It works best if you train at a CrossFit box and do it before your classes.</p></div></div></div>
         <div><button type="button" aria-expanded="false" aria-controls="f4" id="f4q">When does it start?</button><div class="a" id="f4" role="region" aria-labelledby="f4q"><div><p>The programme opens in CoachRx on Monday 30 November. Do your Day 1 scorecard first, and Week 1 starts the Monday after.</p></div></div></div>
         <div><button type="button" aria-expanded="false" aria-controls="f5" id="f5q">What about Christmas?</button><div class="a" id="f5" role="region" aria-labelledby="f5q"><div><p>You have 8 weeks' access to complete 6 weeks of training. Miss a week and you carry on where you left off.</p></div></div></div>
-        <div><button type="button" aria-expanded="false" aria-controls="f6" id="f6q">How do I get access?</button><div class="a" id="f6" role="region" aria-labelledby="f6q"><div><p>After you pay, you'll get an email with your CoachRx link and code. It takes 2 minutes.</p></div></div></div>
+        <div><button type="button" aria-expanded="false" aria-controls="f6" id="f6q">How do I get access?</button><div class="a" id="f6" role="region" aria-labelledby="f6q"><div><p>After you pay, I'll add you to CoachRx myself within 24 hours. You'll get an email invite: set your password, download the app and you're in.</p></div></div></div>
         <div><button type="button" aria-expanded="false" aria-controls="f7" id="f7q">What if it doesn't work for me?</button><div class="a" id="f7" role="region" aria-labelledby="f7q"><div><p>Beat your Day 1 score in 6 weeks, or I'll coach you 1-2-1 for free until you do, for up to 6 more weeks. Do all 18 sessions, log them in CoachRx, and film your baseline and your retest. If you do your part, I'll do mine.</p></div></div></div>
         <div><button type="button" aria-expanded="false" aria-controls="f8" id="f8q">My shoulders niggle.</button><div class="a" id="f8" role="region" aria-labelledby="f8q"><div><p>Good positions take stress off the shoulders. Real pain is different: get it checked, don't push through.</p></div></div></div>
         <div><button type="button" aria-expanded="false" aria-controls="f9" id="f9q">What happens after the 6 weeks?</button><div class="a" id="f9" role="region" aria-labelledby="f9q"><div><p>You keep your scorecard and your progress. If you want me coaching you directly, I take on a small number of online 1-2-1 clients. Completely optional.</p></div></div></div>
@@ -692,6 +711,8 @@
       <div class="cta">
         <a class="btn" href="#" data-buy data-watch><span data-lab>Get the programme — £97</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="promise if-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><div><b>Zero risk: beat your Day 1 score in 6 weeks, or I coach you 1-2-1 for free until you do.</b><span>That's up to 6 weeks of 1-2-1 (normally £199 a month) on me. <a href="#guarantee">How the guarantee works</a></span></div></div>
+        <p class="count if-open" aria-live="off"><span class="count-lab">Black Friday price ends in</span> <span class="clock" data-clock><b data-d>-</b>d <b data-h>--</b>h <b data-m>--</b>m <b data-s>--</b>s</span></p>
         <p class="note if-open">Black Friday closes Sunday 6 December at 11:59pm. Then the checkout comes down.</p>
         <p class="note if-closed">Black Friday has closed. Join the waitlist and you'll hear first when the January masterclass opens.</p>
       </div>
@@ -710,7 +731,7 @@
 
   <!-- Sticky mobile buy bar — shows once you scroll past the hero, hides near the final button -->
   <div class="sticky hide" id="bs-sticky" aria-hidden="true">
-    <p class="if-open"><b>£97</b>Until Sun 6 Dec</p>
+    <p class="if-open"><b>£97</b><span data-short>Until Sun 6 Dec</span></p>
     <a class="btn" href="#" data-buy tabindex="-1"><span data-lab>Get the programme</span></a>
   </div>
 </div>
@@ -749,6 +770,21 @@
   var closeUTC=londonToUTC(CONFIG.closeAt);
   var closed=(closeUTC!==null && Date.now()>closeUTC) || /[?&]preview=closed\b/.test(location.search);
   if(closed) root.classList.add('is-closed');
+
+  // ---- Live countdown to closeAt (UK time). Hides itself once closed. ----
+  (function(){
+    var clocks=root.querySelectorAll('[data-clock]'), shorts=root.querySelectorAll('[data-short]');
+    if(closeUTC===null || closed) return;
+    var pad=function(n){ return (n<10?'0':'')+n; };
+    function tick(){
+      var ms=closeUTC-Date.now();
+      if(ms<=0){ root.classList.add('is-closed'); clearInterval(t); return; }
+      var s=Math.floor(ms/1000), d=Math.floor(s/86400), h=Math.floor(s%86400/3600), m=Math.floor(s%3600/60), sec=s%60;
+      clocks.forEach(function(c){ c.querySelector('[data-d]').textContent=d; c.querySelector('[data-h]').textContent=pad(h); c.querySelector('[data-m]').textContent=pad(m); c.querySelector('[data-s]').textContent=pad(sec); });
+      shorts.forEach(function(x){ x.textContent='Ends in '+(d>0?d+'d ':'')+pad(h)+'h '+pad(m)+'m'; });
+    }
+    tick(); var t=setInterval(tick,1000);
+  })();
 
   // ---- Buy buttons: checkout (open) or waitlist (closed), with ad tracking passed on ----
   var tracking=new URLSearchParams(location.search);
